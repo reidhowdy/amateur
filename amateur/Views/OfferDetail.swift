@@ -1,44 +1,44 @@
-//
-//  OfferDetailView.swift
-//  amateur
-//
-//  Created by Grace on 1/27/22.
-//
-
 import SwiftUI
 
-struct OfferDetailView: View {
+
+//a view in Swift UI is a struct that conforms to the view protocol
+//collectively, my state variables and my models constitute my app's source of truth
+struct OfferDetail: View {
+    var offer: Offer
+    
     var body: some View {
         VStack {
             Spacer()
-            Text("Offer Details")
-                .font(.largeTitle)
             HStack {
                 
-                Text("Title: Here Is The Title Of My Thing")
+                Text(offer.title)
                     .font(.title)
                     .multilineTextAlignment(.leading)
                     .padding([.top, .leading, .bottom])
                 Spacer()
-                Text("Description: Here is the description of my thing")
+                Text(offer.description)
                     .font(.body)
                     .multilineTextAlignment(.trailing)
                     .padding(.all)
                 
             }
             Spacer()
-            Text("Date Posted: Jan 27 2022")
-            Text("Est time to complete: 2.5 hours")
+            Text("figure out how to format the date here")
+            Text("Est time to complete: \(offer.estimatedTime) hours")
                 .multilineTextAlignment(.leading)
-            Text("Number of Est. Sessions: 3")
+            Text("Number of Est. Sessions: \(offer.numSessions)")
                 .multilineTextAlignment(.leading)
             Spacer()
         }
+        .navigationTitle("Offer Details")
+        .edgesIgnoringSafeArea(.all) //can change .all to things like .bottom, etc.
     }
 }
 
 struct OfferDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        OfferDetailView()
+        NavigationView {
+            OfferDetail(offer: offerTestData[0])
+        }
     }
 }
