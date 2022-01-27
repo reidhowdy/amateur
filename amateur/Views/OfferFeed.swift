@@ -1,31 +1,22 @@
 import SwiftUI
 
 struct OfferFeed: View {
-    //var offers = [Offer] = [] //initialized an ampty
+    var offers : [Offer] = [] //initializes an empty array that is made up of instances of Offer
+    
     var body: some View {
         VStack {
-            Spacer()
             Text("Offers")
                 .font(.largeTitle)
-            HStack {
-                
-                Text("Title: Here Is The Title Of My Thing")
-                    .font(.title)
-                    .multilineTextAlignment(.leading)
-                    .padding([.top, .leading, .bottom])
-                Spacer()
-                Text("Description: Here is the description of my thing")
-                    .font(.body)
-                    .multilineTextAlignment(.trailing)
-                    .padding(.all)
+            
+            List(offers) { offer in //idk if this range is correct
+                VStack(alignment: .leading) {
+                    Text(offer.title) //must use dot notation bc working w a struct(class)
+                    Text(offer.description)
+                        .font(.subheadline)
+                        .foregroundColor(Color.gray)
+                }
                 
             }
-            Spacer()
-            Text("Date Posted: Jan 27 2022")
-            Text("Est time to complete: 2.5 hours")
-                .multilineTextAlignment(.leading)
-            Text("Number of Est. Sessions: 3")
-                .multilineTextAlignment(.leading)
             Spacer()
         }
     }
@@ -33,6 +24,6 @@ struct OfferFeed: View {
 
 struct OfferView_Previews: PreviewProvider {
     static var previews: some View {
-        OfferView()
+        OfferFeed(offers: offerTestData) //passed in test data as offers
     }
 }
