@@ -1,7 +1,13 @@
 import SwiftUI
 
 struct OfferFeed: View {
+    
+    //creates a ref to my ViewModel
+    @ObservedObject var offerViewModel = OfferViewModel()
+    
     var offers : [Offer] = [] //initializes an empty array that is made up of instances of Offer
+    
+    //I want to populate offers from my db
     
     var body: some View {
         

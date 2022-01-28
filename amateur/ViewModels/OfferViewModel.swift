@@ -3,9 +3,8 @@ import Firebase
 
 class OfferViewModel: ObservableObject {
     @Published var offerList = [Offer]()
-    
-    
-    //add an instance of Offer to the db
+
+    //Adds an instance of Offer to the db.
     func addOffer(id: String, title: String, typeOfOffer: String, estimatedTime: Float, numSessions: Int, datePosted: Date, materialsNeeded: String, description: String, locationPreferences: String, onlineOnly: Bool, username: String) {
         
         let db = Firestore.firestore()
@@ -33,8 +32,7 @@ class OfferViewModel: ObservableObject {
     }
     
     
-    //get data from one instance from the db
-    //make it into an instance of Offer
+    //Gets data from all documents in the db and converts them to a list of Offers (offerList).
     func getOffers() {
         let db = Firestore.firestore() //ref to our db
         
