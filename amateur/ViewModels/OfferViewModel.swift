@@ -11,7 +11,7 @@ class OfferViewModel: ObservableObject {
         
         db.collection("amateur-capstone")
             .addDocument(data: [
-                "id": id,
+//                "id": id,
                 "title": title,
                 "typeOfOffer": typeOfOffer,
                 "estimatedTime": estimatedTime,

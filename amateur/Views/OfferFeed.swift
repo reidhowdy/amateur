@@ -24,9 +24,6 @@ struct OfferFeed: View {
                         Text("\(offers.count) Offers")
                             .foregroundColor(.secondary)
                         Spacer()
-                        
-                        
-                        
                     }
                 }
                 .navigationTitle("Offers") //using a modifier from NavigationView
@@ -36,6 +33,7 @@ struct OfferFeed: View {
             
             Button("test db", action: {
                 //this is a db test
+               print("in the button")
                 offerViewModel.addOffer(id: "id here",
                     title: "the title",
                     typeOfOffer: "the type",
@@ -50,6 +48,10 @@ struct OfferFeed: View {
                     onlineOnly: true,
                     username: "beepBop123")
                 //
+                print("now testing getOffers()")
+                print(offerViewModel.getOffers())
+                
+                print("button ends")
                     
             })
             
