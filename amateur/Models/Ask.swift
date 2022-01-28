@@ -1,7 +1,8 @@
 import Foundation
 import SwiftUI
 
-struct Ask {
+struct Ask: Identifiable, Codable {
+    var id: String?
     var title: String
     var typeOfAsk : String //selected from a predetermined list
     var estimatedTime: Float

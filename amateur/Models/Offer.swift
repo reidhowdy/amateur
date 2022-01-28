@@ -3,7 +3,7 @@ import SwiftUI
 
 //data for each offer
 
-struct Offer: Identifiable { //hashable and codable?
+struct Offer: Identifiable, Codable {
     var id: String
     var title: String
     var typeOfOffer: String //selected from a list
@@ -14,6 +14,7 @@ struct Offer: Identifiable { //hashable and codable?
     var description: String //description of the offer
     var locationPreferences: String //how can I make this a dict like this
     //[onlineOnly: bool, onlineOk: bool, onlinePreferred: bool, inPersonOnly: bool, inPersonOk: bool, inPersonPreferred: bool]
+    //Might have to make a subcollection within the document
     var onlineOnly: Bool
     var username: String //a FK from User
     
