@@ -5,11 +5,11 @@ class OfferViewModel: ObservableObject {
     @Published var offerList = [Offer]()
 
     //Adds an instance of Offer to the db.
-    func addOffer(id: String, title: String, typeOfOffer: String, estimatedTime: Float, numSessions: Int, datePosted: Date, materialsNeeded: String, description: String, locationPreferences: String, onlineOnly: Bool, username: String) {
+    func addOffer(title: String, typeOfOffer: String, estimatedTime: Float, numSessions: Int, datePosted: Date, materialsNeeded: String, description: String, locationPreferences: String, onlineOnly: Bool, username: String) {
         
         let db = Firestore.firestore()
         
-        db.collection("amateur-capstone")
+        db.collection("offers")
             .addDocument(data: [
 //                "id": id,
                 "title": title,
@@ -36,7 +36,7 @@ class OfferViewModel: ObservableObject {
     func getOffers() {
         let db = Firestore.firestore() //ref to our db
         
-        db.collection("amateur-capstone").getDocuments() {
+        db.collection("offers").getDocuments() {
             snapshot, error in
             
             if error == nil {

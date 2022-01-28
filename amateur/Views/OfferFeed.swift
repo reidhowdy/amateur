@@ -34,7 +34,7 @@ struct OfferFeed: View {
             Button("test db", action: {
                 //this is a db test
                print("in the button")
-                offerViewModel.addOffer(id: "id here",
+                offerViewModel.addOffer(
                     title: "the title",
                     typeOfOffer: "the type",
                     estimatedTime: 1.2,
