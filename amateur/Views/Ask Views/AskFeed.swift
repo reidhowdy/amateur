@@ -2,6 +2,7 @@ import SwiftUI
 
 struct AskFeed: View {
     var asks : [Ask] = []
+    @ObservedObject var askViewModel = AskViewModel()
     
     var body: some View {
         VStack {
@@ -12,13 +13,34 @@ struct AskFeed: View {
                     }
                     HStack {
                         Spacer()
-                        Text("\(offerViewModel.offerList.count) Offers")
+                        Text("\(askViewModel.askList.count) Asks")
                             .foregroundColor(.secondary)
                         Spacer()
                     }
                 }
-                .navigationTitle("Offers") //using a modifier from NavigationView
+                .navigationTitle("Asks") //using a modifier from NavigationView
             }
+            Button("test db", action: {
+                //this is a db test
+               print("in the button")
+                askViewModel.addAsk(
+                    title: "the title",
+                    typeOfAsk: "the type",
+                    estimatedTime: 1.2,
+                    datePosted: Date.now,
+                    description: "the description",
+                    materialsNeeded: "nothing",
+                    locationPreferences: "here",
+                    onlineOnly: true,
+                    username: "beepBop123")
+                //
+                print("now testing getOffers()")
+                print(offerViewModel.offerList)
+                
+                print("button ends")
+                    
+            })
+            
         }
         .onAppear {
             offerViewModel.getOffers()

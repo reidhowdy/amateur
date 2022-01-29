@@ -4,14 +4,21 @@ import Firebase
 class AskViewModel: ObservableObject {
     @Published var askList = [Ask]()
     
-    func addAsk() {
+    func addAsk(title: String, typeOfAsk: String, estimatedTime: Float, datePosted: Date, description: String, materialsNeeded: String, locationPreferences: String, onlineOnly: Bool, username: String) {
+        
         let db = Firestore.firestore()
         
         db.collection("asks")
             .addDocument(data: [
-                "title": "bla bla"
-            
-            
+                "title": title,
+                "typeOfAsk": typeOfAsk,
+                "estimatedTime": estimatedTime,
+                "datePosted": datePosted,
+                "description": description,
+                "materialsNeeded": materialsNeeded,
+                "locationPreferences": locationPreferences,
+                "onlineOnly": onlineOnly,
+                "username": username
             ]) {error in
                 if error == nil {
                     self.getAsks()

@@ -32,6 +32,7 @@ struct AskDetail: View {
 
 struct AskDetail_Previews: PreviewProvider {
     static var previews: some View {
-        AskDetail(asks: asks)
+        Text("hi")
+//        AskDetail(asks: asks)
     }
 }
