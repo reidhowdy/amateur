@@ -4,7 +4,7 @@ struct ContentView: View {
     //@ObservedObject var offerViewModel = OfferViewModel()
     
     var body: some View {
-        OfferFeed()
+        LoginScreen()
 //        OfferFeed(offers: offerViewModel.offerList)
     }
 }
