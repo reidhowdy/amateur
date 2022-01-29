@@ -7,21 +7,18 @@ struct OfferFeed: View {
     
     var offers : [Offer] = [] //initializes an empty array that is made up of instances of Offer
     
-    //I want to populate offers from my db
+    //I want to populate offers from my db but howwww
     
     var body: some View {
         VStack {
             NavigationView { //wrapping my list in this makes the items clickable
                 List {
-                    ForEach(offers) { offer in
+                    ForEach(offerViewModel.offerList) { offer in
                     OfferRow(offer: offer) //passing into
-                    
                     }
                     HStack {
-                        
-                        
                         Spacer()
-                        Text("\(offers.count) Offers")
+                        Text("\(offerViewModel.offerList.count) Offers")
                             .foregroundColor(.secondary)
                         Spacer()
                     }
@@ -49,21 +46,27 @@ struct OfferFeed: View {
                     username: "beepBop123")
                 //
                 print("now testing getOffers()")
-                print(offerViewModel.getOffers())
+                print(offerViewModel.offerList)
                 
                 print("button ends")
                     
             })
             
         }
+        .onAppear {
+            offerViewModel.getOffers()
+        }
     }
+    
 }
 
 
 
 struct OfferView_Previews: PreviewProvider {
     static var previews: some View {
-        OfferFeed(offers: offerTestData) //passed in test data as offers
+        OfferFeed(offers: offerTestData)
+//        OfferFeed(offers: offerViewModel.offerList) //was offerTestData
+        //passed in test data as offers
     }
 }
 

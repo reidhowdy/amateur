@@ -26,7 +26,7 @@ class OfferViewModel: ObservableObject {
                     self.getOffers()
                 }
                 else {
-                    print("Oops. There was an erorr.")
+                    print("Oops. There was an error.")
                 }
             }
     }
@@ -36,7 +36,9 @@ class OfferViewModel: ObservableObject {
     func getOffers() {
         let db = Firestore.firestore() //ref to our db
         
-        db.collection("offers").getDocuments() {
+        db.collection("offers").getDocuments() { //getDocuments only gets things once
+                                                //instead I can add a snapshot listener
+                                                //so it'll know something has changed in the db and then change without me having to call getOffers() again
             snapshot, error in
             
             if error == nil {

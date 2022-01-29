@@ -1,8 +1,11 @@
 import SwiftUI
 
 struct ContentView: View {
+    //@ObservedObject var offerViewModel = OfferViewModel()
+    
     var body: some View {
         OfferFeed()
+//        OfferFeed(offers: offerViewModel.offerList)
     }
 }
 
