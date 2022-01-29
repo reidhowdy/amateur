@@ -87,8 +87,6 @@ struct OfferRow: View {
                     .font(.subheadline)
                     .foregroundColor(Color.gray)
             }
-            
         }
     }
-    
 }

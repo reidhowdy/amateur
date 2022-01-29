@@ -10,7 +10,6 @@ struct OfferDetail: View {
         VStack {
             Spacer()
             HStack {
-                
                 Text(offer.title)
                     .font(.title)
                     .multilineTextAlignment(.leading)

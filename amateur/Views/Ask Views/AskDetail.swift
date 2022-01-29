@@ -1,20 +1,37 @@
-//
-//  AskDetail.swift
-//  amateur
-//
-//  Created by Grace on 1/28/22.
-//
-
 import SwiftUI
 
 struct AskDetail: View {
+    var ask: Ask //the var ask is empty, but it will be an instance of Ask when used
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack {
+            Spacer()
+            HStack {
+                Text("ask title")
+                    .font(.title)
+                    .multilineTextAlignment(.leading)
+                    .padding([.top, .leading, .bottom])
+                Spacer()
+                Text("ask description")
+                    .font(.body)
+                    .multilineTextAlignment(.trailing)
+                    .padding(.all)
+            }
+            Spacer()
+            Text("figure out how to format the date here")
+            Text("Est time to complete: *ask time here* hours")
+                .multilineTextAlignment(.leading)
+            Text("Number of Est. Sessions: *number sessions here*")
+                .multilineTextAlignment(.leading)
+            Spacer()
+        }
+        .navigationTitle("Offer Details")
+        .edgesIgnoringSafeArea(.all) //can change .all to things like .bottom, etc.
     }
 }
 
 struct AskDetail_Previews: PreviewProvider {
     static var previews: some View {
-        AskDetail()
+        AskDetail(asks: asks)
     }
 }
