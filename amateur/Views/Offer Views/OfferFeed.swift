@@ -7,8 +7,6 @@ struct OfferFeed: View {
     
     var offers : [Offer] = [] //initializes an empty array that is made up of instances of Offer
     
-    //I want to populate offers from my db but howwww
-    
     var body: some View {
         VStack {
             NavigationView { //wrapping my list in this makes the items clickable

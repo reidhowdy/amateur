@@ -113,9 +113,9 @@
 		65B16D1527A23BE3002FCA7C /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				65B16D0927A2396E002FCA7C /* ContentView.swift */,
 				65AB57CD27A4F2AC00FDBF55 /* Ask Views */,
 				65AB57CC27A4F29900FDBF55 /* Offer Views */,
-				65B16D0927A2396E002FCA7C /* ContentView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
