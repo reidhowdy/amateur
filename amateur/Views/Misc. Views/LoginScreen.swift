@@ -26,10 +26,13 @@ struct LoginScreen: View {
                         .padding(.all, 6.0)
                         .background(Color(.green))
                         .clipShape(Capsule())
+                        .navigationBarBackButtonHidden(true) //isn't working
                 Spacer()
             }
         .background(Color.yellow)
+        
         }
+        
     }
         
 }

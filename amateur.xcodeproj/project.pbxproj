@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		656AD21127A5ACC70063CE4C /* HomePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 656AD21027A5ACC70063CE4C /* HomePage.swift */; };
 		656AD21327A5AD270063CE4C /* LoginScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 656AD21227A5AD270063CE4C /* LoginScreen.swift */; };
+		656AD21527A5C6360063CE4C /* AskPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 656AD21427A5C6360063CE4C /* AskPost.swift */; };
+		656AD21927A5C6570063CE4C /* OfferPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 656AD21827A5C6570063CE4C /* OfferPost.swift */; };
 		65AB57CF27A4F2C100FDBF55 /* AskFeed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65AB57CE27A4F2C100FDBF55 /* AskFeed.swift */; };
 		65AB57D127A4F2CC00FDBF55 /* AskDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65AB57D027A4F2CC00FDBF55 /* AskDetail.swift */; };
 		65AB57D327A4F2E500FDBF55 /* AskViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65AB57D227A4F2E500FDBF55 /* AskViewModel.swift */; };
@@ -29,6 +31,8 @@
 /* Begin PBXFileReference section */
 		656AD21027A5ACC70063CE4C /* HomePage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePage.swift; sourceTree = "<group>"; };
 		656AD21227A5AD270063CE4C /* LoginScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginScreen.swift; sourceTree = "<group>"; };
+		656AD21427A5C6360063CE4C /* AskPost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AskPost.swift; sourceTree = "<group>"; };
+		656AD21827A5C6570063CE4C /* OfferPost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfferPost.swift; sourceTree = "<group>"; };
 		65AB57CE27A4F2C100FDBF55 /* AskFeed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AskFeed.swift; sourceTree = "<group>"; };
 		65AB57D027A4F2CC00FDBF55 /* AskDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AskDetail.swift; sourceTree = "<group>"; };
 		65AB57D227A4F2E500FDBF55 /* AskViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AskViewModel.swift; sourceTree = "<group>"; };
@@ -72,6 +76,7 @@
 			children = (
 				65B16D1E27A2E8D1002FCA7C /* OfferFeed.swift */,
 				65B16D2027A2F2D1002FCA7C /* OfferDetail.swift */,
+				656AD21827A5C6570063CE4C /* OfferPost.swift */,
 			);
 			path = "Offer Views";
 			sourceTree = "<group>";
@@ -81,6 +86,7 @@
 			children = (
 				65AB57CE27A4F2C100FDBF55 /* AskFeed.swift */,
 				65AB57D027A4F2CC00FDBF55 /* AskDetail.swift */,
+				656AD21427A5C6360063CE4C /* AskPost.swift */,
 			);
 			path = "Ask Views";
 			sourceTree = "<group>";
@@ -235,8 +241,10 @@
 				65B16D1F27A2E8D1002FCA7C /* OfferFeed.swift in Sources */,
 				65B16D0A27A2396E002FCA7C /* ContentView.swift in Sources */,
 				65AB57CF27A4F2C100FDBF55 /* AskFeed.swift in Sources */,
+				656AD21527A5C6360063CE4C /* AskPost.swift in Sources */,
 				65B16D1D27A23FD0002FCA7C /* Ask.swift in Sources */,
 				65AB57D327A4F2E500FDBF55 /* AskViewModel.swift in Sources */,
+				656AD21927A5C6570063CE4C /* OfferPost.swift in Sources */,
 				65B16D0827A2396E002FCA7C /* amateurApp.swift in Sources */,
 				656AD21127A5ACC70063CE4C /* HomePage.swift in Sources */,
 				65AB57D127A4F2CC00FDBF55 /* AskDetail.swift in Sources */,
