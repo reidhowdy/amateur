@@ -22,15 +22,10 @@ struct LoginScreen: View {
                     TextField("Password", text: $password)
                         .padding()
                 }
-                
-                
                     NavigationLink("Login", destination: HomePage())
                         .padding(.all, 6.0)
                         .background(Color(.green))
                         .clipShape(Capsule())
-                
-                
-                
                 Spacer()
             }
         .background(Color.yellow)

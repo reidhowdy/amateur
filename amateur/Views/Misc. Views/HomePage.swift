@@ -2,7 +2,17 @@ import SwiftUI
 
 struct HomePage: View {
     var body: some View {
-        Text("Here is my home page")
+        NavigationView {
+            HStack {
+                List { //probably change this to a VStack
+                    NavigationLink("Browse Available Offers", destination: OfferFeed())
+                    NavigationLink("Browse Current Asks",
+                        destination: AskFeed())
+                    Spacer()
+                }
+                .navigationTitle("Amateur")
+            }
+        }
     }
 }
 

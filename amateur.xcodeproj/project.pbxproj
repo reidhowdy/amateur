@@ -61,8 +61,8 @@
 		656AD20F27A5ACAE0063CE4C /* Misc. Views */ = {
 			isa = PBXGroup;
 			children = (
-				656AD21027A5ACC70063CE4C /* HomePage.swift */,
 				656AD21227A5AD270063CE4C /* LoginScreen.swift */,
+				656AD21027A5ACC70063CE4C /* HomePage.swift */,
 			);
 			path = "Misc. Views";
 			sourceTree = "<group>";
