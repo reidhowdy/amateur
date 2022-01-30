@@ -7,8 +7,6 @@ import SwiftUI
     //embed a Form within it
     //embed a TextField within that
 
-
-//'typeOfAsk', 'estimatedTime', 'datePosted', 'description', 'materialsNeeded', 'locationPreferences', 'onlineOnly', 'username' in call
 struct AskPost: View {
     @ObservedObject var askViewModel = AskViewModel()
     
@@ -47,7 +45,7 @@ struct AskPost: View {
                 
                 
                 Button("Post", action: {
-                    (askViewModel.addAsk(title: title, typeOfAsk: typeOfAsk, estimatedTime: estimatedTime, datePosted: Date.now, description: description, materialsNeeded: materialsNeeded, locationPreferences: locationPreferences, onlineOnly: onlineOnly, username: username))
+                    askViewModel.addAsk(title: title, typeOfAsk: typeOfAsk, estimatedTime: estimatedTime, datePosted: Date.now, description: description, materialsNeeded: materialsNeeded, locationPreferences: locationPreferences, onlineOnly: onlineOnly, username: username)
                 })
             }
             .navigationTitle("Post Your Ask")
