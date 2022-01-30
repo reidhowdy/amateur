@@ -16,16 +16,20 @@ struct HomePage: View {
                 }
                 .navigationTitle("Amateur")
             }
-            ScrollView(.horizontal, showsIndicators: false) {
-                HStack(spacing: 20) {
-                    ForEach(0..<10) {
-                        Text("Success \($0)")
-                            .foregroundColor(.white)
-                            .font(.largeTitle)
-                            .frame(width: 200, height: 200)
-                            .background(Color.yellow)
+            NavigationView {
+                ScrollView(.horizontal, showsIndicators: false) {
+                    HStack(spacing: 20) {
+                        ForEach(0..<10) {
+                            NavigationLink("Success \($0)",
+                                           destination: SuccessDetail())
+                                .foregroundColor(.white)
+                                .font(.largeTitle)
+                                .frame(width: 200, height: 200)
+                                .background(Color.yellow)
+                        }
                     }
                 }
+                .navigationTitle("Success Stories")
             }
         }
     }
