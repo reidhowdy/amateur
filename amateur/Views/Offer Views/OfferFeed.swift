@@ -22,34 +22,7 @@ struct OfferFeed: View {
                     }
                 }
                 .navigationTitle("Offers") //using a modifier from NavigationView
-                
-                
             }
-            
-            Button("test db", action: {
-                //this is a db test
-               print("in the button")
-                offerViewModel.addOffer(
-                    title: "the title",
-                    typeOfOffer: "the type",
-                    estimatedTime: 1.2,
-                    numSessions: 2,
-                    datePosted: Date.now,
-                    materialsNeeded:
-                            "nothing",
-                    description:
-                            "la la la",
-                    locationPreferences: "here",
-                    onlineOnly: true,
-                    username: "beepBop123")
-                //
-                print("now testing getOffers()")
-                print(offerViewModel.offerList)
-                
-                print("button ends")
-                    
-            })
-            
         }
         .onAppear {
             offerViewModel.getOffers()
@@ -70,23 +43,3 @@ struct OfferView_Previews: PreviewProvider {
 
 
 //I made this a subview - so now the loop is passing in one instance of Offer from my list of offers
-struct OfferRow: View {
-    var offer: Offer
-    @ObservedObject var offerViewModel = OfferViewModel()
-    
-    var body: some View {
-        NavigationLink(destination: OfferDetail(offer: offer)) {
-            
-            VStack(alignment: .leading) {
-                HStack {
-                    Image(systemName: "heart")
-                        .foregroundColor(.yellow)
-                    Text(offer.title) //must use dot notation bc working w a struct(class)
-                }
-                Text(offer.description)
-                    .font(.subheadline)
-                    .foregroundColor(Color.gray)
-            }
-        }
-    }
-}

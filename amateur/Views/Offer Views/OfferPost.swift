@@ -1,3 +1,9 @@
+//when post is pressed,
+//I also want the user to be directed to the feed
+//or they can have an option:
+    //post another offer
+    //or go see their post in the feed
+
 import SwiftUI
 
 struct OfferPost: View {
@@ -45,8 +51,6 @@ struct OfferPost: View {
 }
 
 struct OfferPost_Previews: PreviewProvider {
-    
-    
     static var previews: some View {
         OfferPost()
     }
