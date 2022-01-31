@@ -24,9 +24,9 @@ struct OfferFeed: View {
                 .navigationTitle("Offers") //using a modifier from NavigationView
             }
         }
-        .onAppear {
+            .onAppear {
             offerViewModel.getOffers()
-        }
+            }
     }
     
 }
