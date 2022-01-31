@@ -5,6 +5,11 @@ struct LoginScreen: View {
     @State private var password: String = ""
     
     var body: some View {
+        //have piece of state to track whether someone is logged in
+        //if they are, show home page
+        
+        //look for login screen specific tutorials 
+        
         NavigationView {
             VStack {
                 Spacer()

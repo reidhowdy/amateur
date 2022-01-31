@@ -20,6 +20,7 @@ struct HomePage: View {
                 ScrollView(.horizontal, showsIndicators: false) {
                     HStack(spacing: 20) {
                         ForEach(0..<10) {
+                            //can maybe take {} so I can wrap the whole yellow box in a nav link
                             NavigationLink("Success \($0)",
                                            destination: SuccessDetail())
                                 .foregroundColor(.white)
