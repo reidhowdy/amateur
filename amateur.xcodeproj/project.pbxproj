@@ -19,6 +19,7 @@
 		656AD22927A78EB70063CE4C /* AskRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 656AD22827A78EB70063CE4C /* AskRow.swift */; };
 		656AD22C27A897410063CE4C /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 656AD22B27A897410063CE4C /* FirebaseAuth */; };
 		656AD22F27A9B2CF0063CE4C /* UserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 656AD22E27A9B2CF0063CE4C /* UserProfile.swift */; };
+		656AD23127A9BCAD0063CE4C /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 656AD23027A9BCAD0063CE4C /* .gitignore */; };
 		65AB57CF27A4F2C100FDBF55 /* AskFeed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65AB57CE27A4F2C100FDBF55 /* AskFeed.swift */; };
 		65AB57D127A4F2CC00FDBF55 /* AskDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65AB57D027A4F2CC00FDBF55 /* AskDetail.swift */; };
 		65AB57D327A4F2E500FDBF55 /* AskViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65AB57D227A4F2E500FDBF55 /* AskViewModel.swift */; };
@@ -31,7 +32,6 @@
 		65B16D1D27A23FD0002FCA7C /* Ask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B16D1C27A23FD0002FCA7C /* Ask.swift */; };
 		65B16D1F27A2E8D1002FCA7C /* OfferFeed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B16D1E27A2E8D1002FCA7C /* OfferFeed.swift */; };
 		65B16D2127A2F2D1002FCA7C /* OfferDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B16D2027A2F2D1002FCA7C /* OfferDetail.swift */; };
-		65F93C8A27A33AAE0007B7E2 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 65F93C8927A33AAE0007B7E2 /* GoogleService-Info.plist */; };
 		65F93C8D27A33C250007B7E2 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 65F93C8C27A33C250007B7E2 /* FirebaseFirestore */; };
 		65F93C9027A3536D0007B7E2 /* OfferViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65F93C8F27A3536D0007B7E2 /* OfferViewModel.swift */; };
 /* End PBXBuildFile section */
@@ -48,6 +48,7 @@
 		656AD22427A787740063CE4C /* OfferRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfferRow.swift; sourceTree = "<group>"; };
 		656AD22827A78EB70063CE4C /* AskRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AskRow.swift; sourceTree = "<group>"; };
 		656AD22E27A9B2CF0063CE4C /* UserProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfile.swift; sourceTree = "<group>"; };
+		656AD23027A9BCAD0063CE4C /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		65AB57CE27A4F2C100FDBF55 /* AskFeed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AskFeed.swift; sourceTree = "<group>"; };
 		65AB57D027A4F2CC00FDBF55 /* AskDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AskDetail.swift; sourceTree = "<group>"; };
 		65AB57D227A4F2E500FDBF55 /* AskViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AskViewModel.swift; sourceTree = "<group>"; };
@@ -61,7 +62,6 @@
 		65B16D1C27A23FD0002FCA7C /* Ask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ask.swift; sourceTree = "<group>"; };
 		65B16D1E27A2E8D1002FCA7C /* OfferFeed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfferFeed.swift; sourceTree = "<group>"; };
 		65B16D2027A2F2D1002FCA7C /* OfferDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfferDetail.swift; sourceTree = "<group>"; };
-		65F93C8927A33AAE0007B7E2 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		65F93C8F27A3536D0007B7E2 /* OfferViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfferViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -135,6 +135,7 @@
 		65B16CFB27A2396E002FCA7C = {
 			isa = PBXGroup;
 			children = (
+				656AD23027A9BCAD0063CE4C /* .gitignore */,
 				65B16D0627A2396E002FCA7C /* amateur */,
 				65B16D0527A2396E002FCA7C /* Products */,
 				656AD22A27A897410063CE4C /* Frameworks */,
@@ -157,7 +158,6 @@
 				65F93C8E27A353490007B7E2 /* ViewModels */,
 				65B16D1727A23C1F002FCA7C /* Models */,
 				65B16D0B27A23970002FCA7C /* Assets.xcassets */,
-				65F93C8927A33AAE0007B7E2 /* GoogleService-Info.plist */,
 				65B16D0D27A23970002FCA7C /* Preview Content */,
 			);
 			path = amateur;
@@ -271,8 +271,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				656AD23127A9BCAD0063CE4C /* .gitignore in Resources */,
 				65B16D0F27A23970002FCA7C /* Preview Assets.xcassets in Resources */,
-				65F93C8A27A33AAE0007B7E2 /* GoogleService-Info.plist in Resources */,
 				65B16D0C27A23970002FCA7C /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
