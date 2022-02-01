@@ -20,6 +20,7 @@
 		656AD22C27A897410063CE4C /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 656AD22B27A897410063CE4C /* FirebaseAuth */; };
 		656AD22F27A9B2CF0063CE4C /* UserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 656AD22E27A9B2CF0063CE4C /* UserProfile.swift */; };
 		656AD23127A9BCAD0063CE4C /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 656AD23027A9BCAD0063CE4C /* .gitignore */; };
+		656AD23327A9BD360063CE4C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 656AD23227A9BD360063CE4C /* GoogleService-Info.plist */; };
 		65AB57CF27A4F2C100FDBF55 /* AskFeed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65AB57CE27A4F2C100FDBF55 /* AskFeed.swift */; };
 		65AB57D127A4F2CC00FDBF55 /* AskDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65AB57D027A4F2CC00FDBF55 /* AskDetail.swift */; };
 		65AB57D327A4F2E500FDBF55 /* AskViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65AB57D227A4F2E500FDBF55 /* AskViewModel.swift */; };
@@ -49,6 +50,7 @@
 		656AD22827A78EB70063CE4C /* AskRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AskRow.swift; sourceTree = "<group>"; };
 		656AD22E27A9B2CF0063CE4C /* UserProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfile.swift; sourceTree = "<group>"; };
 		656AD23027A9BCAD0063CE4C /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		656AD23227A9BD360063CE4C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		65AB57CE27A4F2C100FDBF55 /* AskFeed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AskFeed.swift; sourceTree = "<group>"; };
 		65AB57D027A4F2CC00FDBF55 /* AskDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AskDetail.swift; sourceTree = "<group>"; };
 		65AB57D227A4F2E500FDBF55 /* AskViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AskViewModel.swift; sourceTree = "<group>"; };
@@ -136,6 +138,7 @@
 			isa = PBXGroup;
 			children = (
 				656AD23027A9BCAD0063CE4C /* .gitignore */,
+				656AD23227A9BD360063CE4C /* GoogleService-Info.plist */,
 				65B16D0627A2396E002FCA7C /* amateur */,
 				65B16D0527A2396E002FCA7C /* Products */,
 				656AD22A27A897410063CE4C /* Frameworks */,
@@ -272,6 +275,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				656AD23127A9BCAD0063CE4C /* .gitignore in Resources */,
+				656AD23327A9BD360063CE4C /* GoogleService-Info.plist in Resources */,
 				65B16D0F27A23970002FCA7C /* Preview Assets.xcassets in Resources */,
 				65B16D0C27A23970002FCA7C /* Assets.xcassets in Resources */,
 			);
