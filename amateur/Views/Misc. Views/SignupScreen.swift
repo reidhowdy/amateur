@@ -9,6 +9,7 @@ struct SignupScreen: View {
     
     //get me the environment object from ContentView
     @EnvironmentObject var loginViewModel: LoginViewModel
+    var userViewModel = UserViewModel()
     
     var body: some View {
         NavigationView {
@@ -22,6 +23,16 @@ struct SignupScreen: View {
                     .scaleEffect(6)
                 Spacer()
                 
+                TextField("First Name", text: $firstName)
+                    .disableAutocorrection(true)
+                    .autocapitalization(.none)
+                    .padding()
+                    .background(Color.white)
+                TextField("Last Name", text: $lastName)
+                    .disableAutocorrection(true)
+                    .autocapitalization(.none)
+                    .padding()
+                    .background(Color.white)
                 TextField("Email", text: $email)
                     .disableAutocorrection(true)
                     .autocapitalization(.none)
@@ -38,6 +49,7 @@ struct SignupScreen: View {
                         return //return what? an error message?
                     }
                     loginViewModel.signUp(email: email, password: password)
+                    userViewModel.addUser(id: "hi", username: "hey", firstName: firstName, lastName: lastName)
                     
                     //this is where i also want to run addUser()
                     

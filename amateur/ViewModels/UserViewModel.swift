@@ -5,12 +5,7 @@ import FirebaseAuth
 
 
 class UserViewModel: ObservableObject {
-    
-    func fetchCurrentUser() {
-        guard let uid = Auth.auth().currentUser?.uid
-            else { return }
-    }
-    
+    let uid = Auth.auth().currentUser?.uid
     
 //    @Published var userList = [User]()
     //After new account is made, use that UID to create new document in users collection
@@ -19,12 +14,12 @@ class UserViewModel: ObservableObject {
     
     //once the account is made, user can go into 'edit profile' page in order to add all of the other things, which are:
             //, notifications: Bool, biography: String, skillOffers: Array<String>, skillAsks: Array<String>, zipCode: Int
-    func addUser(id: String, username: String, firstName: String, lastName: String, dateJoined: String) {
+    func addUser(id: String, username: String, firstName: String, lastName: String) {
         let db = Firestore.firestore()
         
         db.collection("users")
             .addDocument(data: [
-                "username" : username,
+                "username" : uid ?? "None" as String,
                 "firstName" : firstName,
                 "lastName" : lastName,
                 "dateJoined": Date.now
