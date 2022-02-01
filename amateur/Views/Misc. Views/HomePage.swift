@@ -4,7 +4,7 @@ struct HomePage: View {
     var body: some View {
         NavigationView {
             VStack{
-                List { //probably change this to a VStack
+                List { //probably change this to a VStack?
                     NavigationLink("Browse Available Offers",
                         destination: OfferFeed())
                     NavigationLink("Browse Current Asks",

@@ -38,6 +38,13 @@ class LoginViewModel: ObservableObject {
             }
         }
     }
+    
+    func signOut() {
+        try? auth.signOut()
+        
+        self.signedIn = false
+    }
+    
 }
 
 struct LoginScreen: View {
@@ -114,11 +121,15 @@ struct SignupScreen: View {
                 Spacer()
                 HStack {
                     TextField("Email", text: $email)
+                        .disableAutocorrection(true)
+                        .autocapitalization(.none)
                         .padding()
                         .background(Color.white)
                 }
                 HStack {
                     SecureField("Password", text: $password)
+                        .disableAutocorrection(true)
+                        .autocapitalization(.none)
                         .padding()
                         .background(Color.white)
                 }

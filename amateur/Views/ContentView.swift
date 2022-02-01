@@ -6,7 +6,22 @@ struct ContentView: View {
     var body: some View {
         NavigationView {
             if loginViewModel.signedIn {
-                Text("You are signed in.")
+                VStack {
+                    Text("You are signed in.")
+                    
+                    Button(action: {
+                        loginViewModel.signOut()
+                    },
+                           label: {
+                        Text("Sign Out")
+                            .frame(width: 200, height: 50)
+                            .background(Color.green)
+                            .foregroundColor(Color.blue)
+                    })
+                    NavigationLink("Home Page", destination: HomePage())
+                }
+                
+                
             }
             else {
                 LoginScreen()
