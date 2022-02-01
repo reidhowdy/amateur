@@ -5,7 +5,7 @@ import Firebase
 //Data for each indiv user
 
 struct User: Identifiable, Codable {
-    var id: String? //use @DocumentID here?
+    var id: String //use @DocumentID here?
     var username: String
     var firstName: String
     var lastName: String
@@ -16,6 +16,5 @@ struct User: Identifiable, Codable {
     var skillAsks: Array<String>
     var zipCode: Int 
     
-    //do I want to use an init() to initialize some values?
 }
 

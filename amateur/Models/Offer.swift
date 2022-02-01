@@ -14,7 +14,7 @@ struct Offer: Identifiable, Codable {
     var description: String //description of the offer
     var locationPreferences: String //how can I make this a dict like this
     //[onlineOnly: bool, onlineOk: bool, onlinePreferred: bool, inPersonOnly: bool, inPersonOk: bool, inPersonPreferred: bool]
-    //Might have to make a subcollection within the document
+    //just make this into a dict stored in locationPreferences
     var onlineOnly: Bool
     var username: String //a FK from User
     
