@@ -11,9 +11,6 @@ import Firebase
 @main
 struct amateurApp: App {
 
-//    init() {
-//        FirebaseApp.configure()
-//    }
     @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
     
     var body: some Scene {
@@ -32,16 +29,3 @@ class AppDelegate: NSObject, UIApplicationDelegate {
         return true
     }
 }
-
-
-
-//from Hacking with Swift
-//"How to add an AppDelegate to a SwiftUI app"
-//I used a different configuration when I added Firebase to my other app
-//This may be a place to troubleshoot later on 
-//class AppDelegate: NSObject, UIApplicationDelegate {
-//    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
-//        print("Your code here")
-//        return true
-//    }
-//}
