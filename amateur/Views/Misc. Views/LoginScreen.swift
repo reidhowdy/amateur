@@ -1,37 +1,140 @@
 import SwiftUI
+import FirebaseAuth
+
+//extract this to a new file when I have it working
+class LoginViewModel: ObservableObject {
+    
+    //creates a ref to the auth object
+    let auth = Auth.auth()
+    
+    @Published var signedIn = false
+    
+    var isSignedIn: Bool {
+        return auth.currentUser != nil
+    }
+    
+    func signIn(email: String, password: String) {
+        auth.signIn(withEmail: email, password: password) {
+            [weak self] result, error in //weak self prevents a mem leak
+            guard result != nil, error == nil else {
+                return
+            }
+            //success
+            DispatchQueue.main.async {
+                self?.signedIn = true
+            }
+        }
+    }
+    
+    func signUp(email: String, password: String) {
+        auth.createUser(withEmail: email, password: password) {
+            [weak self] result, error in
+            guard result != nil, error == nil else {
+                return
+            }
+            //success
+            DispatchQueue.main.async {
+                self?.signedIn = true
+            }
+        }
+    }
+}
 
 struct LoginScreen: View {
-    @State private var username: String = ""
+    @State private var email: String = ""
     @State private var password: String = ""
     
+    //get me the environment object from ContentView
+    @EnvironmentObject var loginViewModel: LoginViewModel
+    
     var body: some View {
-        //have piece of state to track whether someone is logged in
-        //if they are, show home page
-        
-        //look for login screen specific tutorials 
-        
         NavigationView {
             VStack {
+                Text("Amateur")
+                    .font(.largeTitle)
+                    .foregroundColor(Color.blue)
                 Spacer()
-                Text("Welcome to Amateur")
+                Image(systemName: "flame")
+                    .foregroundColor(Color.white)
+                    .scaleEffect(6)
                 Spacer()
                 HStack {
-                    Text("Username:")
-                        .padding(.leading)
-                    TextField("Username", text: $username)
+                    TextField("Email", text: $email)
                         .padding()
+                        .background(Color.white)
                 }
                 HStack {
-                    Text("Password:")
-                        .padding(.leading)
-                    TextField("Password", text: $password)
+                    SecureField("Password", text: $password)
                         .padding()
+                        .background(Color.white)
                 }
-                    NavigationLink("Login", destination: HomePage())
-                        .padding(.all, 6.0)
-                        .background(Color(.green))
-                        .clipShape(Capsule())
-                        .navigationBarBackButtonHidden(true) //isn't working
+                Button(action: {
+                    guard !email.isEmpty, !password.isEmpty else {
+                        return //return what? an error message?
+                    }
+                    loginViewModel.signIn(email: email, password: password)
+                    
+                }, label: {
+                    Text("Sign In")
+                        .foregroundColor(Color.white)
+                        .frame(width: 200, height: 50)
+                        .cornerRadius(8)
+                        .background(Color.blue)
+                })
+                Spacer()
+                //create account button
+                NavigationLink("Create Account", destination: SignupScreen())
+                    .padding()
+            }
+        .background(Color.yellow)
+        
+        }
+        
+    }
+        
+}
+
+struct SignupScreen: View {
+    @State private var email: String = ""
+    @State private var password: String = ""
+    
+    //get me the environment object from ContentView
+    @EnvironmentObject var loginViewModel: LoginViewModel
+    
+    var body: some View {
+        NavigationView {
+            VStack {
+                Text("Create Account")
+                    .font(.largeTitle)
+                    .foregroundColor(Color.blue)
+                Spacer()
+                Image(systemName: "flame")
+                    .foregroundColor(Color.white)
+                    .scaleEffect(6)
+                Spacer()
+                HStack {
+                    TextField("Email", text: $email)
+                        .padding()
+                        .background(Color.white)
+                }
+                HStack {
+                    SecureField("Password", text: $password)
+                        .padding()
+                        .background(Color.white)
+                }
+                Button(action: {
+                    guard !email.isEmpty, !password.isEmpty else {
+                        return //return what? an error message?
+                    }
+                    loginViewModel.signUp(email: email, password: password)
+                    
+                }, label: {
+                    Text("Create Account")
+                        .foregroundColor(Color.white)
+                        .frame(width: 200, height: 50)
+                        .cornerRadius(8)
+                        .background(Color.blue)
+                })
                 Spacer()
             }
         .background(Color.yellow)
@@ -44,6 +147,6 @@ struct LoginScreen: View {
 
 struct LoginScreen_Previews: PreviewProvider {
     static var previews: some View {
-        LoginScreen()
+        SignupScreen()
     }
 }

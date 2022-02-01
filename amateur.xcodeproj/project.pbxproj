@@ -17,6 +17,7 @@
 		656AD22227A716A90063CE4C /* SuccessDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 656AD22127A716A90063CE4C /* SuccessDetail.swift */; };
 		656AD22527A787740063CE4C /* OfferRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 656AD22427A787740063CE4C /* OfferRow.swift */; };
 		656AD22927A78EB70063CE4C /* AskRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 656AD22827A78EB70063CE4C /* AskRow.swift */; };
+		656AD22C27A897410063CE4C /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 656AD22B27A897410063CE4C /* FirebaseAuth */; };
 		65AB57CF27A4F2C100FDBF55 /* AskFeed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65AB57CE27A4F2C100FDBF55 /* AskFeed.swift */; };
 		65AB57D127A4F2CC00FDBF55 /* AskDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65AB57D027A4F2CC00FDBF55 /* AskDetail.swift */; };
 		65AB57D327A4F2E500FDBF55 /* AskViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65AB57D227A4F2E500FDBF55 /* AskViewModel.swift */; };
@@ -68,6 +69,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				65F93C8D27A33C250007B7E2 /* FirebaseFirestore in Frameworks */,
+				656AD22C27A897410063CE4C /* FirebaseAuth in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -89,6 +91,13 @@
 				656AD22127A716A90063CE4C /* SuccessDetail.swift */,
 			);
 			path = "Success Views";
+			sourceTree = "<group>";
+		};
+		656AD22A27A897410063CE4C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		65AB57CC27A4F29900FDBF55 /* Offer Views */ = {
@@ -118,6 +127,7 @@
 			children = (
 				65B16D0627A2396E002FCA7C /* amateur */,
 				65B16D0527A2396E002FCA7C /* Products */,
+				656AD22A27A897410063CE4C /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -203,6 +213,7 @@
 			name = amateur;
 			packageProductDependencies = (
 				65F93C8C27A33C250007B7E2 /* FirebaseFirestore */,
+				656AD22B27A897410063CE4C /* FirebaseAuth */,
 			);
 			productName = amateur;
 			productReference = 65B16D0427A2396E002FCA7C /* amateur.app */;
@@ -498,6 +509,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		656AD22B27A897410063CE4C /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 65F93C8B27A33C250007B7E2 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
 		65F93C8C27A33C250007B7E2 /* FirebaseFirestore */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 65F93C8B27A33C250007B7E2 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;

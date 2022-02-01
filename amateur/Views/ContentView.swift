@@ -1,11 +1,20 @@
 import SwiftUI
 
 struct ContentView: View {
-    //@ObservedObject var offerViewModel = OfferViewModel()
-    
+    @EnvironmentObject var loginViewModel: LoginViewModel
+   
     var body: some View {
-        LoginScreen()
-//        OfferFeed(offers: offerViewModel.offerList)
+        NavigationView {
+            if loginViewModel.signedIn {
+                Text("You are signed in.")
+            }
+            else {
+                LoginScreen()
+            }
+        }
+        .onAppear {
+            loginViewModel.signedIn = loginViewModel.isSignedIn
+        }
     }
 }
 

@@ -17,7 +17,9 @@ struct amateurApp: App {
     
     var body: some Scene {
         WindowGroup {
+            let loginViewModel = LoginViewModel() //ref to login view model
             ContentView()
+                .environmentObject(loginViewModel)
         }
     }
 }
