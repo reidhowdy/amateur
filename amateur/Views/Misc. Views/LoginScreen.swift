@@ -1,7 +1,7 @@
 import SwiftUI
 import FirebaseAuth
 
-//extract this to a new file when I have it working
+//extract all of these into new files when I have everything working as needed
 class LoginViewModel: ObservableObject {
     
     //creates a ref to the auth object
