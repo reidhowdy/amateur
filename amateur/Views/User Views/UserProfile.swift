@@ -5,6 +5,7 @@ import Firebase
 //user views profile
 
 struct UserProfile: View {
+
     let uid = Auth.auth().currentUser?.uid
     var body: some View {
         NavigationView {
@@ -16,6 +17,7 @@ struct UserProfile: View {
                 NavigationLink("Edit Profile", destination: UserEdit())
             }
             .navigationTitle("firstName/lastName")
+            
         }
     }
 }

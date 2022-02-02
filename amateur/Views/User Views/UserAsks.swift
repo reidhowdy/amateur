@@ -1,10 +1,3 @@
-//
-//  UserAsks.swift
-//  amateur
-//
-//  Created by Grace on 2/1/22.
-//
-
 import SwiftUI
 
 struct UserAsks: View {

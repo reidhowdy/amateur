@@ -1,6 +1,7 @@
 import SwiftUI
 
 struct HomePage: View {
+    @State private var showingProfile = false
     var body: some View {
         NavigationView {
             VStack{
@@ -31,6 +32,17 @@ struct HomePage: View {
                     }
                 }
                 .navigationTitle("Amateur")
+                .toolbar {
+                    Button {
+                        showingProfile.toggle()
+                    } label: {
+                        Label("User Profile", systemImage: "person.crop.circle")
+                    }
+                }
+                .sheet(isPresented: $showingProfile) {
+                    UserProfile() //there's a bug - can only toggle to it once
+                        
+                }
             }
         }
     }
