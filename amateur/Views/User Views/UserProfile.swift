@@ -9,7 +9,7 @@ struct UserProfile: View {
     @EnvironmentObject var userAuthInfo : LoginViewModel //telling it the type
     //tells swift that whatever wa passed in as that env object, assign this to that variable
     
-    
+    //creating function to getUser by id in UserViewModel
     var body: some View {
         NavigationView {
             VStack {
