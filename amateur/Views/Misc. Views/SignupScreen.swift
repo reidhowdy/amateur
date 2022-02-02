@@ -4,8 +4,9 @@ import Firebase
 struct SignupScreen: View {
     @State private var email: String = ""
     @State private var password: String = ""
-    @State private var firstName: String = ""
-    @State private var lastName: String = ""
+    @State var firstName: String = ""
+    @State var lastName: String = ""
+    
     
     //get me the environment object from ContentView
     @EnvironmentObject var loginViewModel: LoginViewModel
@@ -50,8 +51,6 @@ struct SignupScreen: View {
                     }
                     loginViewModel.signUp(email: email, password: password)
                     userViewModel.addUser(id: "hi", username: "hey", firstName: firstName, lastName: lastName)
-                    
-                    //this is where i also want to run addUser()
                     
                 }, label: {
                     Text("Create Account")

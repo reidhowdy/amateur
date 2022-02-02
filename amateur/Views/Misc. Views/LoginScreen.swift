@@ -3,6 +3,9 @@ import FirebaseAuth
 
 //extract all of these into new files when I have everything working as needed
 class LoginViewModel: ObservableObject {
+    var userViewModel = UserViewModel()
+    var signupScreen = SignupScreen()
+    var uid = ""
     
     //creates a ref to the auth object
     let auth = Auth.auth()
@@ -20,7 +23,7 @@ class LoginViewModel: ObservableObject {
         auth.signIn(withEmail: email, password: password) {
             [weak self] result, error in //weak self prevents a mem leak
             guard result != nil, error == nil else {
-                return
+                return 
             }
             //success
             DispatchQueue.main.async {
@@ -30,16 +33,27 @@ class LoginViewModel: ObservableObject {
     }
     
     func signUp(email: String, password: String) {
-        auth.createUser(withEmail: email, password: password) {
-            [weak self] result, error in
-            guard result != nil, error == nil else {
-                return
+        auth.createUser(withEmail: email, password: password, completion: {
+            (result, error) -> Void in if (error == nil) {
+                self.uid = Auth.auth().currentUser?.uid ?? "None"
+                print(self.uid)
+                
+                DispatchQueue.main.async {
+                    self.signedIn = true
+                }
             }
-            //success
-            DispatchQueue.main.async {
-                self?.signedIn = true
-            }
-        }
+        })
+        //below is what I had before, without the completion handler
+//        {
+//            [weak self] result, error in
+//            guard result != nil, error == nil else {
+//                return
+//            }
+//            //success
+//            DispatchQueue.main.async {
+//                self?.signedIn = true
+//            }
+//        }
     }
     
     func signOut() {

@@ -1,17 +1,25 @@
-//
-//  UserProfile.swift
-//  amateur
-//
-//  Created by Grace on 2/1/22.
-//
-
 import SwiftUI
+import FirebaseAuth
+import Firebase
+
+//user views profile
 
 struct UserProfile: View {
+    let uid = Auth.auth().currentUser?.uid
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        NavigationView {
+            VStack {
+                Text(uid ?? "Not working")
+                Text("")
+                
+                Spacer()
+                NavigationLink("Edit Profile", destination: UserEdit())
+            }
+            .navigationTitle("firstName/lastName")
+        }
     }
 }
+
 
 struct UserProfile_Previews: PreviewProvider {
     static var previews: some View {

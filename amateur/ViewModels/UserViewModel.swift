@@ -5,21 +5,17 @@ import FirebaseAuth
 
 
 class UserViewModel: ObservableObject {
-    let uid = Auth.auth().currentUser?.uid
-    
-//    @Published var userList = [User]()
-    //After new account is made, use that UID to create new document in users collection
-    //so i actually only want to post the basics when the account is created this includes:
-        //firstname, lastname, username, etc
-    
-    //once the account is made, user can go into 'edit profile' page in order to add all of the other things, which are:
-            //, notifications: Bool, biography: String, skillOffers: Array<String>, skillAsks: Array<String>, zipCode: Int
+    //@Published var uid : String //when this changes, this change will be announced
+
     func addUser(id: String, username: String, firstName: String, lastName: String) {
+        let uid = Auth.auth().currentUser?.uid
+        
+        
         let db = Firestore.firestore()
         
         db.collection("users")
             .addDocument(data: [
-                "username" : uid ?? "None" as String,
+                "username" : uid ?? "Hmm" as String,
                 "firstName" : firstName,
                 "lastName" : lastName,
                 "dateJoined": Date.now
@@ -40,6 +36,10 @@ class UserViewModel: ObservableObject {
         //this code could be updated
         //because
         
+    }
+    
+    func editUser() {
+        print("editing...")
     }
 }
     

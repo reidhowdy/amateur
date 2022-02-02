@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		65633B3927AA353000BFD710 /* UserEdit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65633B3827AA352F00BFD710 /* UserEdit.swift */; };
+		65633B3B27AA386F00BFD710 /* UserAsks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65633B3A27AA386F00BFD710 /* UserAsks.swift */; };
+		65633B3D27AA387A00BFD710 /* UserOffers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65633B3C27AA387A00BFD710 /* UserOffers.swift */; };
 		656AD21127A5ACC70063CE4C /* HomePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 656AD21027A5ACC70063CE4C /* HomePage.swift */; };
 		656AD21327A5AD270063CE4C /* LoginScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 656AD21227A5AD270063CE4C /* LoginScreen.swift */; };
 		656AD21527A5C6360063CE4C /* AskPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 656AD21427A5C6360063CE4C /* AskPost.swift */; };
@@ -39,6 +42,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		65633B3827AA352F00BFD710 /* UserEdit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserEdit.swift; sourceTree = "<group>"; };
+		65633B3A27AA386F00BFD710 /* UserAsks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAsks.swift; sourceTree = "<group>"; };
+		65633B3C27AA387A00BFD710 /* UserOffers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserOffers.swift; sourceTree = "<group>"; };
 		656AD21027A5ACC70063CE4C /* HomePage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePage.swift; sourceTree = "<group>"; };
 		656AD21227A5AD270063CE4C /* LoginScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginScreen.swift; sourceTree = "<group>"; };
 		656AD21427A5C6360063CE4C /* AskPost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AskPost.swift; sourceTree = "<group>"; };
@@ -111,6 +117,9 @@
 			isa = PBXGroup;
 			children = (
 				656AD22E27A9B2CF0063CE4C /* UserProfile.swift */,
+				65633B3827AA352F00BFD710 /* UserEdit.swift */,
+				65633B3A27AA386F00BFD710 /* UserAsks.swift */,
+				65633B3C27AA387A00BFD710 /* UserOffers.swift */,
 			);
 			path = "User Views";
 			sourceTree = "<group>";
@@ -298,6 +307,7 @@
 				65B16D1F27A2E8D1002FCA7C /* OfferFeed.swift in Sources */,
 				65B16D0A27A2396E002FCA7C /* ContentView.swift in Sources */,
 				65AB57CF27A4F2C100FDBF55 /* AskFeed.swift in Sources */,
+				65633B3B27AA386F00BFD710 /* UserAsks.swift in Sources */,
 				656AD21F27A715670063CE4C /* SuccessViewModel.swift in Sources */,
 				656AD21527A5C6360063CE4C /* AskPost.swift in Sources */,
 				65B16D1D27A23FD0002FCA7C /* Ask.swift in Sources */,
@@ -305,11 +315,13 @@
 				656AD21927A5C6570063CE4C /* OfferPost.swift in Sources */,
 				65B16D0827A2396E002FCA7C /* amateurApp.swift in Sources */,
 				656AD21127A5ACC70063CE4C /* HomePage.swift in Sources */,
+				65633B3927AA353000BFD710 /* UserEdit.swift in Sources */,
 				65AB57D127A4F2CC00FDBF55 /* AskDetail.swift in Sources */,
 				656AD23727A9DCDA0063CE4C /* SignupScreen.swift in Sources */,
 				656AD22227A716A90063CE4C /* SuccessDetail.swift in Sources */,
 				656AD22F27A9B2CF0063CE4C /* UserProfile.swift in Sources */,
 				65F93C9027A3536D0007B7E2 /* OfferViewModel.swift in Sources */,
+				65633B3D27AA387A00BFD710 /* UserOffers.swift in Sources */,
 				656AD21D27A715590063CE4C /* UserViewModel.swift in Sources */,
 				65B16D2127A2F2D1002FCA7C /* OfferDetail.swift in Sources */,
 				65B16D1927A23C48002FCA7C /* User.swift in Sources */,
