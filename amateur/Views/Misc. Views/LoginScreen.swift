@@ -6,6 +6,7 @@ class LoginViewModel: ObservableObject {
     var userViewModel = UserViewModel()
     var signupScreen = SignupScreen()
     var uid = ""
+    var user : FirebaseAuth.User? //optional var of type FireUser
     
     //creates a ref to the auth object
     let auth = Auth.auth()
@@ -28,40 +29,34 @@ class LoginViewModel: ObservableObject {
             //success
             DispatchQueue.main.async {
                 self?.signedIn = true
+                self?.user = result?.user
             }
         }
     }
     
-    func signUp(email: String, password: String) {
-        auth.createUser(withEmail: email, password: password, completion: {
-            (result, error) -> Void in if (error == nil) {
-                self.uid = Auth.auth().currentUser?.uid ?? "None"
-                print(self.uid)
-                
+    func signUp(email: String,
+                password: String,
+                completion: @escaping(FirebaseAuth.User?) -> Void) { //completion is expecting to receive a function reference that takes an optional user and returns nothing
+        auth.createUser(withEmail: email, password: password) {
+                [weak self] result, error in //weak self prevents a mem leak
+                guard result != nil, error == nil else {
+                    return
+                }
+                //success
+            completion(result?.user)
                 DispatchQueue.main.async {
-                    self.signedIn = true
+                    self?.signedIn = true
+                    self?.user = result?.user
                 }
             }
-        })
-        //below is what I had before, without the completion handler
-//        {
-//            [weak self] result, error in
-//            guard result != nil, error == nil else {
-//                return
-//            }
-//            //success
-//            DispatchQueue.main.async {
-//                self?.signedIn = true
-//            }
-//        }
     }
     
     func signOut() {
         try? auth.signOut()
         
         self.signedIn = false
+        self.user = nil
     }
-    
 }
 
 struct LoginScreen: View {

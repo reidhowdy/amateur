@@ -5,12 +5,15 @@ import Firebase
 //user views profile
 
 struct UserProfile: View {
-
-    let uid = Auth.auth().currentUser?.uid
+    //use @Envirnonment object
+    @EnvironmentObject var userAuthInfo : LoginViewModel //telling it the type
+    //tells swift that whatever wa passed in as that env object, assign this to that variable
+    
+    
     var body: some View {
         NavigationView {
             VStack {
-                Text(uid ?? "Not working")
+                Text(userAuthInfo.user?.uid ?? "Not working")
                 Text("")
                 
                 Spacer()
