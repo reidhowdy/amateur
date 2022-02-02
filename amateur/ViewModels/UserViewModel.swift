@@ -14,7 +14,7 @@ class UserViewModel: ObservableObject {
         let db = Firestore.firestore()
         
         db.collection("users")
-            .addDocument(data: [
+            .document(uid ?? "None" as String).setData([
                 "username" : uid ?? "Hmm" as String,
                 "firstName" : firstName,
                 "lastName" : lastName,
@@ -27,6 +27,20 @@ class UserViewModel: ObservableObject {
                     print("Oops. There was an error.")
                 }
             }
+//        db.collection("users")
+//            .addDocument(data: [
+//                "username" : uid ?? "Hmm" as String,
+//                "firstName" : firstName,
+//                "lastName" : lastName,
+//                "dateJoined": Date.now
+//            ]) { error in
+//                if error == nil {
+//                    self.getUser()
+//                }
+//                else {
+//                    print("Oops. There was an error.")
+//                }
+//            }
     }
 
     //After user logs in, fetch their document from the users collection and store it
