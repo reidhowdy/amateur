@@ -12,13 +12,44 @@ struct UserProfile: View {
     
     var body: some View {
         NavigationView {
-            VStack {
-                Text(userViewModel.currentUser?.username ?? "UID")
-                Text(userViewModel.currentUser?.firstName ?? "Not displaying First Name")
-                Text(userViewModel.currentUser?.lastName ?? "Not displaying Last Name")
-                Button(action: {
-                    userViewModel.getUser()
-                }) {Text("Fetch Data")}
+            VStack() {
+                HStack {
+                    Text(userViewModel.currentUser?.firstName ?? "Not displaying First Name")
+                    Text(userViewModel.currentUser?.lastName ?? "Not displaying Last Name")
+                }
+                .font(.largeTitle)
+                .padding()
+                
+                Text("Member since: Date Here") //how to display date??
+                
+                Spacer()
+                ZStack {
+                    RoundedRectangle(cornerRadius: 25)
+                        .fill(Color.yellow)
+                        .frame(width: 300, height: 200)
+                    VStack {
+                        Text("Bio (no ability to add bio yet)")
+                        Text(userViewModel.currentUser?.biography ?? "Not displaying bio")
+                    }
+                    .padding()
+                }
+                //skill offers
+                VStack {
+                    Text("Skill Offers (no ability to add yet)")
+//                  Text(userViewModel.currentUser?.skillOffers ?? [])
+                }
+                .padding()
+                //skill asks
+                VStack {
+                    Text("Skill Asks (no ability to add yet)")
+//                  Text(userViewModel.currentUser?.skillAsks ?? [])
+                }
+                .padding()
+                //notifications
+                
+                NavigationLink("My Asks", destination: UserAsks())
+                NavigationLink("My Offers", destination: UserOffers())
+                
                 
                 Spacer()
                 NavigationLink("Edit Profile", destination: UserEdit())

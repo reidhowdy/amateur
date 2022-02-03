@@ -9,7 +9,7 @@ class UserViewModel: ObservableObject {
     @Published var currentUser : User?
     
     init () {
-        getUser()
+        getUser() //populates currentUser upon loading
     }
     
     func addUser(id: String, username: String, firstName: String, lastName: String) {
