@@ -4,11 +4,14 @@ struct HomePage: View {
     @State private var showingProfile = false
     @ObservedObject var userViewModel = UserViewModel()
     @EnvironmentObject var loginViewModel: LoginViewModel
+    @ObservedObject var successViewModel = SuccessViewModel()
+    
+    var successes : [Success] = []
     
     var body: some View {
         NavigationView {
-            VStack{
-                HStack { //probably change this to a VStack?
+            List {
+                 //probably change this to a VStack?
                     NavigationLink("Browse Available Offers",
                         destination: OfferFeed())
                     NavigationLink("Browse Current Asks",
@@ -17,26 +20,21 @@ struct HomePage: View {
                         destination: OfferPost())
                     NavigationLink("Post an Ask",
                         destination: AskPost())
-                }
-                HStack {
-                    
-                }
+                    NavigationLink("Post a Success",
+                        destination: SuccessPost())
+                
+                
                 Text("Browse Success Stories")
                     .font(.title)
                     
                 ScrollView(.horizontal, showsIndicators: false) {
                     HStack(spacing: 20) {
-                        ForEach(0..<10) {
-                            //can maybe take {} so I can wrap the whole yellow box in a nav link
-                            NavigationLink("Success \($0)",
-                                           destination: SuccessDetail())
-                                .foregroundColor(.white)
-                                .font(.largeTitle)
-                                .frame(width: 200, height: 200)
-                                .background(Color.yellow)
+                        ForEach(successViewModel.successList) { success in
+                            SuccessBox(success: success)
                         }
                     }
                 }
+                
                 .navigationTitle("Amateur")
                 .toolbar {
                     ToolbarItem(placement: .navigationBarLeading) {
@@ -62,6 +60,9 @@ struct HomePage: View {
                     UserProfile()
                 }
             }
+        }
+        .onAppear {
+            successViewModel.getSuccesses()
         }
     }
 }

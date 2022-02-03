@@ -1,13 +1,19 @@
 import SwiftUI
 
 struct SuccessDetail: View {
+    var successViewModel = SuccessViewModel()
+    var success: Success
+    
     var body: some View {
-        Text("This is SuccessDetail")
+        VStack {
+            Text(success.title)
+            Text(success.description)
+        }
     }
 }
 
-struct SuccessDetail_Previews: PreviewProvider {
-    static var previews: some View {
-        SuccessDetail()
-    }
-}
+//struct SuccessDetail_Previews: PreviewProvider {
+//    static var previews: some View {
+//        SuccessDetail()
+//    }
+//}

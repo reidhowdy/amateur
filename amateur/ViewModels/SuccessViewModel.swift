@@ -4,6 +4,10 @@ import Firebase
 class SuccessViewModel: ObservableObject {
     @Published var successList = [Success]()
     
+    init() {
+        getSuccesses()
+    }
+    
     func addSuccess(id: String, title: String, description: String, photo: String) {
         let db = Firestore.firestore()
         
