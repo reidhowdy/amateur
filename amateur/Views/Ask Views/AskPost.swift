@@ -44,8 +44,6 @@ struct AskPost: View {
 //                TextField("Username",
 //                          text: $username)
                 
-                
-                
                 Button("Post", action: {
                     askViewModel.addAsk(title: title,
                                         typeOfAsk: typeOfAsk,
