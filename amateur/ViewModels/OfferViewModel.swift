@@ -65,7 +65,6 @@ class OfferViewModel: ObservableObject {
                     print("Test")
                     print(self.offerList)
                     print("End test")
-                    
                 }
             }
             else { //else, if there is an error
@@ -73,7 +72,4 @@ class OfferViewModel: ObservableObject {
             }
         }
     }
-    
-    
-    
 }
