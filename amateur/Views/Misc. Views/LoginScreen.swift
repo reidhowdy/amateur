@@ -30,7 +30,7 @@ class LoginViewModel: ObservableObject {
             DispatchQueue.main.async {
                 self?.signedIn = true
                 self?.user = result?.user
-                self?.userViewModel.getUser() //doesn't work
+//                self?.userViewModel.getUser() doesn't work
             }
         }
     }
@@ -48,7 +48,7 @@ class LoginViewModel: ObservableObject {
                 DispatchQueue.main.async {
                     self?.signedIn = true
                     self?.user = result?.user
-                    self?.userViewModel.getUser() //trying this
+//                    self?.userViewModel.getUser() //trying this
                 }
             }
     }

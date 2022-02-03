@@ -7,6 +7,9 @@ import Firebase
 struct UserProfile: View {
     //use @Envirnonment object
     @EnvironmentObject var userAuthInfo : LoginViewModel //telling it the type
+    //wherever i use this, i can get my uid like below in the onAppear
+    
+    
     //tells swift that whatever wa passed in as that env object, assign this to that variable
     @ObservedObject var userViewModel = UserViewModel()
     
@@ -53,15 +56,32 @@ struct UserProfile: View {
                 
                 Spacer()
                 NavigationLink("Edit Profile", destination: UserEdit())
+                
+//                Button {
+//                    userViewModel.getUser(uid: (userAuthInfo.currentUser?.uid))
+//                } label: {
+//                    Text("Fetch data")
+//                }
+
+                // move this around
+                     
             }
             .navigationTitle("Profile")
-        }
+//            .onAppear(perform: userViewModel.getUser(uid: userAuthInfo.currentUser?.uid))
+//                //wherever I u
+//                //onAppear is like useEffect
+//                //view appears and once it appears this code will run
+           
+            
+            }
     }
 }
 
 
 struct UserProfile_Previews: PreviewProvider {
+    
     static var previews: some View {
         UserProfile()
+            .environmentObject(LoginViewModel())
     }
 }

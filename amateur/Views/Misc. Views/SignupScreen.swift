@@ -50,9 +50,8 @@ struct SignupScreen: View {
                         return //return what? an error message?
                     }
                     loginViewModel.signUp(email: email, password: password) {
-                        user in userViewModel.addUser(id: "hi", username: user?.uid ?? "None", firstName: firstName, lastName: lastName)
+                        user in userViewModel.addUser(id: user?.uid ?? "None", username: "hi", firstName: firstName, lastName: lastName)
                     }
-                    
                 }, label: {
                     Text("Create Account")
                         .foregroundColor(Color.white)

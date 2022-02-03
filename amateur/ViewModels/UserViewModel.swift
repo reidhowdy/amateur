@@ -7,9 +7,10 @@ import FirebaseAuth
 class UserViewModel: ObservableObject {
     
     @Published var currentUser : User?
+    @EnvironmentObject var userAuthInfo : LoginViewModel
     
     init () {
-        getUser() //populates currentUser upon loading
+//        getUser(uid: (userAuthInfo.currentUser?.uid)) 
     }
     
     func addUser(id: String, username: String, firstName: String, lastName: String) {
@@ -25,7 +26,7 @@ class UserViewModel: ObservableObject {
                 "dateJoined": Date.now
             ]) { error in
                 if error == nil {
-                    self.getUser()
+                    self.getUser(uid: id)
                 }
                 else {
                     print("Oops. There was an error.")
@@ -34,11 +35,11 @@ class UserViewModel: ObservableObject {
     }
 
     //After user logs in, fetch their document from the users collection and store it
-    func getUser() {
+    func getUser(uid: String?) { //can get rid of optionals tuff
 //        @State var currentUser : User?
 //        @State var doc : DocumentSnapshot
         let db = Firestore.firestore()
-        let uid = Auth.auth().currentUser?.uid
+//        let uid = Auth.auth().currentUser?.uid
         let docRef = db.collection("users").document(uid ?? "None" as String)
         
         docRef.getDocument { (document, error) in

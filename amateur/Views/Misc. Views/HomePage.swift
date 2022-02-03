@@ -8,7 +8,7 @@ struct HomePage: View {
     var body: some View {
         NavigationView {
             VStack{
-                List { //probably change this to a VStack?
+                HStack { //probably change this to a VStack?
                     NavigationLink("Browse Available Offers",
                         destination: OfferFeed())
                     NavigationLink("Browse Current Asks",
@@ -17,6 +17,9 @@ struct HomePage: View {
                         destination: OfferPost())
                     NavigationLink("Post an Ask",
                         destination: AskPost())
+                }
+                HStack {
+                    
                 }
                 Text("Browse Success Stories")
                     .font(.title)
@@ -29,7 +32,7 @@ struct HomePage: View {
                                            destination: SuccessDetail())
                                 .foregroundColor(.white)
                                 .font(.largeTitle)
-                                .frame(width: 200, height: 300)
+                                .frame(width: 200, height: 200)
                                 .background(Color.yellow)
                         }
                     }
@@ -38,7 +41,7 @@ struct HomePage: View {
                 .toolbar {
                     ToolbarItem(placement: .navigationBarLeading) {
                         Button {
-                            userViewModel.getUser()
+//                            userViewModel.getUser()
                             showingProfile.toggle()
                         } label: {
                             Label("View Profile", systemImage: "figure.wave")
