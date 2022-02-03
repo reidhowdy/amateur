@@ -6,7 +6,11 @@ import FirebaseAuth
 
 class UserViewModel: ObservableObject {
     
-    @Published var currentUser = [User]()
+    @Published var currentUser : User?
+    
+    init () {
+        getUser()
+    }
     
     func addUser(id: String, username: String, firstName: String, lastName: String) {
         let uid = Auth.auth().currentUser?.uid
@@ -31,7 +35,7 @@ class UserViewModel: ObservableObject {
 
     //After user logs in, fetch their document from the users collection and store it
     func getUser() {
-        @State var currentUser : User?
+//        @State var currentUser : User?
 //        @State var doc : DocumentSnapshot
         let db = Firestore.firestore()
         let uid = Auth.auth().currentUser?.uid
@@ -40,7 +44,7 @@ class UserViewModel: ObservableObject {
         docRef.getDocument { (document, error) in
             if let document = document, document.exists {
                 DispatchQueue.main.async {
-                    currentUser = User(
+                    self.currentUser = User(
                                 id: document["username"] as? String ?? "None",
                                 username: document["username"] as? String ?? "None",
                                 firstName: document["firstName"] as? String ?? "None",
