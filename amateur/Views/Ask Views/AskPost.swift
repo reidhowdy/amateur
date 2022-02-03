@@ -10,6 +10,7 @@ import SwiftUI
 struct AskPost: View {
     @ObservedObject var askViewModel = AskViewModel()
     @ObservedObject var userViewModel = UserViewModel()
+    @EnvironmentObject var userAuthInfo : LoginViewModel
     
     @State var title: String = ""
     @State var typeOfAsk: String = ""
@@ -40,13 +41,21 @@ struct AskPost: View {
                 Toggle(isOn: $onlineOnly) {
                     Text("Online only")
                 }
-                TextField("Username",
-                          text: $username)
+//                TextField("Username",
+//                          text: $username)
                 
                 
                 
                 Button("Post", action: {
-                    askViewModel.addAsk(title: title, typeOfAsk: typeOfAsk, estimatedTime: estimatedTime, datePosted: Date.now, description: description, materialsNeeded: materialsNeeded, locationPreferences: locationPreferences, onlineOnly: onlineOnly, username: username)
+                    askViewModel.addAsk(title: title,
+                                        typeOfAsk: typeOfAsk,
+                                        estimatedTime: estimatedTime,
+                                        datePosted: Date.now,
+                                        description: description,
+                                        materialsNeeded: materialsNeeded,
+                                        locationPreferences: locationPreferences,
+                                        onlineOnly: onlineOnly,
+                                        username: userAuthInfo.user?.uid ?? "Didn't pass in the UID as expected")
                 })
             }
             .navigationTitle("Post Your Ask")

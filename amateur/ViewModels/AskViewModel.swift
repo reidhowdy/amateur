@@ -3,6 +3,7 @@ import Firebase
 
 class AskViewModel: ObservableObject {
     @Published var askList = [Ask]()
+    @Published var asksListForUser = [Ask]()
     
     func addAsk(title: String, typeOfAsk: String, estimatedTime: Float, datePosted: Date, description: String, materialsNeeded: String, locationPreferences: String, onlineOnly: Bool, username: String) {
         
@@ -34,7 +35,9 @@ class AskViewModel: ObservableObject {
     //the for is part of the function name
     //the name of this function is getAsks(for)
     func getAsks(for uid: String) {
-        
+        let db = Firestore.firestore()
+        let asksRef = db.collection("asks")
+        let query = asksRef.whereField("username", isEqualTo: uid)
     }
     
     //getAsks(for: stringhere)
