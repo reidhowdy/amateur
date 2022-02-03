@@ -3,6 +3,8 @@ import SwiftUI
 struct HomePage: View {
     @State private var showingProfile = false
     @ObservedObject var userViewModel = UserViewModel()
+    @EnvironmentObject var loginViewModel: LoginViewModel
+    
     var body: some View {
         NavigationView {
             VStack{
@@ -34,16 +36,27 @@ struct HomePage: View {
                 }
                 .navigationTitle("Amateur")
                 .toolbar {
-                    Button {
-                        userViewModel.getUser()
-                        showingProfile.toggle()
-                    } label: {
-                        Label("User Profile", systemImage: "person.crop.circle")
+                    ToolbarItem(placement: .navigationBarLeading) {
+                        Button {
+                            userViewModel.getUser()
+                            showingProfile.toggle()
+                        } label: {
+                            Label("View Profile", systemImage: "figure.wave")
+                                .foregroundColor(Color.green)
+                        }
+                    }
+                    ToolbarItem(placement: .navigationBarTrailing) {
+                        Button(action: {
+                            loginViewModel.signOut()
+                        },
+                               label: {
+                            Label("Sign Out", systemImage: "figure.walk")
+                                .foregroundColor(Color.green)
+                        })
                     }
                 }
                 .sheet(isPresented: $showingProfile) {
                     UserProfile()
-                        
                 }
             }
         }

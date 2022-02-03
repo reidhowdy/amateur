@@ -9,6 +9,7 @@ import SwiftUI
 
 struct AskPost: View {
     @ObservedObject var askViewModel = AskViewModel()
+    @ObservedObject var userViewModel = UserViewModel()
     
     @State var title: String = ""
     @State var typeOfAsk: String = ""

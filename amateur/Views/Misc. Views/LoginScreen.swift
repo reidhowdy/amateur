@@ -109,14 +109,8 @@ struct LoginScreen: View {
                     .padding()
             }
         .background(Color.yellow)
-        
         }
-//        onAppear {
-//            userViewModel.getUser()
-//        }
-        
     }
-        
 }
 
 

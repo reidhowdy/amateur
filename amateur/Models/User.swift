@@ -4,6 +4,7 @@ import Firebase
 
 //Data for each indiv user
 
+
 struct User: Identifiable, Codable {
     var id: String //use @DocumentID here?
     var username: String
@@ -17,4 +18,5 @@ struct User: Identifiable, Codable {
     var zipCode: Int 
     
 }
+
 

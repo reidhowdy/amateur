@@ -53,7 +53,6 @@ struct SignupScreen: View {
                         user in userViewModel.addUser(id: "hi", username: user?.uid ?? "None", firstName: firstName, lastName: lastName)
                     }
                     
-                    
                 }, label: {
                     Text("Create Account")
                         .foregroundColor(Color.white)
@@ -64,11 +63,8 @@ struct SignupScreen: View {
                 Spacer()
             }
         .background(Color.yellow)
-        
         }
-        
     }
-        
 }
 
 

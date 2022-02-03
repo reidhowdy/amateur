@@ -10,6 +10,7 @@ class AskViewModel: ObservableObject {
         
         db.collection("asks")
             .addDocument(data: [
+//                "id": id,
                 "title": title,
                 "typeOfAsk": typeOfAsk,
                 "estimatedTime": estimatedTime,
@@ -39,7 +40,7 @@ class AskViewModel: ObservableObject {
                     DispatchQueue.main.async {
                         self.askList = snapshot.documents.map { doc in
                             return Ask(
-                                id: doc.documentID,
+//                                id: doc.documentID,
                                 title: doc["title"] as? String ?? "None",
                                 typeOfAsk: doc["typeOfOffer"] as? String ?? "None",
                                 estimatedTime: doc["estimatedTime"] as? Float ?? 0.0,
