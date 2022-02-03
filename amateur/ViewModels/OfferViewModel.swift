@@ -36,9 +36,7 @@ class OfferViewModel: ObservableObject {
     func getOffers() {
         let db = Firestore.firestore() //ref to our db
         
-        db.collection("offers").getDocuments() { //getDocuments only gets things once
-                                                //instead I can add a snapshot listener
-                                                //so it'll know something has changed in the db and then change without me having to call getOffers() again
+        db.collection("offers").getDocuments() {
             snapshot, error in
             
             if error == nil {

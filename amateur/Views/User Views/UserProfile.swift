@@ -67,14 +67,18 @@ struct UserProfile: View {
                      
             }
             .navigationTitle("Profile")
-//            .onAppear(perform: userViewModel.getUser(uid: userAuthInfo.currentUser?.uid))
-//                //wherever I u
-//                //onAppear is like useEffect
-//                //view appears and once it appears this code will run
-           
+            .onAppear {
+                userViewModel.getUser(uid: userAuthInfo.user?.uid)
+            }
             
             }
     }
+    
+//    func hi() {
+//        var uid = $userAuthInfo.currentUser.uid
+//
+//        userViewModel.getUser(uid: uid)
+//    }
 }
 
 

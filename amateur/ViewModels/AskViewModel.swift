@@ -29,6 +29,16 @@ class AskViewModel: ObservableObject {
             }
     }
     
+    //just like getUser(), pass in UID as a param
+    //get asks for a specific user
+    //the for is part of the function name
+    //the name of this function is getAsks(for)
+    func getAsks(for uid: String) {
+        
+    }
+    
+    //getAsks(for: stringhere)
+    
     func getAsks() {
         let db = Firestore.firestore()
         
