@@ -7,7 +7,6 @@ struct AskFeed: View {
     
     var body: some View {
         VStack {
-            NavigationView { //wrapping my list in this makes the items clickable
                 List {
                     ForEach(askViewModel.askList) { ask in
                         AskRow(ask: ask) //passing into
@@ -20,7 +19,6 @@ struct AskFeed: View {
                     }
                 }
                 .navigationTitle("Asks") //using a modifier from NavigationView
-            }
         }
         .onAppear {
             askViewModel.getAsks()

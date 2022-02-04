@@ -9,7 +9,6 @@ struct OfferFeed: View {
     
     var body: some View {
         VStack {
-            NavigationView { //wrapping my list in this makes the items clickable
                 List {
                     ForEach(offerViewModel.offerList) { offer in
                     OfferRow(offer: offer) //passing into
@@ -22,7 +21,6 @@ struct OfferFeed: View {
                     }
                 }
                 .navigationTitle("Offers") //using a modifier from NavigationView
-            }
         }
             .onAppear {
             offerViewModel.getOffers()
