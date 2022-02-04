@@ -71,16 +71,16 @@ class AskViewModel: ObservableObject {
     func getAsks() {
         let db = Firestore.firestore()
         
-        db.collection("asks")
-            .getDocuments() {
+        db.collection("asks").getDocuments() {
             snapshot, error in
+            
                 if error == nil {
                     
                     if let snapshot = snapshot {
                         DispatchQueue.main.async {
                             self.askList = snapshot.documents.map { doc in
                                 return Ask(
-    //                                id: doc.documentID,
+                                    id: doc.documentID,
                                     title: doc["title"] as? String ?? "None",
                                     typeOfAsk: doc["typeOfOffer"] as? String ?? "None",
                                     estimatedTime: doc["estimatedTime"] as? Float ?? 0.0,

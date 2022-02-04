@@ -11,7 +11,7 @@ struct AskRow: View {
                 HStack {
                     Image(systemName: "heart")
                         .foregroundColor(.yellow)
-                    Text(ask.title) 
+                    Text(ask.title)
                 }
                 Text(ask.description)
                     .font(.subheadline)

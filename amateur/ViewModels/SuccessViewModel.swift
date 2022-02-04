@@ -38,7 +38,8 @@ class SuccessViewModel: ObservableObject {
                     DispatchQueue.main.async {
                         self.successList = snapshot.documents.map { doc in
                             return Success(
-                                id: doc["id"] as? String ?? "None",
+//                                id: doc["id"] as? String ?? "None",
+                                id: doc.documentID,
                                 title: doc["title"] as? String ?? "None",
                                 description: doc["description"] as? String ?? "None",
                                 photo: doc["photo"] as? String ?? "None"
