@@ -12,17 +12,14 @@ struct LoginScreen: View {
     var body: some View {
         NavigationView {
             VStack {
-                Text("Amateur")
+                Text("A  m  a  t  e  u  r")
                     .font(.largeTitle)
+                    .fontWeight(.semibold)
                     .foregroundColor(Color.blue)
-                Spacer()
-                Image(systemName: "flame")
-                    .foregroundColor(Color.white)
-                    .scaleEffect(6)
                 Spacer()
                 HStack {
                     TextField("Email", text: $email)
-                        .padding()
+                        .padding(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
                         .background(Color.white)
                 }
                 HStack {
@@ -30,6 +27,7 @@ struct LoginScreen: View {
                         .padding()
                         .background(Color.white)
                 }
+                Spacer()
                 Button(action: {
                     guard !email.isEmpty, !password.isEmpty else {
                         return //return what? an error message?
@@ -41,7 +39,7 @@ struct LoginScreen: View {
                         .foregroundColor(Color.white)
                         .frame(width: 200, height: 50)
                         .cornerRadius(8)
-                        .background(Color.blue)
+                        .background(Color.green)
                 })
                 Spacer()
                 //create account button
@@ -56,6 +54,6 @@ struct LoginScreen: View {
 
 struct LoginScreen_Previews: PreviewProvider {
     static var previews: some View {
-        SignupScreen()
+        LoginScreen()
     }
 }

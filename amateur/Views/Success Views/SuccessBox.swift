@@ -18,6 +18,6 @@ struct SuccessBox: View {
 
 //struct SuccessBox_Previews: PreviewProvider {
 //    static var previews: some View {
-//        SuccessBox()
+//        SuccessBox(success: successViewModel.success)
 //    }
 //}

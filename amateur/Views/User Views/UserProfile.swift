@@ -23,18 +23,19 @@ struct UserProfile: View {
                 .font(.largeTitle)
                 .padding()
                 
-                Text("Member since: Date Here") //how to display date??
+                Text("Member since:") //how to display date??
+                Text(userViewModel.currentUser?.dateJoined ?? Date.now, style: .date)
                 
                 Spacer()
-                ZStack {
-                    RoundedRectangle(cornerRadius: 25)
-                        .fill(Color.yellow)
-                        .frame(width: 300, height: 200)
                     VStack {
                         Text("Bio")
                         Text(userViewModel.currentUser?.biography ?? "Not displaying bio")
-                    }
+                            .background(RoundedRectangle(cornerRadius: 25)
+                                .fill(Color.yellow)
+                                .frame(width: 400, height: 200))
                     .padding()
+                    
+                    
                 }
                 
                 //add page 2 to the "Create a User" page
@@ -54,6 +55,7 @@ struct UserProfile: View {
 //                }
 //                .padding()
                 //notifications
+                Spacer()
                 HStack {
                     Spacer()
                     NavigationLink("My Asks", destination: UserAsks())
