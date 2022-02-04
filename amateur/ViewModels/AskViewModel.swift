@@ -71,7 +71,8 @@ class AskViewModel: ObservableObject {
     func getAsks() {
         let db = Firestore.firestore()
         
-        db.collection("asks").getDocuments() {
+        db.collection("asks")
+            .getDocuments() {
             snapshot, error in
                         
                         if error == nil {
