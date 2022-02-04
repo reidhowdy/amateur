@@ -1,9 +1,9 @@
 import SwiftUI
 
 struct UserAsks: View {
-    var askViewModel = AskViewModel()
+    @StateObject var askViewModel = AskViewModel()
     @EnvironmentObject var userAuthInfo : LoginViewModel
-    @ObservedObject var userViewModel = UserViewModel()
+    @StateObject var userViewModel = UserViewModel()
     
     var asks : [Ask] = []
     
@@ -22,6 +22,10 @@ struct UserAsks: View {
                     }
                 }
                 .navigationTitle("My Asks") //using a modifier from NavigationView
+            }
+            Button("Testing") {
+                askViewModel.getAsks(for: userAuthInfo.user?.uid ?? "None")
+                print(askViewModel.askListForUser)
             }
         }
         .onAppear {

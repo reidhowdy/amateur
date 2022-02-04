@@ -1,9 +1,9 @@
 import SwiftUI
 
 struct UserOffers: View {
-    var offerViewModel = OfferViewModel()
+    @StateObject var offerViewModel = OfferViewModel()
     @EnvironmentObject var userAuthInfo : LoginViewModel
-    @ObservedObject var userViewModel = UserViewModel()
+    @StateObject var userViewModel = UserViewModel()
     
     var offers : [Offer] = []
     

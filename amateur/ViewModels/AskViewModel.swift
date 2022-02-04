@@ -42,7 +42,7 @@ class AskViewModel: ObservableObject {
         db.collection("asks").whereField("username", isEqualTo: uid)
             .getDocuments() {
                 snapshot, error in
-                            
+                            //inside of the completion here
                             if error == nil {
                                 if let snapshot = snapshot {
                                     DispatchQueue.main.async {
