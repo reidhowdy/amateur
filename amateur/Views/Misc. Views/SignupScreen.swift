@@ -14,7 +14,6 @@ struct SignupScreen: View {
     var userViewModel = UserViewModel()
     
     var body: some View {
-        NavigationView {
             VStack {
                 VStack {
                     Text("A  m  a  t  e  u  r")
@@ -73,7 +72,7 @@ struct SignupScreen: View {
                 NavigationLink("Already have an account? Log in", destination: LoginScreen())
             }
         .background(Color.yellow)
-        }
+        
     }
 }
 

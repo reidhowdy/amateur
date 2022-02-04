@@ -10,7 +10,7 @@ struct LoginScreen: View {
     @EnvironmentObject var loginViewModel: LoginViewModel
     
     var body: some View {
-        NavigationView {
+//        NavigationView {
             VStack {
                 Text("A  m  a  t  e  u  r")
                     .font(.largeTitle)
@@ -47,7 +47,7 @@ struct LoginScreen: View {
                     .padding()
             }
         .background(Color.yellow)
-        }
+//        }
     }
 }
 
