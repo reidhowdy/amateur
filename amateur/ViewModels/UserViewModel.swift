@@ -13,7 +13,7 @@ class UserViewModel: ObservableObject {
 //        getUser(uid: (userAuthInfo.currentUser?.uid)) 
     }
     
-    func addUser(id: String, username: String, firstName: String, lastName: String) {
+    func addUser(id: String, username: String, firstName: String, lastName: String, biography: String) {
         let uid = Auth.auth().currentUser?.uid
         
         let db = Firestore.firestore()
@@ -23,7 +23,8 @@ class UserViewModel: ObservableObject {
                 "username" : uid ?? "Hmm" as String,
                 "firstName" : firstName,
                 "lastName" : lastName,
-                "dateJoined": Date.now
+                "dateJoined": Date.now,
+                "biography": biography
             ]) { error in
                 if error == nil {
                     self.getUser(uid: id)
@@ -52,7 +53,7 @@ class UserViewModel: ObservableObject {
                                 lastName: document["lastName"] as? String ?? "None",
                                 dateJoined: document["dateJoined"] as? Date ?? Date.now,
                                 notifications: true,
-                                biography: "",
+                                biography: document["biography"] as? String ?? "None",
                                 skillOffers: [],
                                 skillAsks: [],
                                 zipCode: 0)

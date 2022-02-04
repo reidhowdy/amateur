@@ -48,7 +48,7 @@ class AskViewModel: ObservableObject {
                                     DispatchQueue.main.async {
                                         self.askListForUser = snapshot.documents.map { doc in
                                             return Ask(
-                //                                id: doc.documentID,
+                                                id: doc.documentID,
                                                 title: doc["title"] as? String ?? "None",
                                                 typeOfAsk: doc["typeOfOffer"] as? String ?? "None",
                                                 estimatedTime: doc["estimatedTime"] as? Float ?? 0.0,

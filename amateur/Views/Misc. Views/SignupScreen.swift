@@ -6,6 +6,7 @@ struct SignupScreen: View {
     @State private var password: String = ""
     @State var firstName: String = ""
     @State var lastName: String = ""
+    @State var bio: String = ""
     
     
     //get me the environment object from ContentView
@@ -34,6 +35,11 @@ struct SignupScreen: View {
                     .autocapitalization(.none)
                     .padding()
                     .background(Color.white)
+                TextField("Short bio", text: $bio)
+                    .disableAutocorrection(true)
+                    .autocapitalization(.none)
+                    .padding()
+                    .background(Color.white)
                 TextField("Email", text: $email)
                     .disableAutocorrection(true)
                     .autocapitalization(.none)
@@ -50,7 +56,7 @@ struct SignupScreen: View {
                         return //return what? an error message?
                     }
                     loginViewModel.signUp(email: email, password: password) {
-                        user in userViewModel.addUser(id: user?.uid ?? "None", username: "hi", firstName: firstName, lastName: lastName)
+                        user in userViewModel.addUser(id: user?.uid ?? "None", username: "hi", firstName: firstName, lastName: lastName, biography: bio)
                     }
                 }, label: {
                     Text("Create Account")
@@ -59,7 +65,6 @@ struct SignupScreen: View {
                         .cornerRadius(8)
                         .background(Color.blue)
                 })
-                Spacer()
             }
         .background(Color.yellow)
         }

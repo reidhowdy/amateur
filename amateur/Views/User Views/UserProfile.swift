@@ -31,28 +31,36 @@ struct UserProfile: View {
                         .fill(Color.yellow)
                         .frame(width: 300, height: 200)
                     VStack {
-                        Text("Bio (no ability to add bio yet)")
+                        Text("Bio")
                         Text(userViewModel.currentUser?.biography ?? "Not displaying bio")
                     }
                     .padding()
                 }
+                
+                //add page 2 to the "Create a User" page
+                //Ask questions like skill asks, skill offers
+                //then also make an EditProfile view
+                
                 //skill offers
-                VStack {
-                    Text("Skill Offers (no ability to add yet)")
+//                VStack {
+//                    Text("Skill Offers (no ability to add yet)")
 //                  Text(userViewModel.currentUser?.skillOffers ?? [])
-                }
-                .padding()
-                //skill asks
-                VStack {
-                    Text("Skill Asks (no ability to add yet)")
+//                }
+//                .padding()
+//                //skill asks
+//                VStack {
+//                    Text("Skill Asks (no ability to add yet)")
 //                  Text(userViewModel.currentUser?.skillAsks ?? [])
-                }
-                .padding()
+//                }
+//                .padding()
                 //notifications
-                
-                NavigationLink("My Asks", destination: UserAsks())
-                NavigationLink("My Offers", destination: UserOffers())
-                
+                HStack {
+                    Spacer()
+                    NavigationLink("My Asks", destination: UserAsks())
+                    Spacer()
+                    NavigationLink("My Offers", destination: UserOffers())
+                    Spacer()
+                }
                 
                 Spacer()
                 NavigationLink("Edit Profile", destination: UserEdit())

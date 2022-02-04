@@ -44,7 +44,7 @@ class OfferViewModel: ObservableObject {
                             DispatchQueue.main.async {
                                 self.offerListForUser = snapshot.documents.map { doc in
                                     return Offer(
-        //                                id: doc.documentID,
+                                        id: doc.documentID,
                                         title: doc["title"]                             as? String ?? "None",
                                         typeOfOffer: doc["typeOfOffer"]                 as? String ?? "None",
                                         estimatedTime: doc["estimatedTime"]             as? Float ?? 0.0,
