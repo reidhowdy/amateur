@@ -12,6 +12,7 @@
 		65633B3D27AA387A00BFD710 /* UserOffers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65633B3C27AA387A00BFD710 /* UserOffers.swift */; };
 		65633B3F27AC6AA000BFD710 /* SuccessPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65633B3E27AC6AA000BFD710 /* SuccessPost.swift */; };
 		65633B4127AC84DD00BFD710 /* SuccessBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65633B4027AC84DD00BFD710 /* SuccessBox.swift */; };
+		65633B4327AD76F100BFD710 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65633B4227AD76F100BFD710 /* LoginViewModel.swift */; };
 		656AD21127A5ACC70063CE4C /* HomePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 656AD21027A5ACC70063CE4C /* HomePage.swift */; };
 		656AD21327A5AD270063CE4C /* LoginScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 656AD21227A5AD270063CE4C /* LoginScreen.swift */; };
 		656AD21527A5C6360063CE4C /* AskPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 656AD21427A5C6360063CE4C /* AskPost.swift */; };
@@ -49,6 +50,7 @@
 		65633B3C27AA387A00BFD710 /* UserOffers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserOffers.swift; sourceTree = "<group>"; };
 		65633B3E27AC6AA000BFD710 /* SuccessPost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuccessPost.swift; sourceTree = "<group>"; };
 		65633B4027AC84DD00BFD710 /* SuccessBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuccessBox.swift; sourceTree = "<group>"; };
+		65633B4227AD76F100BFD710 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		656AD21027A5ACC70063CE4C /* HomePage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePage.swift; sourceTree = "<group>"; };
 		656AD21227A5AD270063CE4C /* LoginScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginScreen.swift; sourceTree = "<group>"; };
 		656AD21427A5C6360063CE4C /* AskPost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AskPost.swift; sourceTree = "<group>"; };
@@ -223,6 +225,7 @@
 				65AB57D227A4F2E500FDBF55 /* AskViewModel.swift */,
 				656AD21C27A715590063CE4C /* UserViewModel.swift */,
 				656AD21E27A715670063CE4C /* SuccessViewModel.swift */,
+				65633B4227AD76F100BFD710 /* LoginViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -327,6 +330,7 @@
 				65AB57D127A4F2CC00FDBF55 /* AskDetail.swift in Sources */,
 				656AD23727A9DCDA0063CE4C /* SignupScreen.swift in Sources */,
 				656AD22227A716A90063CE4C /* SuccessDetail.swift in Sources */,
+				65633B4327AD76F100BFD710 /* LoginViewModel.swift in Sources */,
 				656AD22F27A9B2CF0063CE4C /* UserProfile.swift in Sources */,
 				65F93C9027A3536D0007B7E2 /* OfferViewModel.swift in Sources */,
 				65633B3D27AA387A00BFD710 /* UserOffers.swift in Sources */,
