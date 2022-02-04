@@ -8,6 +8,8 @@ import SwiftUI
 
 struct OfferPost: View {
     @ObservedObject var offerViewModel = OfferViewModel()
+    @ObservedObject var userViewModel = UserViewModel()
+    @EnvironmentObject var userAuthInfo : LoginViewModel
     
     @State var title: String = ""
     @State var typeOfOffer: String = ""
@@ -39,10 +41,19 @@ struct OfferPost: View {
                 Toggle(isOn: $onlineOnly) {
                     Text("Online only")
                 }
-                TextField("Username",
-                          text: $username)
+//                TextField("Username",
+//                          text: $username)
                 Button("Post", action: {
-                    offerViewModel.addOffer(title: title, typeOfOffer: typeOfOffer, estimatedTime: estimatedTime, numSessions: numSessions, datePosted: Date.now, materialsNeeded: materialsNeeded, description: description, locationPreferences: locationPreferences, onlineOnly: onlineOnly, username: username)
+                    offerViewModel.addOffer(title: title,
+                                            typeOfOffer: typeOfOffer,
+                                            estimatedTime: estimatedTime,
+                                            numSessions: numSessions,
+                                            datePosted: Date.now,
+                                            materialsNeeded: materialsNeeded,
+                                            description: description,
+                                            locationPreferences: locationPreferences,
+                                            onlineOnly: onlineOnly,
+                                            username: userAuthInfo.user?.uid ?? "Didn't pass in the UID as expected")
                 })
             }
             .navigationTitle("Post Your Offer")
