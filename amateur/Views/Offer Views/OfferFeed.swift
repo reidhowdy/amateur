@@ -1,11 +1,9 @@
 import SwiftUI
 
 struct OfferFeed: View {
-    
-    //creates a ref to my ViewModel
     @ObservedObject var offerViewModel = OfferViewModel()
     
-    var offers : [Offer] = [] //initializes an empty array that is made up of instances of Offer
+    var offers : [Offer] = []
     
     var body: some View {
         VStack {

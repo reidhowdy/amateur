@@ -1,8 +1,5 @@
 import SwiftUI
 
-
-//a view in Swift UI is a struct that conforms to the view protocol
-//collectively, my state variables and my models constitute my app's source of truth
 struct OfferDetail: View {
     var offer: Offer
     

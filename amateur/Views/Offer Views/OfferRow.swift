@@ -11,7 +11,7 @@ struct OfferRow: View {
                 HStack {
                     Image(systemName: "heart")
                         .foregroundColor(.yellow)
-                    Text(offer.title) //must use dot notation bc working w a struct(class)
+                    Text(offer.title) 
                 }
                 Text(offer.description)
                     .font(.subheadline)

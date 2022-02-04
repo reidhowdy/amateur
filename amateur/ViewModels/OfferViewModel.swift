@@ -93,10 +93,6 @@ class OfferViewModel: ObservableObject {
                                 )
                         }
                     }//DQ bracket
-                    
-                    print("Test")
-                    print(self.offerList)
-                    print("End test")
                 }
             }
             else { //else, if there is an error
