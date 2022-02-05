@@ -9,7 +9,6 @@ struct UserAsks: View {
     
     var body: some View {
         VStack {
-            NavigationView { //wrapping my list in this makes the items clickable
                 List {
                     ForEach(askViewModel.askListForUser) { ask in
                         AskRow(ask: ask) //passing into
@@ -21,8 +20,7 @@ struct UserAsks: View {
                         Spacer()
                     }
                 }
-                .navigationTitle("My Asks") //using a modifier from NavigationView
-            }
+                .navigationTitle("My Asks") 
             Button("Testing") {
                 askViewModel.getAsks(for: userAuthInfo.user?.uid ?? "None")
                 print(askViewModel.askListForUser)
