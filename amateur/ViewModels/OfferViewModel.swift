@@ -6,7 +6,16 @@ class OfferViewModel: ObservableObject {
     @Published var offerListForUser = [Offer]()
 
     //Adds a document to offers in the db.
-    func addOffer(title: String, typeOfOffer: String, estimatedTime: Float, numSessions: Int, datePosted: Date, materialsNeeded: String, description: String, locationPreferences: String, onlineOnly: Bool, username: String) {
+    func addOffer(title: String,
+                  typeOfOffer: String,
+                  estimatedTime: Float,
+                  numSessions: Int,
+                  datePosted: Date,
+                  materialsNeeded: String,
+                  description: String,
+                  locationPreferences: String,
+                  onlineOnly: Bool,
+                  username: String) {
         
         let db = Firestore.firestore()
         

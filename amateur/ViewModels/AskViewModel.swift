@@ -6,7 +6,15 @@ class AskViewModel: ObservableObject {
     @Published var askListForUser = [Ask]()
     
     //Adds a document to asks in the db.
-    func addAsk(title: String, typeOfAsk: String, estimatedTime: Float, datePosted: Date, description: String, materialsNeeded: String, locationPreferences: String, onlineOnly: Bool, username: String) {
+    func addAsk(title: String,
+                typeOfAsk: String,
+                estimatedTime: Float,
+                datePosted: Date,
+                description: String,
+                materialsNeeded: String,
+                locationPreferences: String,
+                onlineOnly: Bool,
+                username: String) {
         
         let db = Firestore.firestore()
         

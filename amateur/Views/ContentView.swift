@@ -14,7 +14,8 @@ struct ContentView: View {
         }
         .onAppear {
             loginViewModel.signedIn = loginViewModel.isSignedIn
-        }
+        } //when contentView loads, loginViewModel.signedIn is fetched and updated
+        //it is then used to determine what the view is 
     }
 }
 

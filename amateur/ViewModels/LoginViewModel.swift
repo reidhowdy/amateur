@@ -19,7 +19,6 @@ class LoginViewModel: ObservableObject {
         return auth.currentUser != nil
     }
     
-    //in signIn and signUp, I want to also call my db to create an instance of User
     func signIn(email: String, password: String) {
         auth.signIn(withEmail: email, password: password) {
             [weak self] result, error in //weak self prevents a mem leak
@@ -30,7 +29,6 @@ class LoginViewModel: ObservableObject {
             DispatchQueue.main.async {
                 self?.signedIn = true
                 self?.user = result?.user
-//                self?.userViewModel.getUser() doesn't work
             }
         }
     }
@@ -43,12 +41,10 @@ class LoginViewModel: ObservableObject {
                 guard result != nil, error == nil else {
                     return
                 }
-                //success
             completion(result?.user)
                 DispatchQueue.main.async {
                     self?.signedIn = true
                     self?.user = result?.user
-//                    self?.userViewModel.getUser() //trying this
                 }
             }
     }

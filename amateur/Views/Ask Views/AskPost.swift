@@ -8,6 +8,7 @@ import SwiftUI
     //embed a TextField within that
 
 struct AskPost: View {
+    
     @ObservedObject var askViewModel = AskViewModel()
     @ObservedObject var userViewModel = UserViewModel()
     @EnvironmentObject var userAuthInfo : LoginViewModel
@@ -22,45 +23,58 @@ struct AskPost: View {
     @State var onlineOnly: Bool = true
     @State var username: String = ""
     
+    @State var justPosted: Bool = false
     
     var body: some View {
-        NavigationView {
-            Form {
-                TextField("Title",
-                          text: $title)
-                TextField("Type of ask",
-                          text: $typeOfAsk)
-//                TextField("Est. time",
-//                          text: Float($estimatedTime))
-                TextField("Description",
-                          text: $description)
-                TextField("Materials needed",
-                          text: $materialsNeeded)
-                TextField("Location preferences",
-                          text: $locationPreferences)
-                Toggle(isOn: $onlineOnly) {
-                    Text("Online only")
+//        if justPosted == false {
+            NavigationView {
+                Form {
+                    TextField("Title",
+                              text: $title)
+                    TextField("Type of ask",
+                              text: $typeOfAsk)
+    //                TextField("Est. time",
+    //                          text: Float($estimatedTime))
+                    TextField("Description",
+                              text: $description)
+                    TextField("Materials needed",
+                              text: $materialsNeeded)
+                    TextField("Location preferences",
+                              text: $locationPreferences)
+                    Toggle(isOn: $onlineOnly) {
+                        Text("Online only")
+                    }
+    //                TextField("Username",
+    //                          text: $username)
+                    
+                    Button("Post", action: {
+                        askViewModel.addAsk(title: title,
+                                            typeOfAsk: typeOfAsk,
+                                            estimatedTime: estimatedTime,
+                                            datePosted: Date.now,
+                                            description: description,
+                                            materialsNeeded: materialsNeeded,
+                                            locationPreferences: locationPreferences,
+                                            onlineOnly: onlineOnly,
+                                            username: userAuthInfo.user?.uid ?? "Didn't pass in the UID as expected")
+                        justPosted = true
+                    })
                 }
-//                TextField("Username",
-//                          text: $username)
-                
-                Button("Post", action: {
-                    askViewModel.addAsk(title: title,
-                                        typeOfAsk: typeOfAsk,
-                                        estimatedTime: estimatedTime,
-                                        datePosted: Date.now,
-                                        description: description,
-                                        materialsNeeded: materialsNeeded,
-                                        locationPreferences: locationPreferences,
-                                        onlineOnly: onlineOnly,
-                                        username: userAuthInfo.user?.uid ?? "Didn't pass in the UID as expected")
-                })
+                .navigationTitle("Post Your Ask")
             }
-            .navigationTitle("Post Your Ask")
-        }
+//        }
+        
+//        if justPosted == true {
+//            AskFeed()
+//                .onAppear {
+//                    askViewModel.getAsks()
+//                }
+//        }
         
     }
 }
+
+
 
 struct AskPost_Previews: PreviewProvider {
     static var previews: some View {
