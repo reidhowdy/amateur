@@ -7,7 +7,7 @@ struct SignupScreen: View {
     @State var firstName: String = ""
     @State var lastName: String = ""
     @State var bio: String = ""
-    
+    @State var profilePicture: String = ""
     
     //get me the environment object from ContentView
     @EnvironmentObject var loginViewModel: LoginViewModel
@@ -53,6 +53,8 @@ struct SignupScreen: View {
                         .autocapitalization(.none)
                         .padding()
                         .background(Color.white)
+                    
+                    ImageUpload()
                 }
                 Spacer()
                 Button(action: {
@@ -82,3 +84,5 @@ struct SignupScreen_Previews: PreviewProvider {
         SignupScreen()
     }
 }
+
+//what happens after I press upload image?

@@ -9,9 +9,9 @@ class UserViewModel: ObservableObject {
     @Published var currentUser : User?
     @EnvironmentObject var userAuthInfo : LoginViewModel
     
-    init () {
-//        getUser(uid: (userAuthInfo.currentUser?.uid)) 
-    }
+//    init () {
+//        getUser(uid: (userAuthInfo.currentUser?.uid))
+//    }
     
     func addUser(id: String, username: String, firstName: String, lastName: String, biography: String) {
         let uid = Auth.auth().currentUser?.uid
@@ -37,10 +37,8 @@ class UserViewModel: ObservableObject {
 
     //After user logs in, fetch their document from the users collection and store it
     func getUser(uid: String?) { //can get rid of optionals tuff
-//        @State var currentUser : User?
-//        @State var doc : DocumentSnapshot
+
         let db = Firestore.firestore()
-//        let uid = Auth.auth().currentUser?.uid
         let docRef = db.collection("users").document(uid ?? "None" as String)
         
         docRef.getDocument { (document, error) in
@@ -56,7 +54,8 @@ class UserViewModel: ObservableObject {
                                 biography: document["biography"] as? String ?? "None",
                                 skillOffers: [],
                                 skillAsks: [],
-                                zipCode: 0)
+                                zipCode: 0,
+                                profilePicture: document["profilePicture"] as? String ?? "None")
                 }
             }
             else {
@@ -65,35 +64,7 @@ class UserViewModel: ObservableObject {
         }
     }
     
-//    //what I was trying before
-//    @State var currentUser : User
-//    @State var doc : DocumentSnapshot
-//    let db = Firestore.firestore()
-//    let uid = Auth.auth().currentUser?.uid
-//    let docRef = db.collection("users").document(uid ?? "None" as String)
-//
-//    docRef.getDocument { (document, error) in
-//        if let document = document, document.exists {
-//            let dataDescription = document.data().map(String.init(describing:)) ?? "nil"
-//            print("Document data: \(dataDescription)")
-//            doc = document
-//        } else {
-//            print("Document does not exist")
-//        }
-//    }
-//    //make an instance of User
-//    currentUser = User(
-//        id: doc["username"] as? String ?? "None",
-//        username: doc["username"] as? String ?? "None",
-//        firstName: doc["firstName"] as? String ?? "None",
-//        lastName: doc["lastName"] as? String ?? "None",
-//        dateJoined: doc["dateJoined"] as? Date ?? Date.now,
-//        notifications: true,
-//        biography: "",
-//        skillOffers: [],
-//        skillAsks: [],
-//        zipCode: 0)
-    
+
     func editUser() {
         print("editing...")
     }

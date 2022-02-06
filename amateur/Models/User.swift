@@ -15,8 +15,8 @@ struct User: Identifiable, Codable {
     var biography: String
     var skillOffers: Array<String>
     var skillAsks: Array<String>
-    var zipCode: Int 
-    
+    var zipCode: Int
+    var profilePicture: String
 }
 
 
