@@ -14,7 +14,9 @@ class AskViewModel: ObservableObject {
                 materialsNeeded: String,
                 locationPreferences: String,
                 onlineOnly: Bool,
-                username: String) {
+                username: String,
+                photo: String
+    ) {
         
         let db = Firestore.firestore()
         
@@ -29,7 +31,8 @@ class AskViewModel: ObservableObject {
                 "materialsNeeded": materialsNeeded,
                 "locationPreferences": locationPreferences,
                 "onlineOnly": onlineOnly,
-                "username": username
+                "username": username,
+                "photo": photo
             ]) {error in
                 if error == nil {
                     self.getAsks()
@@ -61,7 +64,8 @@ class AskViewModel: ObservableObject {
                                     materialsNeeded: doc["materialsNeeded"] as? String ?? "None",
                                     locationPreferences: doc["locationPreferences"] as? String ?? "None",
                                     onlineOnly: doc["onlineOnly"] as? Bool ?? false,
-                                    username: doc["username"] as? String ?? "None"
+                                    username: doc["username"] as? String ?? "None",
+                                    photo: doc["photo"] as? String ?? "None"
                                 )
                             }
                         }
@@ -94,7 +98,8 @@ class AskViewModel: ObservableObject {
                                         materialsNeeded: doc["materialsNeeded"] as? String ?? "None",
                                         locationPreferences: doc["locationPreferences"] as? String ?? "None",
                                         onlineOnly: doc["onlineOnly"] as? Bool ?? false,
-                                        username: doc["username"] as? String ?? "None")
+                                        username: doc["username"] as? String ?? "None",
+                                        photo: doc["photo"] as? String ?? "None")
                                 }
                             }
                         }

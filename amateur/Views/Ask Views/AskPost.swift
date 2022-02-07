@@ -24,10 +24,11 @@ struct AskPost: View {
     @State var onlineOnly: Bool = true
     @State var username: String = ""
     
-    @State var justPosted: Bool = false
+    @State var photo: UIImage?
+    var imageViewModel = ImageViewModel()
     
     var body: some View {
-//        if justPosted == false {
+
             NavigationView {
                 Form {
                     TextField("Title",
@@ -45,34 +46,48 @@ struct AskPost: View {
                     Toggle(isOn: $onlineOnly) {
                         Text("Online only")
                     }
-    //                TextField("Username",
-    //                          text: $username)
+                    ImageUpload(uploadingImage: $photo)
                     
-                    Button("Post", action: {
-                        askViewModel.addAsk(title: title,
-                                            typeOfAsk: typeOfAsk,
-                                            estimatedTime: estimatedTime,
-                                            datePosted: Date.now,
-                                            description: description,
-                                            materialsNeeded: materialsNeeded,
-                                            locationPreferences: locationPreferences,
-                                            onlineOnly: onlineOnly,
-                                            username: userAuthInfo.user?.uid ?? "Didn't pass in the UID as expected")
-                        justPosted = true
-                        isPresented = false
+                    Button(action: {
+                        imageViewModel.uploadImage(image: photo) {
+                            url, err in
+                                askViewModel.addAsk(title: title,
+                                                    typeOfAsk: typeOfAsk,
+                                                    estimatedTime: estimatedTime,
+                                                    datePosted: Date.now,
+                                                    description: description,
+                                                    materialsNeeded: materialsNeeded,
+                                                    locationPreferences: locationPreferences,
+                                                    onlineOnly: onlineOnly,
+                                                    username: userAuthInfo.user?.uid ?? "Didn't pass in the UID as expected",
+                                                    photo: url?.absoluteString ?? "")
+                                isPresented = false
+                           }
+                    }, label: {
+                        Text("Post")
+                            .foregroundColor(Color.white)
+                            .frame(width: 200, height: 50)
+                            .cornerRadius(8)
+                            .background(Color.theme.Green2)
                     })
+                    
+                    
+//                    Button("Post", action: {
+//                        askViewModel.addAsk(title: title,
+//                                            typeOfAsk: typeOfAsk,
+//                                            estimatedTime: estimatedTime,
+//                                            datePosted: Date.now,
+//                                            description: description,
+//                                            materialsNeeded: materialsNeeded,
+//                                            locationPreferences: locationPreferences,
+//                                            onlineOnly: onlineOnly,
+//                                            username: userAuthInfo.user?.uid ?? "Didn't pass in the UID as expected",
+//                                            photo: url?.absoluteString ?? "")
+//                        isPresented = false
+//                    })
                 }
                 .navigationTitle("Post Your Ask")
             }
-//        }
-        
-//        if justPosted == true {
-//            AskFeed()
-//                .onAppear {
-//                    askViewModel.getAsks()
-//                }
-//        }
-        
     }
 }
 

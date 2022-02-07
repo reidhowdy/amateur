@@ -9,7 +9,8 @@ struct Ask: Identifiable, Codable {
     var datePosted: Date
     var description: String
     var materialsNeeded: String
-    var locationPreferences: String //want to be dict?
+    var locationPreferences: String
     var onlineOnly: Bool
-    var username: String //FK from User
+    var username: String
+    var photo: String
 }
