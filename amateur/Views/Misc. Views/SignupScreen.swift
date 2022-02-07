@@ -7,7 +7,8 @@ struct SignupScreen: View {
     @State var firstName: String = ""
     @State var lastName: String = ""
     @State var bio: String = ""
-    @State var profilePicture: String = ""
+    
+    @State var profilePicture: UIImage?
     
     //get me the environment object from ContentView
     @EnvironmentObject var loginViewModel: LoginViewModel
@@ -26,7 +27,7 @@ struct SignupScreen: View {
                 }
                 Spacer()
                 VStack {
-                    ImageUpload()
+                    ImageUpload(uploadingImage: $profilePicture) //pass in my binding (profilePicture)
                     
                     TextField("First Name", text: $firstName)
                         .disableAutocorrection(true)
@@ -63,8 +64,11 @@ struct SignupScreen: View {
                     guard !email.isEmpty, !password.isEmpty else {
                         return //return what? an error message?
                     }
-                    loginViewModel.signUp(email: email, password: password) {
-                        user in userViewModel.addUser(id: user?.uid ?? "None", username: "hi", firstName: firstName, lastName: lastName, biography: bio, profilePicture: profilePicture)
+                    uploadImage(image: profilePicture) {
+                        url, err in
+                            loginViewModel.signUp(email: email, password: password) {
+                                user in userViewModel.addUser(id: user?.uid ?? "None", username: "hi", firstName: firstName, lastName: lastName, biography: bio, profilePicture: url?.absoluteString ?? "")
+                            }
                     }
                 }, label: {
                     Text("Create Account")

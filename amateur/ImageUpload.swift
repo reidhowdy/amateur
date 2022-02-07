@@ -1,3 +1,5 @@
+//split out into viewModel
+
 import SwiftUI
 import FirebaseStorage
 
@@ -6,7 +8,9 @@ struct ImageUpload: View {
     @State var showImagePicker = false
     
     @State var sourceType : UIImagePickerController.SourceType = .camera
-    @State var uploadingImage : UIImage?
+    @Binding var uploadingImage : UIImage?
+    
+    
     @State var downloadingImage : UIImage?
     
     var body: some View {
@@ -68,15 +72,15 @@ struct ImageUpload: View {
         }
             
             //button for uploading to the db
-            Button(action: { //when you click on upload image:
-                if let thisImage = self.uploadingImage { //we are just unwrapping the image
-                    uploadImage(image: thisImage) //and then that's what we pass in
-                } else {
-                    print("couldn't upload image")
-                }
-            }) {
-                Text("Upload Profile Picture")
-            }
+//            Button(action: { //when you click on upload image:
+//                if let thisImage = self.uploadingImage { //we are just unwrapping the image
+//                    uploadImage(image: thisImage) //and then that's what we pass in
+//                } else {
+//                    print("couldn't upload image")
+//                }
+//            }) {
+//                Text("Upload Profile Picture")
+//            }
             
             //button for downloading an image from the db
 //            Button(action: { //when you click on download image: (the size i set is i megabite)
@@ -101,30 +105,42 @@ struct ImageUpload: View {
     }
 }
 
-func uploadImage(image : UIImage) {
+
+
+//needs to be in a ViewModel! can;t just be chilling here
+func uploadImage(image : UIImage?, completion: @escaping (URL?, Error?) -> Void) {
     //if we are able to take the image that we fed in and get its jpeg data at a quality of 1, then...
-    if let imageData = image.jpegData(compressionQuality: 1) { //the scale is 0 to 1
-        let storage = Storage.storage() //created ref to storage
-        
-        storage.reference().child("temp").putData(imageData, metadata: nil) {
-            //the completion handler is gonna feed us back data and error:
-            (data, err) in //we are never using the data here - could also do (_, err)
-                if let err = err { //if the error actually exists and isn't nil
-                    print("An error has occured. - \(err.localizedDescription)")
-                } else { //if there was no error,
-                    print("image uploaded")
-                }
+    if let image = image {
+        //what kind of error info does jpegData give me?
+        if let imageData = image.jpegData(compressionQuality: 1) { //the scale is 0 to 1
+            let storage = Storage.storage() //created ref to storage
+            let fileName = UUID().uuidString
+            
+            let ref = storage.reference().child(fileName)
+            
+            ref.putData(imageData, metadata: nil) {
+                //the completion handler is gonna feed us back data and error:
+                (data, err) in //how to use this?
+                    if let err = err { //if the error actually exists and isn't nil
+                        completion(nil, err)
+                        print("An error has occured. - \(err.localizedDescription)")
+                    } else { //if there was no error,
+                        print("image uploaded")
+                        //downloadURL takes a param called completion, which is the same type as my completion, I can just pass it in
+                        ref.downloadURL(completion: completion)
+                    }
+            }
+        } else {
+            completion(nil, nil)
+            print("something went wrong")
         }
-    } else {
-        print("something went wrong")
+    } else {//we didn't get an image, so we call completion
+        completion(nil, nil) //there was no url or error
     }
 }
 
-
-
-
-struct ImageUpload_Previews: PreviewProvider {
-    static var previews: some View {
-        ImageUpload()
-    }
-}
+//struct ImageUpload_Previews: PreviewProvider {
+//    static var previews: some View {
+//        ImageUpload()
+//    }
+//}
