@@ -19,10 +19,10 @@ struct SignupScreen: View {
                     Text("A  m  a  t  e  u  r")
                         .font(.largeTitle)
                         .fontWeight(.semibold)
-                    .foregroundColor(Color.blue)
+                        .foregroundColor(Color.theme.Blue2)
                     Text("Create Account")
                         .font(.title)
-                        .foregroundColor(Color.blue)
+                        .foregroundColor(Color.theme.Blue1)
                 }
                 Spacer()
                 VStack {
@@ -71,7 +71,7 @@ struct SignupScreen: View {
                         .foregroundColor(Color.white)
                         .frame(width: 200, height: 50)
                         .cornerRadius(8)
-                        .background(Color.blue)
+                        .background(Color.theme.Green2)
                 })
                 NavigationLink("Already have an account? Log in", destination: LoginScreen())
             }
@@ -79,7 +79,6 @@ struct SignupScreen: View {
         
     }
 }
-
 
 struct SignupScreen_Previews: PreviewProvider {
     static var previews: some View {

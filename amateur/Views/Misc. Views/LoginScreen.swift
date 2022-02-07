@@ -14,7 +14,7 @@ struct LoginScreen: View {
                 Text("A  m  a  t  e  u  r")
                     .font(.largeTitle)
                     .fontWeight(.semibold)
-                    .foregroundColor(Color.blue)
+                    .foregroundColor(Color.theme.Blue2)
                 Spacer()
                 HStack {
                     TextField("Email", text: $email)
@@ -38,14 +38,14 @@ struct LoginScreen: View {
                         .foregroundColor(Color.white)
                         .frame(width: 200, height: 50)
                         .cornerRadius(8)
-                        .background(Color.green)
+                        .background(Color.theme.Green2)
                 })
                 Spacer()
                 //create account button
                 NavigationLink("Create Account", destination: SignupScreen())
                     .padding()
             }
-        .background(Color.yellow)
+            .background(Color.theme.Yellow3)
     }
 }
 

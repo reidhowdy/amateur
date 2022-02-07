@@ -24,13 +24,14 @@ struct SuccessBox: View {
                     Text(success.title)
                     Spacer()
                 }
-                .padding()
+//                .padding()
             }
             .foregroundColor(Color.theme.Green2)
                 .font(.title)
                 .frame(width: 190, height: 190)
                 .background(Color.theme.Yellow3)
                 .cornerRadius(30)
+                .padding()
         }
     }
 }
