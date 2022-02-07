@@ -16,8 +16,8 @@ struct UserProfile: View {
         NavigationView {
             VStack() {
                 HStack {
-                    Text(userViewModel.currentUser?.firstName ?? "Not displaying First Name")
-                    Text(userViewModel.currentUser?.lastName ?? "Not displaying Last Name")
+                    Text(userViewModel.currentUser?.firstName ?? "First Name")
+                    Text(userViewModel.currentUser?.lastName ?? "Last Name")
                 }
                 .font(.largeTitle)
                 .padding()
@@ -34,64 +34,41 @@ struct UserProfile: View {
                         Text("Bio")
                         Text(userViewModel.currentUser?.biography ?? "Not displaying bio")
                             .background(RoundedRectangle(cornerRadius: 25)
-                                .fill(Color.yellow)
-                                .frame(width: 400, height: 200))
+                            .fill(Color.theme.Yellow1)
+                            .frame(width: 400, height: 200))
                     .padding()
                     
                     
                 }
-                
-                //add page 2 to the "Create a User" page
-                //Ask questions like skill asks, skill offers
-                //then also make an EditProfile view
-                
-                //skill offers
-//                VStack {
-//                    Text("Skill Offers (no ability to add yet)")
-//                  Text(userViewModel.currentUser?.skillOffers ?? [])
-//                }
-//                .padding()
-//                //skill asks
-//                VStack {
-//                    Text("Skill Asks (no ability to add yet)")
-//                  Text(userViewModel.currentUser?.skillAsks ?? [])
-//                }
-//                .padding()
-                //notifications
                 Spacer()
                 HStack {
                     Spacer()
                     NavigationLink("My Asks", destination: UserAsks())
+                        .frame(width: 100, height: 50)
+                        .background(Color.theme.Green2)
+                        .padding()
+                        .foregroundColor(Color.theme.Yellow1)
+                        .cornerRadius(75)
                     Spacer()
                     NavigationLink("My Offers", destination: UserOffers())
+                        .frame(width: 100, height: 50)
+                        .background(Color.theme.Green2)
+                        .padding()
+                        .foregroundColor(Color.theme.Yellow1)
+                        .cornerRadius(75)
                     Spacer()
                 }
                 
-                Spacer()
-                NavigationLink("Edit Profile", destination: UserEdit())
-                
-//                Button {
-//                    userViewModel.getUser(uid: (userAuthInfo.currentUser?.uid))
-//                } label: {
-//                    Text("Fetch data")
-//                }
-
-                // move this around
-                     
+//                Spacer()
+//                NavigationLink("Edit Profile", destination: UserEdit())
             }
             .navigationTitle("Profile")
             .onAppear {
                 userViewModel.getUser(uid: userAuthInfo.user?.uid)
             }
             
-            }
+        }
     }
-    
-//    func hi() {
-//        var uid = $userAuthInfo.currentUser.uid
-//
-//        userViewModel.getUser(uid: uid)
-//    }
 }
 
 
