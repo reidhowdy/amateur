@@ -22,9 +22,19 @@ struct UserProfile: View {
                 .font(.largeTitle)
                 .padding()
                 
-                AsyncImage(url: URL(string: userViewModel.currentUser?.profilePicture ?? ""))
-                    .frame(width: 100, height: 100)
-                    .cornerRadius(100)
+                AsyncImage(
+                    url: URL(string:userViewModel.currentUser?.profilePicture ?? ""),
+                    content: { image in
+                        image.resizable()
+                             .aspectRatio(contentMode: .fit)
+                             .frame(maxWidth: 100, maxHeight: 100)
+                             .cornerRadius(100)
+                    },
+                    placeholder: {
+                        ProgressView()
+                    }
+                )
+                
                 
                 Text("Member since:") //how to display date??
                 Text(userViewModel.currentUser?.dateJoined ?? Date.now, style: .date)

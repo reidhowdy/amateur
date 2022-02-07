@@ -13,6 +13,7 @@ struct SignupScreen: View {
     //get me the environment object from ContentView
     @EnvironmentObject var loginViewModel: LoginViewModel
     var userViewModel = UserViewModel()
+    var imageViewModel = ImageViewModel()
     
     var body: some View {
             VStack {
@@ -64,7 +65,7 @@ struct SignupScreen: View {
                     guard !email.isEmpty, !password.isEmpty else {
                         return //return what? an error message?
                     }
-                    uploadImage(image: profilePicture) {
+                    imageViewModel.uploadImage(image: profilePicture) {
                         url, err in
                             loginViewModel.signUp(email: email, password: password) {
                                 user in userViewModel.addUser(id: user?.uid ?? "None", username: "hi", firstName: firstName, lastName: lastName, biography: bio, profilePicture: url?.absoluteString ?? "")
@@ -89,5 +90,3 @@ struct SignupScreen_Previews: PreviewProvider {
         SignupScreen()
     }
 }
-
-//what happens after I press upload image?
