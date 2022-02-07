@@ -8,6 +8,7 @@ import SwiftUI
     //embed a TextField within that
 
 struct AskPost: View {
+    @Binding var isPresented: Bool //for determining if this sheet should be presented
     
     @ObservedObject var askViewModel = AskViewModel()
     @ObservedObject var userViewModel = UserViewModel()
@@ -58,6 +59,7 @@ struct AskPost: View {
                                             onlineOnly: onlineOnly,
                                             username: userAuthInfo.user?.uid ?? "Didn't pass in the UID as expected")
                         justPosted = true
+                        isPresented = false
                     })
                 }
                 .navigationTitle("Post Your Ask")
@@ -76,8 +78,8 @@ struct AskPost: View {
 
 
 
-struct AskPost_Previews: PreviewProvider {
-    static var previews: some View {
-        AskPost()
-    }
-}
+//struct AskPost_Previews: PreviewProvider {
+//    static var previews: some View {
+//        AskPost()
+//    }
+//}

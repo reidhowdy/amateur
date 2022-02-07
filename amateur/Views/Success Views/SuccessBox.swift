@@ -13,6 +13,7 @@ struct SuccessBox: View {
             .font(.largeTitle)
             .frame(width: 200, height: 200)
             .background(Color.yellow)
+            .cornerRadius(30)
     }
 }
 

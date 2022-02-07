@@ -7,6 +7,8 @@
 import SwiftUI
 
 struct OfferPost: View {
+    @Binding var isPresented: Bool
+    
     @ObservedObject var offerViewModel = OfferViewModel()
     @ObservedObject var userViewModel = UserViewModel()
     @EnvironmentObject var userAuthInfo : LoginViewModel
@@ -61,8 +63,8 @@ struct OfferPost: View {
     }
 }
 
-struct OfferPost_Previews: PreviewProvider {
-    static var previews: some View {
-        OfferPost()
-    }
-}
+//struct OfferPost_Previews: PreviewProvider {
+//    static var previews: some View {
+//        OfferPost()
+//    }
+//}

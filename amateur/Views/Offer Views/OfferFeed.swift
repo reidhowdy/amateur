@@ -3,10 +3,19 @@ import SwiftUI
 struct OfferFeed: View {
     @ObservedObject var offerViewModel = OfferViewModel()
     
+    @State private var showingDetail = false
+    
     var offers : [Offer] = []
     
     var body: some View {
         VStack {
+            Button("Post your offer") {
+                showingDetail = true
+            }
+            .sheet(isPresented: $showingDetail) {
+                OfferPost(isPresented: $showingDetail) //passes around binding?
+            }
+            
                 List {
                     ForEach(offerViewModel.offerList) { offer in
                     OfferRow(offer: offer) //passing into

@@ -1,13 +1,24 @@
 import SwiftUI
 
 struct AskFeed: View {
+    @State private var showingDetail = false
+    
     @ObservedObject var askViewModel = AskViewModel()
     
     var asks : [Ask] = []
     
+    @State private var showingSheet = false //is post an ask presented?
+    
     var body: some View {
         VStack {
-                List {
+            Button("Post your ask") {
+                showingDetail = true
+            }
+            .sheet(isPresented: $showingDetail) {
+                AskPost(isPresented: $showingDetail) //passes around binding?
+            }
+            
+            ScrollView {
                     ForEach(askViewModel.askList) { ask in
                         AskRow(ask: ask) //passing into
                     }
@@ -23,6 +34,7 @@ struct AskFeed: View {
         .onAppear {
             askViewModel.getAsks()
         }
+        
     }
 }
 
@@ -31,3 +43,6 @@ struct AskFeed_Previews: PreviewProvider {
         AskFeed()
     }
 }
+
+//NavigationLink("Post an Ask",
+//destination: AskPost())
