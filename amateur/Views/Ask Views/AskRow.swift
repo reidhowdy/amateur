@@ -7,16 +7,25 @@ struct AskRow: View {
     var body: some View {
         NavigationLink(destination: AskDetail(ask: ask)) {
             
-            VStack(alignment: .leading) {
-                HStack {
-                    Image(systemName: "heart")
-                        .foregroundColor(.yellow)
+            HStack {
+                Image(systemName: "photo.fill")
+                    .resizable()
+                    .frame(width: 100, height: 75, alignment: .leading)
+                    .padding()
+                Spacer()
+                VStack() {
                     Text(ask.title)
+                        .padding([.top, .leading, .trailing])
+                    Text(ask.description)
+                        .font(.subheadline)
+                        .foregroundColor(Color.gray)
+                        .padding([.leading, .bottom, .trailing])
                 }
-                Text(ask.description)
-                    .font(.subheadline)
-                    .foregroundColor(Color.gray)
+                .frame(width: 200, height: 175, alignment: .leading)
+                .background(Color.theme.Yellow2)
             }
+            .frame(width: 400, height: 200)
+            .background(Color.theme.Yellow1)
         }
     }
 }

@@ -22,6 +22,7 @@ struct AskFeed: View {
                     ForEach(askViewModel.askList) { ask in
                         AskRow(ask: ask) //passing into
                     }
+                    
                     HStack {
                         Spacer()
                         Text("\(askViewModel.askList.count) Asks")
