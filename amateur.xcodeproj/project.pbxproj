@@ -16,6 +16,7 @@
 		6521F30327B1700C00AEBA6A /* Cabin-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6521F2FB27B1700C00AEBA6A /* Cabin-Regular.ttf */; };
 		6521F30427B1700C00AEBA6A /* Cabin-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6521F2FC27B1700C00AEBA6A /* Cabin-Bold.ttf */; };
 		6521F30527B1700C00AEBA6A /* Cabin-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6521F2FD27B1700C00AEBA6A /* Cabin-Italic.ttf */; };
+		6521F30727B1BFF500AEBA6A /* ImageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6521F30627B1BFF500AEBA6A /* ImageViewModel.swift */; };
 		65633B3927AA353000BFD710 /* UserEdit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65633B3827AA352F00BFD710 /* UserEdit.swift */; };
 		65633B3B27AA386F00BFD710 /* UserAsks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65633B3A27AA386F00BFD710 /* UserAsks.swift */; };
 		65633B3D27AA387A00BFD710 /* UserOffers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65633B3C27AA387A00BFD710 /* UserOffers.swift */; };
@@ -68,6 +69,7 @@
 		6521F2FB27B1700C00AEBA6A /* Cabin-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Cabin-Regular.ttf"; sourceTree = "<group>"; };
 		6521F2FC27B1700C00AEBA6A /* Cabin-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Cabin-Bold.ttf"; sourceTree = "<group>"; };
 		6521F2FD27B1700C00AEBA6A /* Cabin-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Cabin-Italic.ttf"; sourceTree = "<group>"; };
+		6521F30627B1BFF500AEBA6A /* ImageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewModel.swift; sourceTree = "<group>"; };
 		65633B3827AA352F00BFD710 /* UserEdit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserEdit.swift; sourceTree = "<group>"; };
 		65633B3A27AA386F00BFD710 /* UserAsks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAsks.swift; sourceTree = "<group>"; };
 		65633B3C27AA387A00BFD710 /* UserOffers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserOffers.swift; sourceTree = "<group>"; };
@@ -283,6 +285,7 @@
 				656AD21C27A715590063CE4C /* UserViewModel.swift */,
 				656AD21E27A715670063CE4C /* SuccessViewModel.swift */,
 				65633B4227AD76F100BFD710 /* LoginViewModel.swift */,
+				6521F30627B1BFF500AEBA6A /* ImageViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -396,6 +399,7 @@
 				65B16D0827A2396E002FCA7C /* amateurApp.swift in Sources */,
 				656AD21127A5ACC70063CE4C /* HomePage.swift in Sources */,
 				65633B3927AA353000BFD710 /* UserEdit.swift in Sources */,
+				6521F30727B1BFF500AEBA6A /* ImageViewModel.swift in Sources */,
 				65AB57D127A4F2CC00FDBF55 /* AskDetail.swift in Sources */,
 				658870D227B055DD00F63BB7 /* ImageUpload.swift in Sources */,
 				656AD23727A9DCDA0063CE4C /* SignupScreen.swift in Sources */,

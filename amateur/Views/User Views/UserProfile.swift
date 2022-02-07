@@ -1,14 +1,13 @@
 import SwiftUI
 import FirebaseAuth
 import Firebase
+import FirebaseStorage
 
 //user views profile
 
 struct UserProfile: View {
-    //use @Envirnonment object
     @EnvironmentObject var userAuthInfo : LoginViewModel //telling it the type
     //wherever i use this, i can get my uid like below in the onAppear
-    
     
     //tells swift that whatever wa passed in as that env object, assign this to that variable
     @ObservedObject var userViewModel = UserViewModel()
@@ -22,6 +21,10 @@ struct UserProfile: View {
                 }
                 .font(.largeTitle)
                 .padding()
+                
+                AsyncImage(url: URL(string: userViewModel.currentUser?.profilePicture ?? ""))
+                    .frame(width: 100, height: 100)
+                    .cornerRadius(100)
                 
                 Text("Member since:") //how to display date??
                 Text(userViewModel.currentUser?.dateJoined ?? Date.now, style: .date)
