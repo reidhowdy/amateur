@@ -43,22 +43,8 @@ struct HomePage: View {
                             ForEach(successViewModel.successList) { success in
                                 SuccessBox(success: success)
                             }
-                                NavigationLink(destination: SuccessPost()) {
-                                    VStack {
-                                        Image(systemName: "plus.app.fill")
-                                            .resizable()
-                                            .frame(width: 100, height: 100)
-                                            .foregroundColor(Color.white)
-                                        Text("Post your success story")
-                                    }
-                                }
-                                .foregroundColor(.white)
-                                .frame(width: 200, height: 200)
-                                .background(Color.yellow)
-                                .cornerRadius(30)
-                                .padding()
+                            SuccessPostBox()
                         }
-                        
                     }
                     
                     .navigationTitle("Amateur")

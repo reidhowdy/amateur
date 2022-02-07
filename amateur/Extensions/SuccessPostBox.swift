@@ -1,27 +1,23 @@
 import SwiftUI
 
-struct SuccessBox: View {
-    
-    var success: Success
-    @ObservedObject var successViewModel = SuccessViewModel()
-    
+struct SuccessPostBox: View {
     var body: some View {
         ZStack {
             Text("")
                 .foregroundColor(.white)
-                .font(.largeTitle)
+                .font(.title)
                 .frame(width: 200, height: 200)
                 .background(Color.theme.Yellow2)
                 .cornerRadius(30)
             
-            NavigationLink(destination: SuccessDetail(success: success)) {
+            NavigationLink(destination: SuccessPost()) {
                 VStack {
                     Spacer()
-                    Image(systemName: "person")
+                    Image(systemName: "plus.app.fill")
                         .resizable()
                         .frame(width: 50, height: 50)
                     Spacer()
-                    Text(success.title)
+                    Text("Post your success story")
                     Spacer()
                 }
                 .padding()
@@ -35,8 +31,8 @@ struct SuccessBox: View {
     }
 }
 
-//struct SuccessBox_Previews: PreviewProvider {
-//    static var previews: some View {
-//        SuccessBox(success: successViewModel.success)
-//    }
-//}
+struct SuccessPostBox_Previews: PreviewProvider {
+    static var previews: some View {
+        SuccessPostBox()
+    }
+}

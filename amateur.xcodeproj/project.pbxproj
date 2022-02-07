@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6521F2F427B168C700AEBA6A /* SuccessPostBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6521F2F327B168C700AEBA6A /* SuccessPostBox.swift */; };
 		65633B3927AA353000BFD710 /* UserEdit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65633B3827AA352F00BFD710 /* UserEdit.swift */; };
 		65633B3B27AA386F00BFD710 /* UserAsks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65633B3A27AA386F00BFD710 /* UserAsks.swift */; };
 		65633B3D27AA387A00BFD710 /* UserOffers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65633B3C27AA387A00BFD710 /* UserOffers.swift */; };
@@ -50,6 +51,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6521F2F327B168C700AEBA6A /* SuccessPostBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SuccessPostBox.swift; path = amateur/Extensions/SuccessPostBox.swift; sourceTree = SOURCE_ROOT; };
 		65633B3827AA352F00BFD710 /* UserEdit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserEdit.swift; sourceTree = "<group>"; };
 		65633B3A27AA386F00BFD710 /* UserAsks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAsks.swift; sourceTree = "<group>"; };
 		65633B3C27AA387A00BFD710 /* UserOffers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserOffers.swift; sourceTree = "<group>"; };
@@ -120,6 +122,7 @@
 				65633B3E27AC6AA000BFD710 /* SuccessPost.swift */,
 				65633B4027AC84DD00BFD710 /* SuccessBox.swift */,
 				656AD22127A716A90063CE4C /* SuccessDetail.swift */,
+				6521F2F327B168C700AEBA6A /* SuccessPostBox.swift */,
 			);
 			path = "Success Views";
 			sourceTree = "<group>";
@@ -337,6 +340,7 @@
 				658870D527B0CC8A00F63BB7 /* Color.swift in Sources */,
 				658870CE27AF7EC500F63BB7 /* ImageView.swift in Sources */,
 				656AD21B27A7150D0063CE4C /* Success.swift in Sources */,
+				6521F2F427B168C700AEBA6A /* SuccessPostBox.swift in Sources */,
 				65B16D1B27A23DE0002FCA7C /* Offer.swift in Sources */,
 				65B16D1F27A2E8D1002FCA7C /* OfferFeed.swift in Sources */,
 				65B16D0A27A2396E002FCA7C /* ContentView.swift in Sources */,
