@@ -10,7 +10,7 @@ struct HomePage: View {
     
     var body: some View {
         NavigationView {
-            List {
+            VStack {
                  //probably change this to a VStack?
                     NavigationLink("Browse Available Offers",
                         destination: OfferFeed())
@@ -20,10 +20,7 @@ struct HomePage: View {
                         destination: OfferPost())
                     NavigationLink("Post an Ask",
                         destination: AskPost())
-                    NavigationLink("Post a Success",
-                        destination: SuccessPost())
-                
-                
+                    
                 Text("Browse Success Stories")
                     .font(.title)
                     
@@ -32,6 +29,18 @@ struct HomePage: View {
                         ForEach(successViewModel.successList) { success in
                             SuccessBox(success: success)
                         }
+                            NavigationLink(destination: SuccessPost()) {
+                                VStack {
+                                    Image(systemName: "plus.app.fill")
+                                        .resizable()
+                                        .frame(width: 100, height: 100)
+                                        .foregroundColor(Color.white)
+                                    Text("Post your success story")
+                                }
+                            }
+                            .foregroundColor(.white)
+                            .frame(width: 200, height: 200)
+                            .background(Color.yellow)
                     }
                 }
                 

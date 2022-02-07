@@ -23,7 +23,7 @@ struct ImageUpload: View {
                         .scaledToFit()
                             .frame(width: 120, height: 120)
                 } else {
-                    Image(systemName: "star")
+                    Image(systemName: "person.fill")
                         .resizable()
                         .scaledToFit()
                             .frame(width: 120, height: 120)

@@ -26,6 +26,8 @@ struct SignupScreen: View {
                 }
                 Spacer()
                 VStack {
+                    ImageUpload()
+                    
                     TextField("First Name", text: $firstName)
                         .disableAutocorrection(true)
                         .autocapitalization(.none)
@@ -54,7 +56,7 @@ struct SignupScreen: View {
                         .padding()
                         .background(Color.white)
                     
-                    ImageUpload()
+                    
                 }
                 Spacer()
                 Button(action: {
@@ -62,7 +64,7 @@ struct SignupScreen: View {
                         return //return what? an error message?
                     }
                     loginViewModel.signUp(email: email, password: password) {
-                        user in userViewModel.addUser(id: user?.uid ?? "None", username: "hi", firstName: firstName, lastName: lastName, biography: bio)
+                        user in userViewModel.addUser(id: user?.uid ?? "None", username: "hi", firstName: firstName, lastName: lastName, biography: bio, profilePicture: profilePicture)
                     }
                 }, label: {
                     Text("Create Account")
