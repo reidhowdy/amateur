@@ -1,6 +1,5 @@
 import SwiftUI
 
-
 struct AskPost: View {
     @Binding var isPresented: Bool //for determining if this sheet should be presented
     
@@ -11,7 +10,6 @@ struct AskPost: View {
     @State var title: String = ""
     @State var typeOfAsk: String = ""
     @State var estimatedTime: Float = 0.0
-    //do not need datePosted state, it's always gonna be Date.now
     @State var description: String = ""
     @State var materialsNeeded: String = ""
     @State var locationPreferences: String = ""
@@ -64,21 +62,6 @@ struct AskPost: View {
                             .cornerRadius(8)
                             .background(Color.theme.Green2)
                     })
-                    
-                    
-//                    Button("Post", action: {
-//                        askViewModel.addAsk(title: title,
-//                                            typeOfAsk: typeOfAsk,
-//                                            estimatedTime: estimatedTime,
-//                                            datePosted: Date.now,
-//                                            description: description,
-//                                            materialsNeeded: materialsNeeded,
-//                                            locationPreferences: locationPreferences,
-//                                            onlineOnly: onlineOnly,
-//                                            username: userAuthInfo.user?.uid ?? "Didn't pass in the UID as expected",
-//                                            photo: url?.absoluteString ?? "")
-//                        isPresented = false
-//                    })
                 }
                 .navigationTitle("Post Your Ask")
             }

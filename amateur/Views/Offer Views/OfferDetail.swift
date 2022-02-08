@@ -16,7 +16,6 @@ struct OfferDetail: View {
                     .font(.body)
                     .multilineTextAlignment(.trailing)
                     .padding(.all)
-                
             }
             Spacer()
             Text("figure out how to format the date here")

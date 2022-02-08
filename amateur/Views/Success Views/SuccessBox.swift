@@ -17,9 +17,18 @@ struct SuccessBox: View {
             NavigationLink(destination: SuccessDetail(success: success)) {
                 VStack {
                     Spacer()
-                    Image(systemName: "person")
-                        .resizable()
-                        .frame(width: 50, height: 50)
+                    
+                    AsyncImage(
+                        url: URL(string:success.photo),
+                        content: { image in
+                            image.resizable()
+                                 .aspectRatio(contentMode: .fit)
+                                 .frame(maxWidth: 100, maxHeight: 100)
+                        },
+                        placeholder: {
+                            ProgressView()
+                        }
+                    )
                     Spacer()
                     Text(success.title)
                     Spacer()
