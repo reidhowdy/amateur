@@ -1,5 +1,6 @@
 import Foundation
 import Firebase
+import SwiftUI
 
 class OfferViewModel: ObservableObject {
     @Published var offerList = [Offer]()
@@ -112,4 +113,40 @@ class OfferViewModel: ObservableObject {
                     }
             }
     }
+    
+    
+//    func filterOffers(searchText: String) -> [Offer] {
+//        var filteredOfferList : [Offer]
+//
+//        if searchText.isEmpty {
+//            return offerList
+//        } else {
+    //had ForEach here
+//            for offer in offerList { offer in
+//                if (offer.title.filter { $0.contains(searchText) }) ||
+//                    (offer.description.filter { $0.contains(searchText) }) {
+//                    filteredOfferList.append(contentsOf: offer)
+//                }
+//            }
+//            return filteredOfferList
+//        }
+//    }
+    
+    func filterOffers(searchText: String) -> [Offer] {
+        var filteredOfferList : [Offer] = []
+        
+        if searchText.isEmpty {
+            return offerList
+        } else {
+            for offer in offerList {
+                if (offer.title.contains(searchText)) ||
+                    (offer.description.contains(searchText)) {
+                    filteredOfferList.append(offer)
+                }
+            }
+        }
+        return filteredOfferList
+    }
+    
+    
 }

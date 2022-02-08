@@ -5,19 +5,22 @@ struct OfferFeed: View {
     
     @State private var showingDetail = false
     
+    @State private var searchText = ""
+    
     var offers : [Offer] = []
+    var filteredOfferList : [Offer] = []
     
     var body: some View {
         VStack {
             Button("Post your offer") {
                 showingDetail = true
             }
-            .sheet(isPresented: $showingDetail) {
-                OfferPost(isPresented: $showingDetail) //passes around binding?
-            }
+//            .sheet(isPresented: $showingDetail) {
+//                OfferPost(isPresented: $showingDetail) //passes around binding?
+//            }
             
-                List {
-                    ForEach(offerViewModel.offerList) { offer in
+                    ScrollView {
+                    ForEach(offerViewModel.filterOffers(searchText: searchText)) { offer in //check out map instead
                     OfferRow(offer: offer) //passing into
                     }
                     HStack {
@@ -28,20 +31,86 @@ struct OfferFeed: View {
                     }
                 }
                 .navigationTitle("Offers") //using a modifier from NavigationView
+                .searchable(text: $searchText, prompt: "Search")
+        
+            
         }
             .onAppear {
             offerViewModel.getOffers()
             }
+            .sheet(isPresented: $showingDetail) {
+                OfferPost(isPresented: $showingDetail) //passes around binding?
+            }
     }
     
+//    func filterOffers() -> [Offer] {
+//        if searchText.isEmpty {
+//            return offerViewModel.offerList
+//        } else {
+//            ForEach(offerViewModel.offerList) { offer in
+//                if (offer.title.filter { $0.contains(searchText) }) ||
+//                    (offer.description.filter { $0.contains(searchText) }) {
+//                    filteredOfferList.append(contentsOf: offer)
+//                }
+//            }
+//            return filteredOfferList
+//        }
+//    }
 }
 
 
 
+struct OfferView_Previews: PreviewProvider {
+    static var previews: some View {
+        OfferFeed()
+    }
+}
+
+
+//orig text before trying to implement search bar
+
+//import SwiftUI
+//
+//struct OfferFeed: View {
+//    @ObservedObject var offerViewModel = OfferViewModel()
+//
+//    @State private var showingDetail = false
+//
+//    var offers : [Offer] = []
+//
+//    var body: some View {
+//        VStack {
+//            Button("Post your offer") {
+//                showingDetail = true
+//            }
+//            .sheet(isPresented: $showingDetail) {
+//                OfferPost(isPresented: $showingDetail) //passes around binding?
+//            }
+//
+//                List {
+//                    ForEach(offerViewModel.offerList) { offer in
+//                    OfferRow(offer: offer) //passing into
+//                    }
+//                    HStack {
+//                        Spacer()
+//                        Text("\(offerViewModel.offerList.count) Offers")
+//                            .foregroundColor(.secondary)
+//                        Spacer()
+//                    }
+//                }
+//                .navigationTitle("Offers") //using a modifier from NavigationView
+//        }
+//            .onAppear {
+//            offerViewModel.getOffers()
+//            }
+//    }
+//
+//}
+//
+//
+//
 //struct OfferView_Previews: PreviewProvider {
 //    static var previews: some View {
-//        OfferFeed(offers: offerTestData)
-//       OfferFeed(offers: offerViewModel.offerList) //was offerTestData
-//        //passed in test data as offers
+//        OfferFeed()
 //    }
 //}

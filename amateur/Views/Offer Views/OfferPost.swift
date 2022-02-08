@@ -21,7 +21,7 @@ struct OfferPost: View {
     var imageViewModel = ImageViewModel()
     
     var body: some View {
-        NavigationView {
+//        NavigationView {
             Form {
                 TextField("Title",
                           text: $title)
@@ -84,7 +84,7 @@ struct OfferPost: View {
 //                })
             }
             .navigationTitle("Post Your Offer")
-        }
+//        }
     }
 }
 

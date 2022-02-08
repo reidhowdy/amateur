@@ -33,7 +33,6 @@ struct SuccessBox: View {
                     Text(success.title)
                     Spacer()
                 }
-//                .padding()
             }
             .foregroundColor(Color.theme.Green2)
                 .font(.title)
