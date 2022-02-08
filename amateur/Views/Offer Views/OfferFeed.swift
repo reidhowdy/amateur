@@ -8,16 +8,16 @@ struct OfferFeed: View {
     @State private var searchText = ""
     
     var offers : [Offer] = []
-    var filteredOfferList : [Offer] = []
+//    var filteredOfferList : [Offer] = []
     
     var body: some View {
         VStack {
             Button("Post your offer") {
                 showingDetail = true
             }
-//            .sheet(isPresented: $showingDetail) {
-//                OfferPost(isPresented: $showingDetail) //passes around binding?
-//            }
+            .sheet(isPresented: $showingDetail) { //try to move this around?
+                OfferPost(isPresented: $showingDetail) //passes around binding?
+            }
             
                     ScrollView {
                     ForEach(offerViewModel.filterOffers(searchText: searchText)) { offer in //check out map instead
@@ -38,24 +38,7 @@ struct OfferFeed: View {
             .onAppear {
             offerViewModel.getOffers()
             }
-            .sheet(isPresented: $showingDetail) {
-                OfferPost(isPresented: $showingDetail) //passes around binding?
-            }
     }
-    
-//    func filterOffers() -> [Offer] {
-//        if searchText.isEmpty {
-//            return offerViewModel.offerList
-//        } else {
-//            ForEach(offerViewModel.offerList) { offer in
-//                if (offer.title.filter { $0.contains(searchText) }) ||
-//                    (offer.description.filter { $0.contains(searchText) }) {
-//                    filteredOfferList.append(contentsOf: offer)
-//                }
-//            }
-//            return filteredOfferList
-//        }
-//    }
 }
 
 

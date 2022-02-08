@@ -8,6 +8,7 @@ struct AskFeed: View {
     var asks : [Ask] = []
     
     @State private var showingSheet = false //is post an ask presented?
+    @State private var searchText = ""
     
     var body: some View {
         VStack {
@@ -19,7 +20,7 @@ struct AskFeed: View {
             }
             
             ScrollView {
-                    ForEach(askViewModel.askList) { ask in
+                    ForEach(askViewModel.filterAsks(searchText: searchText)) { ask in
                         AskRow(ask: ask) //passing into
                     }
                     
@@ -31,6 +32,7 @@ struct AskFeed: View {
                     }
                 }
                 .navigationTitle("Asks") //using a modifier from NavigationView
+                .searchable(text: $searchText, prompt: "Search")
         }
         .onAppear {
             askViewModel.getAsks()

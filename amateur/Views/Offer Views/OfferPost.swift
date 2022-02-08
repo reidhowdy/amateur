@@ -21,7 +21,6 @@ struct OfferPost: View {
     var imageViewModel = ImageViewModel()
     
     var body: some View {
-//        NavigationView {
             Form {
                 TextField("Title",
                           text: $title)
@@ -68,23 +67,8 @@ struct OfferPost: View {
                         .cornerRadius(8)
                         .background(Color.theme.Green2)
                 })
-
-//                Button("Post", action: {
-//                    offerViewModel.addOffer(title: title,
-//                                            typeOfOffer: typeOfOffer,
-//                                            estimatedTime: estimatedTime,
-//                                            numSessions: numSessions,
-//                                            datePosted: Date.now,
-//                                            materialsNeeded: materialsNeeded,
-//                                            description: description,
-//                                            locationPreferences: locationPreferences,
-//                                            onlineOnly: onlineOnly,
-//                                            username: userAuthInfo.user?.uid ?? "Didn't pass in the UID as expected",
-//                                            photo: url?.absoluteString ?? "")
-//                })
             }
             .navigationTitle("Post Your Offer")
-//        }
     }
 }
 

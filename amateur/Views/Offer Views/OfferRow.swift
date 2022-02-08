@@ -36,21 +36,6 @@ struct OfferRow: View {
             .frame(width: 400, height: 200)
             .background(Color.theme.Yellow1)
         }
-        
-        
-//        NavigationLink(destination: OfferDetail(offer: offer)) {
-//
-//            VStack(alignment: .leading) {
-//                HStack {
-//                    Image(systemName: "heart")
-//                        .foregroundColor(.yellow)
-//                    Text(offer.title)
-//                }
-//                Text(offer.description)
-//                    .font(.subheadline)
-//                    .foregroundColor(Color.gray)
-//            }
-//        }
     }
 }
 

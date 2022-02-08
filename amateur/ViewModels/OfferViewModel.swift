@@ -147,6 +147,4 @@ class OfferViewModel: ObservableObject {
         }
         return filteredOfferList
     }
-    
-    
 }

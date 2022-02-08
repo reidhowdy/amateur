@@ -109,4 +109,20 @@ class AskViewModel: ObservableObject {
                     }
             }
     }
+    
+    func filterAsks(searchText: String) -> [Ask] {
+        var filteredAskList : [Ask] = []
+        
+        if searchText.isEmpty {
+            return askList
+        } else {
+            for ask in askList {
+                if (ask.title.contains(searchText)) ||
+                    (ask.description.contains(searchText)) {
+                    filteredAskList.append(ask)
+                }
+            }
+        }
+        return filteredAskList
+    }
 }
