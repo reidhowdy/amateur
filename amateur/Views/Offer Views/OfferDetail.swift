@@ -31,10 +31,10 @@ struct OfferDetail: View {
     }
 }
 
-struct OfferDetailView_Previews: PreviewProvider {
-    static var previews: some View {
-        NavigationView {
-            OfferDetail(offer: offerTestData[0])
-        }
-    }
-}
+//struct OfferDetailView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        NavigationView {
+//            OfferDetail(offer: offerTestData[0])
+//        }
+//    }
+//}

@@ -38,13 +38,10 @@ struct OfferFeed: View {
 
 
 
-struct OfferView_Previews: PreviewProvider {
-    static var previews: some View {
-        OfferFeed(offers: offerTestData)
-//        OfferFeed(offers: offerViewModel.offerList) //was offerTestData
-        //passed in test data as offers
-    }
-}
-
-
-//I made this a subview - so now the loop is passing in one instance of Offer from my list of offers
+//struct OfferView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        OfferFeed(offers: offerTestData)
+////        OfferFeed(offers: offerViewModel.offerList) //was offerTestData
+//        //passed in test data as offers
+//    }
+//}

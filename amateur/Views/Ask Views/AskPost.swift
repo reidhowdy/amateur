@@ -1,11 +1,5 @@
 import SwiftUI
 
-//the general workflow:
-//create state variable for the piece of data
-
-//create a nav view
-    //embed a Form within it
-    //embed a TextField within that
 
 struct AskPost: View {
     @Binding var isPresented: Bool //for determining if this sheet should be presented

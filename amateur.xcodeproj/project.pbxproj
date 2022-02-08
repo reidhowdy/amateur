@@ -148,6 +148,7 @@
 		656AD20F27A5ACAE0063CE4C /* Misc. Views */ = {
 			isa = PBXGroup;
 			children = (
+				658870CB27AF749A00F63BB7 /* ImagePicker.swift */,
 				656AD21227A5AD270063CE4C /* LoginScreen.swift */,
 				656AD21027A5ACC70063CE4C /* HomePage.swift */,
 				656AD23627A9DCDA0063CE4C /* SignupScreen.swift */,
@@ -290,7 +291,6 @@
 				656AD21E27A715670063CE4C /* SuccessViewModel.swift */,
 				65633B4227AD76F100BFD710 /* LoginViewModel.swift */,
 				6521F30627B1BFF500AEBA6A /* ImageViewModel.swift */,
-				658870CB27AF749A00F63BB7 /* ImagePicker.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";

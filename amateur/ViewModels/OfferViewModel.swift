@@ -15,7 +15,8 @@ class OfferViewModel: ObservableObject {
                   description: String,
                   locationPreferences: String,
                   onlineOnly: Bool,
-                  username: String) {
+                  username: String,
+                  photo: String) {
         
         let db = Firestore.firestore()
         
@@ -31,6 +32,7 @@ class OfferViewModel: ObservableObject {
                 "description": description,
                 "locationPreferences": locationPreferences,
                 "username": username,
+                "photo": photo
             ]) { error in
                 if error == nil {
                     self.getOffers()
@@ -64,7 +66,8 @@ class OfferViewModel: ObservableObject {
                                 description: doc["description"]                 as? String ?? "None",
                                 locationPreferences: doc["locationPreferences"] as? String ?? "None",
                                 onlineOnly: doc["onlineOnly"]                   as? Bool ?? false,
-                                username: doc["username"]                       as? String ?? "None"
+                                username: doc["username"]                       as? String ?? "None",
+                                photo: doc["photo"]                             as? String ?? ""
                                 )
                         }
                     }
@@ -98,7 +101,8 @@ class OfferViewModel: ObservableObject {
                                         description: doc["description"]                 as? String ?? "None",
                                         locationPreferences: doc["locationPreferences"] as? String ?? "None",
                                         onlineOnly: doc["onlineOnly"]                   as? Bool ?? false,
-                                        username: doc["username"]                       as? String ?? "None")
+                                        username: doc["username"]                       as? String ?? "None",
+                                        photo: doc["photo"]                             as? String ?? "")
                                 }
                             }
                         }

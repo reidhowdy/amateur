@@ -1,9 +1,3 @@
-//when post is pressed,
-//I also want the user to be directed to the feed
-//or they can have an option:
-    //post another offer
-    //or go see their post in the feed
-
 import SwiftUI
 
 struct OfferPost: View {
@@ -22,6 +16,9 @@ struct OfferPost: View {
     @State var locationPreferences: String = ""
     @State var onlineOnly: Bool = true //this isn't posting
     @State var username: String = ""
+    
+    @State var photo: UIImage?
+    var imageViewModel = ImageViewModel()
     
     var body: some View {
         NavigationView {
@@ -45,18 +42,46 @@ struct OfferPost: View {
                 }
 //                TextField("Username",
 //                          text: $username)
-                Button("Post", action: {
-                    offerViewModel.addOffer(title: title,
-                                            typeOfOffer: typeOfOffer,
-                                            estimatedTime: estimatedTime,
-                                            numSessions: numSessions,
-                                            datePosted: Date.now,
-                                            materialsNeeded: materialsNeeded,
-                                            description: description,
-                                            locationPreferences: locationPreferences,
-                                            onlineOnly: onlineOnly,
-                                            username: userAuthInfo.user?.uid ?? "Didn't pass in the UID as expected")
+                
+                ImageUpload(uploadingImage: $photo)
+                
+                Button(action: {
+                    imageViewModel.uploadImage(image: photo) {
+                        url, err in
+                            offerViewModel.addOffer(title: title,
+                                                    typeOfOffer: typeOfOffer,
+                                                    estimatedTime: estimatedTime,
+                                                    numSessions: numSessions,
+                                                    datePosted: Date.now,
+                                                    materialsNeeded: materialsNeeded,
+                                                    description: description,
+                                                    locationPreferences: locationPreferences,
+                                                    onlineOnly: onlineOnly,
+                                                    username: userAuthInfo.user?.uid ?? "Didn't pass in the UID as expected",
+                                                    photo: url?.absoluteString ?? "")
+                            isPresented = false
+                       }
+                }, label: {
+                    Text("Post")
+                        .foregroundColor(Color.white)
+                        .frame(width: 200, height: 50)
+                        .cornerRadius(8)
+                        .background(Color.theme.Green2)
                 })
+
+//                Button("Post", action: {
+//                    offerViewModel.addOffer(title: title,
+//                                            typeOfOffer: typeOfOffer,
+//                                            estimatedTime: estimatedTime,
+//                                            numSessions: numSessions,
+//                                            datePosted: Date.now,
+//                                            materialsNeeded: materialsNeeded,
+//                                            description: description,
+//                                            locationPreferences: locationPreferences,
+//                                            onlineOnly: onlineOnly,
+//                                            username: userAuthInfo.user?.uid ?? "Didn't pass in the UID as expected",
+//                                            photo: url?.absoluteString ?? "")
+//                })
             }
             .navigationTitle("Post Your Offer")
         }
