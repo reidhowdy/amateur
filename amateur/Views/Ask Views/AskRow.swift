@@ -8,10 +8,18 @@ struct AskRow: View {
         NavigationLink(destination: AskDetail(ask: ask)) {
             
             HStack {
-                Image(systemName: "photo.fill")
-                    .resizable()
-                    .frame(width: 100, height: 75, alignment: .leading)
-                    .padding()
+                AsyncImage(
+                    url: URL(string:ask.photo),
+                    content: { image in
+                        image.resizable()
+                             .aspectRatio(contentMode: .fit)
+                             .frame(maxWidth: 100, maxHeight: 100)
+                    },
+                    placeholder: {
+                        ProgressView()
+                    }
+                )
+                
                 Spacer()
                 VStack() {
                     Text(ask.title)
