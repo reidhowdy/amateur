@@ -41,7 +41,7 @@ struct OfferFeed: View {
 //struct OfferView_Previews: PreviewProvider {
 //    static var previews: some View {
 //        OfferFeed(offers: offerTestData)
-////        OfferFeed(offers: offerViewModel.offerList) //was offerTestData
+//       OfferFeed(offers: offerViewModel.offerList) //was offerTestData
 //        //passed in test data as offers
 //    }
 //}
