@@ -97,6 +97,12 @@ struct AskDetail: View {
                     Spacer()
                     Button("Post a comment") {
                         askViewModel.addCommentToAsk(ask: ask, newComment: comment)
+                        askViewModel.getAsks()
+                    }
+                    
+                    //this will act weird if a comment is duplicated
+                    ForEach(ask.comments, id: \.self) { comment in
+                        Text(comment)
                     }
                 }
             }
