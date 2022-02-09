@@ -4,6 +4,8 @@ struct AskDetail: View {
     var ask: Ask //the var ask is empty, but it will be an instance of Ask when used
     @StateObject var askViewModel = AskViewModel()
     
+    @State var comment: String = ""
+    
     var body: some View {
         ScrollView {
             VStack {
@@ -90,12 +92,11 @@ struct AskDetail: View {
                 VStack {
                     Spacer()
                     Text("Comments")
-                    Text("Comment1")
-                    Text("Comment2")
+                    TextField("Comment", text: $comment)
                     
                     Spacer()
                     Button("Post a comment") {
-                        askViewModel.addCommentToAsk(ask: ask, newComment: "lalala")
+                        askViewModel.addCommentToAsk(ask: ask, newComment: comment)
                     }
                 }
             }

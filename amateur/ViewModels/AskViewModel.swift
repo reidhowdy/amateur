@@ -79,6 +79,7 @@ class AskViewModel: ObservableObject {
             }
         }
     }
+
     
     //Gets all documents in asks with matching UID & appends to askListForUser.
     func getAsks(for uid: String) {
@@ -132,12 +133,21 @@ class AskViewModel: ObservableObject {
     
     //Post a comment to a specific ask - this is called within AskDetail.
     func addCommentToAsk(ask: Ask, newComment: String) {
+        //when I pass in ask here, I am passing in the instance without my new comments.
+        //How do I force a reload whenever this is called?
         let db = Firestore.firestore()
         let currentComments: [String] = ask.comments
         var updatedComments: [String] = currentComments
         updatedComments.append(newComment)
         
         db.collection("asks").document(ask.id ?? "").setData(["comments": updatedComments], merge: true)
+            {error in
+                if error == nil {
+                    self.getAsks()
+                } else {
+                    print("Oops. There was an error.")
+                }
+            }
     }
 }
 
