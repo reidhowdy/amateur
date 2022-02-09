@@ -12,7 +12,7 @@ struct HomePage: View {
     
     
     var body: some View {
-        NavigationView {
+//        NavigationView {
             ZStack {
                 Color.theme.Blue3
                     .opacity(0.1)
@@ -102,7 +102,7 @@ struct HomePage: View {
                     }
                 }
             }
-        }
+//        }
         .onAppear {
             successViewModel.getSuccesses()
     }

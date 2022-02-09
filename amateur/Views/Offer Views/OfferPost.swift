@@ -2,8 +2,8 @@ import SwiftUI
 
 struct OfferPost: View {
     @Binding var isPresented: Bool
+    @ObservedObject var offerViewModel: OfferViewModel //this is now being passed in from OfferFeed
     
-    @ObservedObject var offerViewModel = OfferViewModel()
     @ObservedObject var userViewModel = UserViewModel()
     @EnvironmentObject var userAuthInfo : LoginViewModel
     

@@ -28,9 +28,11 @@ struct AskDetail: View {
     }
 }
 
-struct AskDetail_Previews: PreviewProvider {
-    static var previews: some View {
-        Text("hi")
-//        AskDetail(asks: asks)
-    }
-}
+//struct AskDetail_Previews: PreviewProvider {
+//    var askEx: Ask
+//    var ask: Ask
+//    
+//    static var previews: some View {
+//        AskDetail(ask: askEx)
+//    }
+//}

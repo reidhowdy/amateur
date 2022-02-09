@@ -41,6 +41,7 @@ struct OfferRow: View {
 
 
 //struct OfferRow_Previews: PreviewProvider {
+//   var offer: Offer
 //    static var previews: some View {
 //        OfferRow(offer: offer)
 //    }

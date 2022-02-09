@@ -37,3 +37,9 @@ struct OfferDetail: View {
 //        }
 //    }
 //}
+
+//struct Previews_OfferDetail_Previews: PreviewProvider {
+//    static var previews: some View {
+//        OfferDetail(offer: offer)
+//    }
+//}

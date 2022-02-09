@@ -2,8 +2,9 @@ import SwiftUI
 
 struct AskPost: View {
     @Binding var isPresented: Bool //for determining if this sheet should be presented
+    @ObservedObject var askViewModel: AskViewModel
     
-    @ObservedObject var askViewModel = AskViewModel()
+    
     @ObservedObject var userViewModel = UserViewModel()
     @EnvironmentObject var userAuthInfo : LoginViewModel
     

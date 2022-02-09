@@ -32,14 +32,6 @@ struct SuccessPost: View {
                         .cornerRadius(8)
                         .background(Color.theme.Green2)
                 })
-                
-                Button("Post", action: {
-                    successViewModel.addSuccess(id: "None yet", title: title, description: description, photo: "None")
-                })
-                
-                
-                
-                
             }
             .navigationTitle("Post Your Success")
         }

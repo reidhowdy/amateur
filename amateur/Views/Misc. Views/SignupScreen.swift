@@ -28,6 +28,7 @@ struct SignupScreen: View {
                 }
                 Spacer()
                 VStack {
+                    Text("Choose Profile Picture:")
                     ImageUpload(uploadingImage: $profilePicture) //pass in my binding (profilePicture)
                     
                     TextField("First Name", text: $firstName)
@@ -80,7 +81,7 @@ struct SignupScreen: View {
                 })
                 NavigationLink("Already have an account? Log in", destination: LoginScreen())
             }
-        .background(Color.yellow)
+            .background(Color.theme.Yellow3)
         
     }
 }

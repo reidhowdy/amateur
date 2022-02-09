@@ -3,7 +3,7 @@ import SwiftUI
 struct AskFeed: View {
     @State private var showingDetail = false
     
-    @ObservedObject var askViewModel = AskViewModel()
+    @StateObject var askViewModel = AskViewModel()
     
     var asks : [Ask] = []
     
@@ -16,7 +16,7 @@ struct AskFeed: View {
                 showingDetail = true
             }
             .sheet(isPresented: $showingDetail) {
-                AskPost(isPresented: $showingDetail) //passes around binding?
+                AskPost(isPresented: $showingDetail, askViewModel: askViewModel)
             }
             
             ScrollView {
