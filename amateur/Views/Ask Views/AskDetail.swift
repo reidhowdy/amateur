@@ -4,27 +4,128 @@ struct AskDetail: View {
     var ask: Ask //the var ask is empty, but it will be an instance of Ask when used
     
     var body: some View {
-        VStack {
-            Spacer()
-            HStack {
+        ScrollView {
+            VStack {
                 Text(ask.title)
-                    .font(.title)
-                    .multilineTextAlignment(.leading)
-                    .padding([.top, .leading, .bottom])
-                Spacer()
-                Text(ask.description)
+                    .frame(width: 400, height: 100)
+                    .background(Color.theme.Blue1)
+                    .font(.largeTitle)
+                    .foregroundColor(Color.theme.Yellow1)
+                    .cornerRadius(30)
+                
+                AsyncImage(
+                    url: URL(string:ask.photo),
+                    content: { image in
+                        image.resizable()
+                             .aspectRatio(contentMode: .fit)
+                             .frame(maxWidth: 300, maxHeight: 300)
+                             .cornerRadius(25)
+                    },
+                    placeholder: {
+                        ProgressView()
+                    }
+                )
+                
+                VStack {
+                    Spacer()
+                    Text(ask.description)
+                        .padding()
+                    Spacer()
+                    Text("Date Posted: Date Hereeeeeeeeeeee")
+                        .padding()
+                        .frame(width: 350, height: 50)
+                        .background(Color.theme.Brown1)
+                        .foregroundColor(Color.theme.Blue3)
+                    Spacer()
+                }
+                    .frame(width: 400, height: 200)
+                    .background(Color.theme.Blue1)
                     .font(.body)
-                    .multilineTextAlignment(.trailing)
-                    .padding(.all)
+                    .foregroundColor(Color.theme.Yellow1)
+                    .cornerRadius(30)
+                
+                
+                
+                
+                    VStack {
+                        HStack {
+                            Text("Offered by:")
+                                .frame(width: 150, height: 25, alignment: .leading)
+                                .background(.white)
+                            Text("I didnt collect this info oops")
+                                .frame(width: 225, height: 25)
+                                .background(Color.theme.Blue1)
+                                
+                        }
+                        
+                        HStack {
+                            Text("Materials Needed:")
+                                .frame(width: 150, height: 25, alignment: .leading)
+                                .background(.white)
+                            Text(ask.materialsNeeded)
+                                .frame(width: 225, height: 25)
+                                .background(Color.theme.Blue1)
+                        }
+                        
+                        HStack {
+                            Text("Estimated Time:")
+                                .frame(width: 150, height: 25, alignment: .leading)
+                                .background(.white)
+                            Text(String(ask.estimatedTime))
+                                .frame(width: 225, height: 25)
+                                .background(Color.theme.Blue1)
+                        }
+                        
+                        HStack {
+                            Text("Location:")
+                                .frame(width: 150, height: 25, alignment: .leading)
+                                .background(.white)
+                            Text(ask.locationPreferences)
+                                .frame(width: 225, height: 25)
+                                .background(Color.theme.Blue1)
+                        }
+                    }
+                Spacer()
+                VStack {
+                    Spacer()
+                    Text("Comments")
+                    Text("Comment1")
+                    Text("Comment2")
+                    
+                    Spacer()
+                    Button("Post a comment") {
+                        print("Posted a comment")
+                    }
+                }
+            
+            
             }
-            Spacer()
-            Text("figure out how to format the date here")
-            Text("Est time to complete: \(ask.estimatedTime) hours")
-                .multilineTextAlignment(.leading)
-            Spacer()
         }
-        .navigationTitle("Ask Details")
-        .edgesIgnoringSafeArea(.all) //can change .all to things like .bottom, etc.
+//        .navigationTitle("Ask Details")
+        //.edgesIgnoringSafeArea(.all) //can change .all to things like .bottom, etc.
+        
+        
+        
+//        VStack {
+//            Spacer()
+//            HStack {
+//                Text(ask.title)
+//                    .font(.title)
+//                    .multilineTextAlignment(.leading)
+//                    .padding([.top, .leading, .bottom])
+//                Spacer()
+//                Text(ask.description)
+//                    .font(.body)
+//                    .multilineTextAlignment(.trailing)
+//                    .padding(.all)
+//            }
+//            Spacer()
+//            Text("figure out how to format the date here")
+//            Text("Est time to complete: \(ask.estimatedTime) hours")
+//                .multilineTextAlignment(.leading)
+//            Spacer()
+//        }
+        
     }
 }
 
