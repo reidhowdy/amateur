@@ -15,7 +15,8 @@ class AskViewModel: ObservableObject {
                 locationPreferences: String,
                 onlineOnly: Bool,
                 username: String,
-                photo: String
+                photo: String,
+                comments: [String]
     ) {
         
         let db = Firestore.firestore()
@@ -32,7 +33,8 @@ class AskViewModel: ObservableObject {
                 "locationPreferences": locationPreferences,
                 "onlineOnly": onlineOnly,
                 "username": username,
-                "photo": photo
+                "photo": photo,
+                "comments": comments
             ]) {error in
                 if error == nil {
                     self.getAsks()
@@ -65,7 +67,8 @@ class AskViewModel: ObservableObject {
                                     locationPreferences: doc["locationPreferences"] as? String ?? "None",
                                     onlineOnly: doc["onlineOnly"] as? Bool ?? false,
                                     username: doc["username"] as? String ?? "None",
-                                    photo: doc["photo"] as? String ?? "None"
+                                    photo: doc["photo"] as? String ?? "None",
+                                    comments: doc["comments"] as? [String] ?? []
                                 )
                             }
                         }
@@ -99,7 +102,8 @@ class AskViewModel: ObservableObject {
                                         locationPreferences: doc["locationPreferences"] as? String ?? "None",
                                         onlineOnly: doc["onlineOnly"] as? Bool ?? false,
                                         username: doc["username"] as? String ?? "None",
-                                        photo: doc["photo"] as? String ?? "None")
+                                        photo: doc["photo"] as? String ?? "None",
+                                        comments: doc["comments"] as? [String] ?? [] )
                                 }
                             }
                         }
@@ -125,4 +129,32 @@ class AskViewModel: ObservableObject {
         }
         return filteredAskList
     }
+    
+    func postCommentToAsk(ask: Ask, newComment: String) {
+        let db = Firestore.firestore()
+        var currentComments: [String] = ask.comments
+        var updatedComments: [String] = currentComments
+        updatedComments.append(newComment)
+        
+        db.collection("asks").document(ask.id ?? "").setData([
+            "comments": updatedComments
+        ])
+        
+//        ref.child("asks").child(ask.id ?? "").setValue(["comments": updatedComments])
+        //then post this patch to the db
+        
+        
+        //I am in AskDetail, where I already have the ask info where I wanna post the comment
+        //so I want to pass in both ask.comments and the newComment
+        
+        //then I want to append newComment to ask.comments
+        //and then send a patch request to
+        
+        //get data
+        //then append the new comment
+        //then post again (?)
+        
+        
+    }
+    
 }

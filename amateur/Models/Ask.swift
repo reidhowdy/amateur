@@ -13,4 +13,5 @@ struct Ask: Identifiable, Codable {
     var onlineOnly: Bool
     var username: String
     var photo: String
+    var comments: [String]
 }
