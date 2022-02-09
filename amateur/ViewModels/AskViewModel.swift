@@ -130,31 +130,25 @@ class AskViewModel: ObservableObject {
         return filteredAskList
     }
     
-    func postCommentToAsk(ask: Ask, newComment: String) {
+    //Post a comment to a specific ask - this is called within AskDetail.
+    func addCommentToAsk(ask: Ask, newComment: String) {
         let db = Firestore.firestore()
-        var currentComments: [String] = ask.comments
+        let currentComments: [String] = ask.comments
         var updatedComments: [String] = currentComments
         updatedComments.append(newComment)
         
-        db.collection("asks").document(ask.id ?? "").setData([
-            "comments": updatedComments
-        ])
-        
-//        ref.child("asks").child(ask.id ?? "").setValue(["comments": updatedComments])
-        //then post this patch to the db
-        
-        
-        //I am in AskDetail, where I already have the ask info where I wanna post the comment
-        //so I want to pass in both ask.comments and the newComment
-        
-        //then I want to append newComment to ask.comments
-        //and then send a patch request to
-        
-        //get data
-        //then append the new comment
-        //then post again (?)
-        
-        
+        db.collection("asks").document(ask.id ?? "").setData(["comments": updatedComments], merge: true)
     }
-    
 }
+
+
+//"title": ask.title,
+//"typeOfAsk": ask.typeOfAsk,
+//"estimatedTime": ask.estimatedTime,
+//"datePosted": ask.datePosted,
+//"description": ask.description,
+//"materialsNeeded": ask.materialsNeeded,
+//"locationPreferences": ask.locationPreferences,
+//"onlineOnly": ask.onlineOnly,
+//"username": ask.username,
+//"photo": ask.photo,

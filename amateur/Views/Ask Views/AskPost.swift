@@ -53,7 +53,8 @@ struct AskPost: View {
                                                     locationPreferences: locationPreferences,
                                                     onlineOnly: onlineOnly,
                                                     username: userAuthInfo.user?.uid ?? "Didn't pass in the UID as expected",
-                                                    photo: url?.absoluteString ?? "")
+                                                    photo: url?.absoluteString ?? "",
+                                                    comments: [])
                                 isPresented = false
                            }
                     }, label: {

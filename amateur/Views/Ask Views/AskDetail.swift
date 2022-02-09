@@ -2,6 +2,7 @@ import SwiftUI
 
 struct AskDetail: View {
     var ask: Ask //the var ask is empty, but it will be an instance of Ask when used
+    @StateObject var askViewModel = AskViewModel()
     
     var body: some View {
         ScrollView {
@@ -94,7 +95,7 @@ struct AskDetail: View {
                     
                     Spacer()
                     Button("Post a comment") {
-                        print("Posted a comment")
+                        askViewModel.addCommentToAsk(ask: ask, newComment: "lalala")
                     }
                 }
             }
