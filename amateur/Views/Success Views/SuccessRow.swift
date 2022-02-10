@@ -1,15 +1,15 @@
 import SwiftUI
 
-struct AskRow: View {
-    var ask: Ask
-    @ObservedObject var askViewModel: AskViewModel
+struct SuccessRow: View {
+    var success: Success
+    @ObservedObject var successViewModel = SuccessViewModel()
     
     var body: some View {
-        NavigationLink(destination: AskDetail(ask: ask, askViewModel: askViewModel)) {
+        NavigationLink(destination: SuccessDetail(success: success)) {
             
             HStack {
                 AsyncImage(
-                    url: URL(string:ask.photo),
+                    url: URL(string:success.photo),
                     content: { image in
                         image.resizable()
                              .aspectRatio(contentMode: .fit)
@@ -22,9 +22,9 @@ struct AskRow: View {
                 
                 Spacer()
                 VStack() {
-                    Text(ask.title)
+                    Text(success.title)
                         .padding([.top, .leading, .trailing])
-                    Text(ask.description)
+                    Text(success.description)
                         .font(.subheadline)
                         .foregroundColor(Color.gray)
                         .padding([.leading, .bottom, .trailing])
@@ -37,8 +37,9 @@ struct AskRow: View {
         }
     }
 }
-//struct AskRow_Previews: PreviewProvider {
+
+//struct SuccessRow_Previews: PreviewProvider {
 //    static var previews: some View {
-//        AskRow()
+//        SuccessRow()
 //    }
 //}

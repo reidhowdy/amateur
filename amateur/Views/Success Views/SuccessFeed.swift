@@ -1,11 +1,11 @@
 import SwiftUI
 
-struct AskFeed: View {
+struct SuccessFeed: View {
     @State private var showingDetail = false
     
-    @StateObject var askViewModel = AskViewModel()
+    @StateObject var successViewModel = SuccessViewModel()
     
-    //var asks : [Ask] = []
+    var successes : [Success] = []
     
     @State private var showingSheet = false //is post an ask presented?
     @State private var searchText = ""
@@ -16,36 +16,32 @@ struct AskFeed: View {
                 showingDetail = true
             }
             .sheet(isPresented: $showingDetail) {
-                AskPost(isPresented: $showingDetail, askViewModel: askViewModel)
+                SuccessPost(isPresented: $showingDetail, successViewModel: successViewModel)
             }
             
             ScrollView {
-                    ForEach(askViewModel.filterAsks(searchText: searchText)) { ask in
-                        AskRow(ask: ask, askViewModel: askViewModel) //passing into
+                ForEach(successViewModel.successList) { success in
+                        SuccessRow(success: success) //passing into
                     }
                     
                     HStack {
                         Spacer()
-                        Text("\(askViewModel.askList.count) Asks")
+                        Text("\(successViewModel.successList.count) Successes")
                             .foregroundColor(.secondary)
                         Spacer()
                     }
                 }
-                .navigationTitle("Asks") //using a modifier from NavigationView
+                .navigationTitle("Successes") //using a modifier from NavigationView
                 .searchable(text: $searchText, prompt: "Search")
         }
         .onAppear {
-            askViewModel.getAsks()
+            successViewModel.getSuccesses()
         }
-        
     }
 }
 
-struct AskFeed_Previews: PreviewProvider {
+struct SuccessFeed_Previews: PreviewProvider {
     static var previews: some View {
-        AskFeed()
+        SuccessFeed()
     }
 }
-
-//NavigationLink("Post an Ask",
-//destination: AskPost())

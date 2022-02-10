@@ -10,14 +10,14 @@ struct SuccessPostBox: View {
                 .background(Color.theme.Yellow2)
                 .cornerRadius(30)
             
-            NavigationLink(destination: SuccessPost()) {
+            NavigationLink(destination: SuccessFeed()) {
                 VStack {
                     Spacer()
                     Image(systemName: "plus.app.fill")
                         .resizable()
                         .frame(width: 50, height: 50)
                     Spacer()
-                    Text("Post your success story")
+                    Text("See more & post your own")
                     Spacer()
                 }
                 .padding()

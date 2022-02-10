@@ -2,7 +2,7 @@ import SwiftUI
 
 struct AskDetail: View {
     var ask: Ask //the var ask is empty, but it will be an instance of Ask when used
-    @StateObject var askViewModel = AskViewModel()
+    @ObservedObject var askViewModel: AskViewModel
     
     @State var comment: String = ""
     

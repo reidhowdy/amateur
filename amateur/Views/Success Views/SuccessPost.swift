@@ -1,7 +1,9 @@
 import SwiftUI
 
 struct SuccessPost: View {
-    @ObservedObject var successViewModel = SuccessViewModel()
+    
+    @Binding var isPresented: Bool
+    @ObservedObject var successViewModel: SuccessViewModel
     var imageViewModel = ImageViewModel()
     
     @State var title: String = ""
@@ -38,8 +40,8 @@ struct SuccessPost: View {
     }
 }
 
-struct SuccessPost_Previews: PreviewProvider {
-    static var previews: some View {
-        SuccessPost()
-    }
-}
+//struct SuccessPost_Previews: PreviewProvider {
+//    static var previews: some View {
+//        SuccessPost()
+//    }
+//}

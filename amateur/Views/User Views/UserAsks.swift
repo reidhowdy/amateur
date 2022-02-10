@@ -5,13 +5,13 @@ struct UserAsks: View {
     @EnvironmentObject var userAuthInfo : LoginViewModel
     @StateObject var userViewModel = UserViewModel()
     
-    var asks : [Ask] = []
+    //var asks : [Ask] = []
     
     var body: some View {
         VStack {
                 List {
                     ForEach(askViewModel.askListForUser) { ask in
-                        AskRow(ask: ask) //passing into
+                        AskRow(ask: ask, askViewModel: askViewModel) //passing into
                     }
                     HStack {
                         Spacer()
