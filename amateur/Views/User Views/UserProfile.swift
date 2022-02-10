@@ -68,6 +68,13 @@ struct UserProfile: View {
                         .foregroundColor(Color.theme.Yellow1)
                         .cornerRadius(75)
                     Spacer()
+                    NavigationLink("My Saved Items", destination: UserSaved())
+                        .frame(width: 100, height: 50)
+                        .background(Color.theme.Green2)
+                        .padding()
+                        .foregroundColor(Color.theme.Yellow1)
+                        .cornerRadius(75)
+                    Spacer()
                 }
                 
 //                Spacer()

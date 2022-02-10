@@ -3,6 +3,7 @@ import SwiftUI
 struct AskDetail: View {
     var ask: Ask //the var ask is empty, but it will be an instance of Ask when used
     @ObservedObject var askViewModel: AskViewModel
+    @EnvironmentObject var userAuthInfo : LoginViewModel
     
     @State var comment: String = ""
     
@@ -89,6 +90,12 @@ struct AskDetail: View {
                         }
                     }
                 Spacer()
+                //userAuthInfo.user?.uid
+                
+                Button("Save for later") {
+                    askViewModel.addSavedToAsk(ask: ask, currentUserId: userAuthInfo.user?.uid ?? "")
+                }
+                
                 VStack {
                     Spacer()
                     Text("Comments")

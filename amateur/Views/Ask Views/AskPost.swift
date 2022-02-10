@@ -4,7 +4,6 @@ struct AskPost: View {
     @Binding var isPresented: Bool //for determining if this sheet should be presented
     @ObservedObject var askViewModel: AskViewModel
     
-    
     @ObservedObject var userViewModel = UserViewModel()
     @EnvironmentObject var userAuthInfo : LoginViewModel
     
@@ -54,7 +53,8 @@ struct AskPost: View {
                                                     onlineOnly: onlineOnly,
                                                     username: userAuthInfo.user?.uid ?? "Didn't pass in the UID as expected",
                                                     photo: url?.absoluteString ?? "",
-                                                    comments: [])
+                                                    comments: [], //this and saved are empty
+                                                    saved: []) //because when the ask is made they don't contain anything
                                 isPresented = false
                            }
                     }, label: {

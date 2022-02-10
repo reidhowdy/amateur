@@ -5,8 +5,6 @@ struct UserAsks: View {
     @EnvironmentObject var userAuthInfo : LoginViewModel
     @StateObject var userViewModel = UserViewModel()
     
-    //var asks : [Ask] = []
-    
     var body: some View {
         VStack {
                 List {
@@ -21,10 +19,6 @@ struct UserAsks: View {
                     }
                 }
                 .navigationTitle("My Asks") 
-            Button("Testing") {
-                askViewModel.getAsks(for: userAuthInfo.user?.uid ?? "None")
-                print(askViewModel.askListForUser)
-            }
         }
         .onAppear {
             askViewModel.getAsks(for: userAuthInfo.user?.uid ?? "None")
