@@ -50,47 +50,44 @@ struct AskDetail: View {
                     .foregroundColor(Color.theme.Yellow1)
                     .cornerRadius(30)
                 
-                
-                
-                
-                    VStack {
-                        HStack {
-                            Text("Offered by:")
-                                .frame(width: 150, height: 25, alignment: .leading)
-                                .background(.white)
-                            Text("I didnt collect this info oops")
-                                .frame(width: 225, height: 25)
-                                .background(Color.theme.Blue1)
-                                
-                        }
-                        
-                        HStack {
-                            Text("Materials Needed:")
-                                .frame(width: 150, height: 25, alignment: .leading)
-                                .background(.white)
-                            Text(ask.materialsNeeded)
-                                .frame(width: 225, height: 25)
-                                .background(Color.theme.Blue1)
-                        }
-                        
-                        HStack {
-                            Text("Estimated Time:")
-                                .frame(width: 150, height: 25, alignment: .leading)
-                                .background(.white)
-                            Text(String(ask.estimatedTime))
-                                .frame(width: 225, height: 25)
-                                .background(Color.theme.Blue1)
-                        }
-                        
-                        HStack {
-                            Text("Location:")
-                                .frame(width: 150, height: 25, alignment: .leading)
-                                .background(.white)
-                            Text(ask.locationPreferences)
-                                .frame(width: 225, height: 25)
-                                .background(Color.theme.Blue1)
-                        }
+                VStack {
+                    HStack {
+                        Text("Offered by:")
+                            .frame(width: 150, height: 25, alignment: .leading)
+                            .background(.white)
+                        Text("I didnt collect this info oops")
+                            .frame(width: 225, height: 25)
+                            .background(Color.theme.Blue1)
+                            
                     }
+                    
+                    HStack {
+                        Text("Materials Needed:")
+                            .frame(width: 150, height: 25, alignment: .leading)
+                            .background(.white)
+                        Text(ask.materialsNeeded)
+                            .frame(width: 225, height: 25)
+                            .background(Color.theme.Blue1)
+                    }
+                    
+                    HStack {
+                        Text("Estimated Time:")
+                            .frame(width: 150, height: 25, alignment: .leading)
+                            .background(.white)
+                        Text(String(ask.estimatedTime))
+                            .frame(width: 225, height: 25)
+                            .background(Color.theme.Blue1)
+                    }
+                    
+                    HStack {
+                        Text("Location:")
+                            .frame(width: 150, height: 25, alignment: .leading)
+                            .background(.white)
+                        Text(ask.locationPreferences)
+                            .frame(width: 225, height: 25)
+                            .background(Color.theme.Blue1)
+                    }
+                }
                 Spacer()
                 VStack {
                     Spacer()
@@ -102,7 +99,6 @@ struct AskDetail: View {
                         askViewModel.addCommentToAsk(ask: ask, newComment: comment)
                         askViewModel.getAsks()
                     }
-                    
                     //this will act weird if a comment is duplicated
                     ForEach(ask.comments, id: \.self) { comment in
                         Text(comment)
@@ -112,8 +108,17 @@ struct AskDetail: View {
         }
         .toolbar {
             Button {
-                askViewModel.addSavedToAsk(ask: ask, currentUserId: userAuthInfo.user?.uid ?? "")
-                isSaved = ask.saved.contains(userAuthInfo.user?.uid ?? "")
+                if isSaved {
+                    askViewModel.removeSavedToAsk(ask: ask, currentUserId: userAuthInfo.user?.uid ?? "")
+                    isSaved = false
+//                    isSaved = ask.saved.contains(userAuthInfo.user?.uid ?? "")
+                } else {
+                    askViewModel.addSavedToAsk(ask: ask, currentUserId: userAuthInfo.user?.uid ?? "")
+                    isSaved = true
+//                    isSaved = ask.saved.contains(userAuthInfo.user?.uid ?? "")
+                }
+                
+                
             } label: {
                 if isSaved {
                     Label("Saved", systemImage: "star.fill")

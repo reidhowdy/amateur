@@ -156,13 +156,33 @@ class AskViewModel: ObservableObject {
             }
     }
     
-    //Add current user's UID to list of users in 'saved', which is a list of strings
+    //Add current user's UID to list of users in ask.saved, which is a list of strings
     func addSavedToAsk(ask: Ask, currentUserId: String) {
         let db = Firestore.firestore()
         let currentSaved: [String] = ask.saved
         
         var updatedSaved: [String] = currentSaved
-        updatedSaved.append(String(currentUserId)) //append current ID to list
+    
+        updatedSaved.append(String(currentUserId)) //append current ID to list ..should i check to see if it's aready in it?
+        
+        db.collection("asks").document(ask.id ?? "").setData(["saved": updatedSaved], merge: true)
+            {error in
+                if error == nil {
+                    self.getAsks()
+                } else {
+                    print("Oops. There was an error.")
+                }
+            }
+    }
+    
+    //Removes the current user's UID from the list of users in ask.saved, which is a list of strings of other UIDs
+    func removeSavedToAsk(ask: Ask, currentUserId: String) {
+        let db = Firestore.firestore()
+        let currentSaved: [String] = ask.saved
+        
+        var updatedSaved: [String] = currentSaved
+        
+        updatedSaved = updatedSaved.filter { $0 != currentUserId } //sets updatedSaved to a list with the currentUserId filtered out
         
         db.collection("asks").document(ask.id ?? "").setData(["saved": updatedSaved], merge: true)
             {error in
