@@ -6,16 +6,32 @@ struct UserSaved: View {
     @StateObject var userViewModel = UserViewModel()
     
     var body: some View {
-        VStack {
+        TabView {
+            
             ScrollView {
                 ForEach(askViewModel.askListUserSaved) { ask in
                     AskRow(ask:ask, askViewModel: askViewModel)
                 }
             }
+            .tabItem {
+                Label("Asks", systemImage: "questionmark.app")
+            }
+            .onAppear {
+                askViewModel.getUsersSavedAsks(currentUserId: userAuthInfo.user?.uid ?? "")
+            }
+            
+            Text("hi")
+                .tabItem {
+                    Label("Offers", systemImage: "person")
+                }
+            
+            
+            
+            
+            
         }
-        .onAppear {
-            askViewModel.getUsersSavedAsks(currentUserId: userAuthInfo.user?.uid ?? "")
-        }
+        
+        
     }
 }
 
