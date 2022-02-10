@@ -44,6 +44,7 @@
 		657BFF5327B434750083AD2B /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = 657BFF5227B434750083AD2B /* FirebaseDatabase */; };
 		657BFF5527B4694D0083AD2B /* SuccessFeed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 657BFF5427B4694D0083AD2B /* SuccessFeed.swift */; };
 		657BFF5727B469B80083AD2B /* SuccessRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 657BFF5627B469B80083AD2B /* SuccessRow.swift */; };
+		657BFF5B27B5667E0083AD2B /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 657BFF5A27B5667D0083AD2B /* UIImage.swift */; };
 		658870CC27AF749A00F63BB7 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 658870CB27AF749A00F63BB7 /* ImagePicker.swift */; };
 		658870D027AF909E00F63BB7 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 658870CF27AF909E00F63BB7 /* FirebaseStorage */; };
 		658870D227B055DD00F63BB7 /* ImageUpload.swift in Sources */ = {isa = PBXBuildFile; fileRef = 658870D127B055DC00F63BB7 /* ImageUpload.swift */; };
@@ -100,6 +101,7 @@
 		657BFF5027B413E20083AD2B /* TestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
 		657BFF5427B4694D0083AD2B /* SuccessFeed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuccessFeed.swift; sourceTree = "<group>"; };
 		657BFF5627B469B80083AD2B /* SuccessRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuccessRow.swift; sourceTree = "<group>"; };
+		657BFF5A27B5667D0083AD2B /* UIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
 		658870CB27AF749A00F63BB7 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		658870D127B055DC00F63BB7 /* ImageUpload.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageUpload.swift; sourceTree = "<group>"; };
 		658870D427B0CC8A00F63BB7 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
@@ -212,6 +214,7 @@
 			isa = PBXGroup;
 			children = (
 				658870D427B0CC8A00F63BB7 /* Color.swift */,
+				657BFF5A27B5667D0083AD2B /* UIImage.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -410,6 +413,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				656AD22927A78EB70063CE4C /* AskRow.swift in Sources */,
+				657BFF5B27B5667E0083AD2B /* UIImage.swift in Sources */,
 				657BFF5127B413E20083AD2B /* TestView.swift in Sources */,
 				656AD21327A5AD270063CE4C /* LoginScreen.swift in Sources */,
 				657BFF5727B469B80083AD2B /* SuccessRow.swift in Sources */,
