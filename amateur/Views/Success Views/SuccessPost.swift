@@ -12,7 +12,7 @@ struct SuccessPost: View {
     @State var photo: UIImage?
     
     var body: some View {
-        NavigationView {
+//        NavigationView {
             Form {
                 TextField("Title",
                           text: $title)
@@ -25,7 +25,7 @@ struct SuccessPost: View {
                     imageViewModel.uploadImage(image: photo) {
                         url, err in
                         successViewModel.addSuccess(id: "None yet", title: title, description: description, photo: url?.absoluteString ?? "")
-                           // isPresented = false
+                           isPresented = false
                        }
                 }, label: {
                     Text("Post")
@@ -36,7 +36,7 @@ struct SuccessPost: View {
                 })
             }
             .navigationTitle("Post Your Success")
-        }
+//        }
     }
 }
 
