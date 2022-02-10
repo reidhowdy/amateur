@@ -32,6 +32,7 @@ struct UserProfile: View {
                     },
                     placeholder: {
                         ProgressView()
+                            .frame(maxWidth: 100, maxHeight: 100)
                     }
                 )
                 

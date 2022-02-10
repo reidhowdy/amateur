@@ -1,9 +1,6 @@
 import Foundation
 import SwiftUI
 
-//need a delegate and a coordinator
-//first, we will make the coord.
-
 struct imagePicker: UIViewControllerRepresentable {
     @Binding var image: UIImage? //we need this in order to communicate with the coordinator and with our other views
     @Binding var showImagePicker: Bool //var for determining when we should close/open imagePicker

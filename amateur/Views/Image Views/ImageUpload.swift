@@ -1,5 +1,3 @@
-//split out into viewModel
-
 import SwiftUI
 import FirebaseStorage
 
@@ -16,9 +14,6 @@ struct ImageUpload: View {
     var body: some View {
         
         VStack {
-            
-            
-            
             HStack {
                 //if/else displays the uploadingImage
                 if uploadingImage != nil {

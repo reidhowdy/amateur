@@ -160,11 +160,9 @@
 		656AD20F27A5ACAE0063CE4C /* Misc. Views */ = {
 			isa = PBXGroup;
 			children = (
-				658870CB27AF749A00F63BB7 /* ImagePicker.swift */,
 				656AD21227A5AD270063CE4C /* LoginScreen.swift */,
 				656AD21027A5ACC70063CE4C /* HomePage.swift */,
 				656AD23627A9DCDA0063CE4C /* SignupScreen.swift */,
-				657BFF4C27B32CE20083AD2B /* DetailView.swift */,
 				657BFF4E27B32CF20083AD2B /* Comments.swift */,
 			);
 			path = "Misc. Views";
@@ -199,6 +197,15 @@
 				65633B3C27AA387A00BFD710 /* UserOffers.swift */,
 			);
 			path = "User Views";
+			sourceTree = "<group>";
+		};
+		657BFF5927B565F20083AD2B /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				658870CB27AF749A00F63BB7 /* ImagePicker.swift */,
+				657BFF4C27B32CE20083AD2B /* DetailView.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 		658870D327B0CC7900F63BB7 /* Extensions */ = {
@@ -277,6 +284,7 @@
 		65B16D1527A23BE3002FCA7C /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				657BFF5927B565F20083AD2B /* Helpers */,
 				65B16D0927A2396E002FCA7C /* ContentView.swift */,
 				6521F30A27B1D73600AEBA6A /* Image Views */,
 				656AD22D27A9B2AF0063CE4C /* User Views */,
