@@ -14,4 +14,5 @@ struct Ask: Identifiable, Codable {
     var username: String
     var photo: String
     var comments: [String]
+    var saved: [String]
 }

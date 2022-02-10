@@ -4,8 +4,9 @@ import Firebase
 class AskViewModel: ObservableObject {
     @Published var askList = [Ask]()
     @Published var askListForUser = [Ask]()
+    @Published var askListUserSaved = [Ask]()
     
-    //Adds a document to asks in the db.
+    //Adds a document to the asks collection in the db.
     func addAsk(title: String,
                 typeOfAsk: String,
                 estimatedTime: Float,
@@ -16,7 +17,8 @@ class AskViewModel: ObservableObject {
                 onlineOnly: Bool,
                 username: String,
                 photo: String,
-                comments: [String]
+                comments: [String],
+                saved: [String]
     ) {
         
         let db = Firestore.firestore()
@@ -34,7 +36,8 @@ class AskViewModel: ObservableObject {
                 "onlineOnly": onlineOnly,
                 "username": username,
                 "photo": photo,
-                "comments": comments
+                "comments": comments,
+                "saved": saved
             ]) {error in
                 if error == nil {
                     self.getAsks()
@@ -68,7 +71,8 @@ class AskViewModel: ObservableObject {
                                     onlineOnly: doc["onlineOnly"] as? Bool ?? false,
                                     username: doc["username"] as? String ?? "None",
                                     photo: doc["photo"] as? String ?? "None",
-                                    comments: doc["comments"] as? [String] ?? []
+                                    comments: doc["comments"] as? [String] ?? [],
+                                    saved: doc["saved"] as? [String] ?? []
                                 )
                             }
                         }
@@ -104,7 +108,9 @@ class AskViewModel: ObservableObject {
                                         onlineOnly: doc["onlineOnly"] as? Bool ?? false,
                                         username: doc["username"] as? String ?? "None",
                                         photo: doc["photo"] as? String ?? "None",
-                                        comments: doc["comments"] as? [String] ?? [] )
+                                        comments: doc["comments"] as? [String] ?? [],
+                                        saved: doc["saved"] as? [String] ?? []
+                                    )
                                 }
                             }
                         }
@@ -149,16 +155,60 @@ class AskViewModel: ObservableObject {
                 }
             }
     }
+    
+    //Add current user's UID to list of users in 'saved', which is a list of strings
+    func addSavedToAsk(ask: Ask, currentUserId: String) {
+        let db = Firestore.firestore()
+        let currentSaved: [String] = ask.saved
+        
+        var updatedSaved: [String] = currentSaved
+        updatedSaved.append(String(currentUserId)) //append current ID to list
+        
+        db.collection("asks").document(ask.id ?? "").setData(["saved": updatedSaved], merge: true)
+            {error in
+                if error == nil {
+                    self.getAsks()
+                } else {
+                    print("Oops. There was an error.")
+                }
+            }
+    }
+    
+    
+    //Get all of the user's saved asks and puts it in askListUserSaved
+    func getUsersSavedAsks(currentUserId: String) {
+        let db = Firestore.firestore()
+        
+        db.collection("asks").whereField("saved", arrayContains: currentUserId)
+            .getDocuments() {
+                snapshot, error in
+                    if error == nil { //inside the completion
+                        if let snapshot = snapshot {
+                            DispatchQueue.main.async {
+                                self.askListUserSaved = snapshot.documents.map { doc in
+                                    return Ask(
+                                        id: doc.documentID,
+                                        title: doc["title"] as? String ?? "None",
+                                        typeOfAsk: doc["typeOfOffer"] as? String ?? "None",
+                                        estimatedTime: doc["estimatedTime"] as? Float ?? 0.0,
+                                        datePosted: doc["datePosted"] as? Date ?? Date.now, //needs to be changed
+                                        description: doc["description"] as? String ?? "None",
+                                        materialsNeeded: doc["materialsNeeded"] as? String ?? "None",
+                                        locationPreferences: doc["locationPreferences"] as? String ?? "None",
+                                        onlineOnly: doc["onlineOnly"] as? Bool ?? false,
+                                        username: doc["username"] as? String ?? "None",
+                                        photo: doc["photo"] as? String ?? "None",
+                                        comments: doc["comments"] as? [String] ?? [],
+                                        saved: doc["saved"] as? [String] ?? []
+                                    )
+                                }
+                            }
+                        }
+                    }
+                    else {
+                        print("Oops. There was an error.")
+                    }
+            }
+    }
+    
 }
-
-
-//"title": ask.title,
-//"typeOfAsk": ask.typeOfAsk,
-//"estimatedTime": ask.estimatedTime,
-//"datePosted": ask.datePosted,
-//"description": ask.description,
-//"materialsNeeded": ask.materialsNeeded,
-//"locationPreferences": ask.locationPreferences,
-//"onlineOnly": ask.onlineOnly,
-//"username": ask.username,
-//"photo": ask.photo,
