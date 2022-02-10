@@ -14,7 +14,7 @@ struct UserSaved: View {
                 }
             }
             .tabItem {
-                Label("Asks", systemImage: "questionmark.app")
+                Label("Asks", systemImage: "person.fill.questionmark")
             }
             .onAppear {
                 askViewModel.getUsersSavedAsks(currentUserId: userAuthInfo.user?.uid ?? "")
@@ -22,7 +22,7 @@ struct UserSaved: View {
             
             Text("hi")
                 .tabItem {
-                    Label("Offers", systemImage: "person")
+                    Label("Offers", systemImage: "person.wave.2.fill")
                 }
             
             

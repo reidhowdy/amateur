@@ -7,6 +7,8 @@ struct AskDetail: View {
     
     @State var comment: String = ""
     
+    @State var isSaved: Bool = false
+    
     var body: some View {
         ScrollView {
             VStack {
@@ -90,12 +92,6 @@ struct AskDetail: View {
                         }
                     }
                 Spacer()
-                //userAuthInfo.user?.uid
-                
-                Button("Save for later") {
-                    askViewModel.addSavedToAsk(ask: ask, currentUserId: userAuthInfo.user?.uid ?? "")
-                }
-                
                 VStack {
                     Spacer()
                     Text("Comments")
@@ -113,6 +109,22 @@ struct AskDetail: View {
                     }
                 }
             }
+        }
+        .toolbar {
+            Button {
+                askViewModel.addSavedToAsk(ask: ask, currentUserId: userAuthInfo.user?.uid ?? "")
+                isSaved = ask.saved.contains(userAuthInfo.user?.uid ?? "")
+            } label: {
+                if isSaved {
+                    Label("Saved", systemImage: "star.fill")
+                } else {
+                    Label("Save", systemImage: "star")
+                }
+            }
+                .foregroundColor(Color.theme.Yellow3)
+        }
+        .onAppear {
+            isSaved = ask.saved.contains(userAuthInfo.user?.uid ?? "")
         }
     }
 }

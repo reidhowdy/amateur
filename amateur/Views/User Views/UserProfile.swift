@@ -76,9 +76,6 @@ struct UserProfile: View {
                         .cornerRadius(75)
                     Spacer()
                 }
-                
-//                Spacer()
-//                NavigationLink("Edit Profile", destination: UserEdit())
             }
             .navigationTitle("Profile")
             .onAppear {
