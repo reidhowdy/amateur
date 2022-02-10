@@ -26,6 +26,7 @@ struct AskDetail: View {
                              .aspectRatio(contentMode: .fit)
                              .frame(maxWidth: 300, maxHeight: 300)
                              .cornerRadius(25)
+                             .padding()
                     },
                     placeholder: {
                         ProgressView()
@@ -111,11 +112,9 @@ struct AskDetail: View {
                 if isSaved {
                     askViewModel.removeSavedToAsk(ask: ask, currentUserId: userAuthInfo.user?.uid ?? "")
                     isSaved = false
-//                    isSaved = ask.saved.contains(userAuthInfo.user?.uid ?? "")
                 } else {
                     askViewModel.addSavedToAsk(ask: ask, currentUserId: userAuthInfo.user?.uid ?? "")
                     isSaved = true
-//                    isSaved = ask.saved.contains(userAuthInfo.user?.uid ?? "")
                 }
                 
                 

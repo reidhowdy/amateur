@@ -13,21 +13,26 @@ struct AskRow: View {
                     content: { image in
                         image.resizable()
                              .aspectRatio(contentMode: .fit)
-                             .frame(maxWidth: 100, maxHeight: 100)
+                             .frame(maxWidth: 200, maxHeight: 200)
+                             .padding()
                     },
                     placeholder: {
                         ProgressView()
+                            .frame(maxWidth: 200, maxHeight: 200)
+                            .padding()
                     }
                 )
                 
                 Spacer()
-                VStack() {
+                VStack(alignment: .leading) {
                     Text(ask.title)
+                        .font(.title)
                         .padding([.top, .leading, .trailing])
+                        .foregroundColor(Color.theme.Blue3)
                     Text(ask.description)
                         .font(.subheadline)
-                        .foregroundColor(Color.gray)
-                        .padding([.leading, .bottom, .trailing])
+                        .foregroundColor(Color.theme.Blue2)
+                        .padding()
                 }
                 .frame(width: 200, height: 175, alignment: .leading)
                 .background(Color.theme.Yellow2)
