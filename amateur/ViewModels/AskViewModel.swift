@@ -195,7 +195,7 @@ class AskViewModel: ObservableObject {
     }
     
     
-    //Get all of the user's saved asks and puts it in askListUserSaved
+    //Gets all of the user's saved asks and puts them in askListUserSaved
     func getUsersSavedAsks(currentUserId: String) {
         let db = Firestore.firestore()
         

@@ -93,18 +93,32 @@ struct AskDetail: View {
                 VStack {
                     Spacer()
                     Text("Comments")
-                    TextField("Comment", text: $comment)
+//                    Form {
+                    
+//                    }
                     
                     Spacer()
-                    Button("Post a comment") {
-                        askViewModel.addCommentToAsk(ask: ask, newComment: comment)
-                        askViewModel.getAsks()
-                    }
+                    
                     //this will act weird if a comment is duplicated
                     ForEach(ask.comments, id: \.self) { comment in
                         Text(comment)
+                            .padding()
+//                            .alignment(.leading)
                     }
+                    
+                    TextField("Comment", text: $comment)
+                    Button("Post") {
+                        askViewModel.addCommentToAsk(ask: ask, newComment: comment)
+                        askViewModel.getAsks()
+                    }
+                        .frame(width: 50, height: 25)
+                        .cornerRadius(25)
+                        .foregroundColor(Color.theme.Brown1)
+                        .background(Color.theme.Brown3)
+                
+                    
                 }
+                .frame(width: 400, height: 200)
             }
         }
         .toolbar {
