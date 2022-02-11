@@ -2,11 +2,11 @@ import SwiftUI
 
 struct OfferRow: View {
     var offer: Offer
-    @ObservedObject var offerViewModel = OfferViewModel()
+    @ObservedObject var offerViewModel: OfferViewModel
     
     var body: some View {
         
-        NavigationLink(destination: OfferDetail(offer: offer)) {
+        NavigationLink(destination: OfferDetail(offer: offer, offerViewModel: offerViewModel)) {
             
             HStack {
                 AsyncImage(
@@ -15,6 +15,7 @@ struct OfferRow: View {
                         image.resizable()
                              .aspectRatio(contentMode: .fit)
                              .frame(maxWidth: 100, maxHeight: 100)
+                             .padding()
                     },
                     placeholder: {
                         ProgressView()
@@ -24,11 +25,13 @@ struct OfferRow: View {
                 Spacer()
                 VStack() {
                     Text(offer.title)
+                        .font(.title)
                         .padding([.top, .leading, .trailing])
+                        .foregroundColor(Color.theme.Blue3)
                     Text(offer.description)
                         .font(.subheadline)
-                        .foregroundColor(Color.gray)
-                        .padding([.leading, .bottom, .trailing])
+                        .foregroundColor(Color.theme.Blue2)
+                        .padding()
                 }
                 .frame(width: 200, height: 175, alignment: .leading)
                 .background(Color.theme.Yellow2)

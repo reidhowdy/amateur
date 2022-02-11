@@ -7,10 +7,8 @@ struct OfferFeed: View {
     
     @State private var searchText = ""
     
-    var offers : [Offer] = []
-//    var offer: Offer
-//    var filteredOfferList : [Offer] = []
-    
+    var offers : [Offer] = [] //i dont think  i ever use this
+
     var body: some View {
         VStack {
             Button("Post your offer") {
@@ -22,7 +20,7 @@ struct OfferFeed: View {
             
             ScrollView {
                 ForEach(offerViewModel.filterOffers(searchText: searchText)) { offer in //check out map instead
-                    OfferRow(offer: offer) //passing into
+                    OfferRow(offer: offer, offerViewModel: offerViewModel) //passing into
                 }
                 HStack {
                     Spacer()
@@ -33,8 +31,6 @@ struct OfferFeed: View {
             }
         .navigationTitle("Offers") //using a modifier from NavigationView
         .searchable(text: $searchText, prompt: "Search")
-        
-            
         }
             .onAppear {
             offerViewModel.getOffers()

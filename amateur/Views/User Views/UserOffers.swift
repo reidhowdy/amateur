@@ -11,7 +11,7 @@ struct UserOffers: View {
         VStack {
                 List {
                     ForEach(offerViewModel.offerListForUser) { offer in
-                        OfferRow(offer: offer) //passing into
+                        OfferRow(offer: offer, offerViewModel: offerViewModel) //passing into
                     }
                     HStack {
                         Spacer()

@@ -5,8 +5,6 @@ struct AskFeed: View {
     
     @StateObject var askViewModel = AskViewModel()
     
-    //var asks : [Ask] = []
-    
     @State private var showingSheet = false //is post an ask presented?
     @State private var searchText = ""
     

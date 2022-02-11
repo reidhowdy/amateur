@@ -5,9 +5,9 @@ struct AskDetail: View {
     @ObservedObject var askViewModel: AskViewModel
     @EnvironmentObject var userAuthInfo : LoginViewModel
     
-    @State var comment: String = ""
+    @State private var comment: String = ""
     
-    @State var isSaved: Bool = false
+    @State private var isSaved: Bool = false
     
     var body: some View {
         ScrollView {

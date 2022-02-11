@@ -1,6 +1,5 @@
 import Foundation
 import Firebase
-import SwiftUI
 
 class OfferViewModel: ObservableObject {
     @Published var offerList = [Offer]()
@@ -73,7 +72,7 @@ class OfferViewModel: ObservableObject {
                                 locationPreferences: doc["locationPreferences"] as? String ?? "None",
                                 onlineOnly: doc["onlineOnly"]                   as? Bool ?? false,
                                 username: doc["username"]                       as? String ?? "None",
-                                photo: doc["photo"]                             as? String ?? ""
+                                photo: doc["photo"]                             as? String ?? "",
                                 comments: doc["comments"]                       as? [String] ?? [],
                                 saved: doc["saved"]                             as? [String] ?? []
                                 )
@@ -110,7 +109,7 @@ class OfferViewModel: ObservableObject {
                                         locationPreferences: doc["locationPreferences"] as? String ?? "None",
                                         onlineOnly: doc["onlineOnly"]                   as? Bool ?? false,
                                         username: doc["username"]                       as? String ?? "None",
-                                        photo: doc["photo"]                             as? String ?? ""
+                                        photo: doc["photo"]                             as? String ?? "",
                                         comments: doc["comments"]                       as? [String] ?? [],
                                         saved: doc["saved"]                             as? [String] ?? []
                                     )
@@ -146,11 +145,11 @@ class OfferViewModel: ObservableObject {
         //when I pass in ask here, I am passing in the instance without my new comments.
         //How do I force a reload whenever this is called?
         let db = Firestore.firestore()
-        let currentComments: [String] = ask.comments
+        let currentComments: [String] = offer.comments
         var updatedComments: [String] = currentComments
         updatedComments.append(newComment)
         
-        db.collection("offers").document(offer.id ?? "").setData(["comments": updatedComments], merge: true)
+        db.collection("offers").document(offer.id).setData(["comments": updatedComments], merge: true)
             {error in
                 if error == nil {
                     self.getOffers()
@@ -163,13 +162,13 @@ class OfferViewModel: ObservableObject {
     //User saves this offer - their UID is saved in the offer
     func addSavedToOffer(offer: Offer, currentUserId: String) {
         let db = Firestore.firestore()
-        let currentSaved: [String] = ask.saved
+        let currentSaved: [String] = offer.saved
         
         var updatedSaved: [String] = currentSaved
     
         updatedSaved.append(String(currentUserId)) //append current ID to list ..should i check to see if it's aready in it?
         
-        db.collection("offers").document(offer.id ?? "").setData(["saved": updatedSaved], merge: true)
+        db.collection("offers").document(offer.id).setData(["saved": updatedSaved], merge: true)
             {error in
                 if error == nil {
                     self.getOffers()
@@ -188,7 +187,7 @@ class OfferViewModel: ObservableObject {
         
         updatedSaved = updatedSaved.filter { $0 != currentUserId } //sets updatedSaved to a list with the currentUserId filtered out
         
-        db.collection("offers").document(offer.id ?? "").setData(["saved": updatedSaved], merge: true)
+        db.collection("offers").document(offer.id).setData(["saved": updatedSaved], merge: true)
             {error in
                 if error == nil {
                     self.getOffers()
@@ -221,7 +220,7 @@ class OfferViewModel: ObservableObject {
                                         locationPreferences: doc["locationPreferences"] as? String ?? "None",
                                         onlineOnly: doc["onlineOnly"]                   as? Bool ?? false,
                                         username: doc["username"]                       as? String ?? "None",
-                                        photo: doc["photo"]                             as? String ?? ""
+                                        photo: doc["photo"]                             as? String ?? "",
                                         comments: doc["comments"]                       as? [String] ?? [],
                                         saved: doc["saved"]                             as? [String] ?? []
                                     )

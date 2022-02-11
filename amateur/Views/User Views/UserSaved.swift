@@ -2,8 +2,10 @@ import SwiftUI
 
 struct UserSaved: View {
     @StateObject var askViewModel = AskViewModel()
-    @EnvironmentObject var userAuthInfo : LoginViewModel
+    @StateObject var offerViewModel = OfferViewModel()
     @StateObject var userViewModel = UserViewModel()
+    
+    @EnvironmentObject var userAuthInfo : LoginViewModel
     
     var body: some View {
         TabView {
@@ -20,18 +22,18 @@ struct UserSaved: View {
                 askViewModel.getUsersSavedAsks(currentUserId: userAuthInfo.user?.uid ?? "")
             }
             
-            Text("hi")
+            ScrollView {
+                ForEach(offerViewModel.offerListUserSaved) { offer in
+                    OfferRow(offer:offer, offerViewModel: offerViewModel)
+                }
+            }
                 .tabItem {
                     Label("Offers", systemImage: "person.wave.2.fill")
                 }
-            
-            
-            
-            
-            
+                .onAppear {
+                    offerViewModel.getUsersSavedOffers(currentUserId: userAuthInfo.user?.uid ?? "")
+                }
         }
-        
-        
     }
 }
 
