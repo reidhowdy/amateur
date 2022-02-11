@@ -15,13 +15,13 @@ struct HomePage: View {
             GeometryReader { geometry in
                 VStack {
                     Spacer()
-                    HStack {
+                    VStack {
                         Spacer()
                         NavigationLink("Offers",
                                        destination: OfferFeed())
                             .padding()
                             .foregroundColor(Color.theme.Green1)
-                            .frame(width: geometry.size.width * 0.4)
+                            .frame(width: geometry.size.width * 0.9, height: geometry.size.height * 0.2)
                             .background(Color.theme.Green3)
                             .font(.largeTitle)
                             .cornerRadius(100)
@@ -29,7 +29,7 @@ struct HomePage: View {
                                        destination: AskFeed())
                             .padding()
                             .foregroundColor(Color.theme.Blue1)
-                            .frame(width: geometry.size.width * 0.4)
+                            .frame(width: geometry.size.width * 0.9, height: geometry.size.height * 0.2)
                             .background(Color.theme.Blue3)
                             .font(.largeTitle)
                             .cornerRadius(100)

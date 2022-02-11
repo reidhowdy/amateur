@@ -16,72 +16,89 @@ struct SignupScreen: View {
     var imageViewModel = ImageViewModel()
     
     var body: some View {
-            VStack {
-                VStack {
-                    Text("A  m  a  t  e  u  r")
-                        .font(.largeTitle)
-                        .fontWeight(.semibold)
-                        .foregroundColor(Color.theme.Blue2)
-                    Text("Create Account")
-                        .font(.title)
-                        .foregroundColor(Color.theme.Blue1)
-                }
+        GeometryReader { geometry in
+            ScrollView {
                 Spacer()
                 VStack {
-                    Text("Choose Profile Picture:")
-                    ImageUpload(uploadingImage: $profilePicture) //pass in my binding (profilePicture)
-                    
-                    TextField("First Name", text: $firstName)
-                        .disableAutocorrection(true)
-                        .autocapitalization(.none)
+                        Spacer()
+                        VStack {
+                            Text("A  m  a  t  e  u  r")
+                                .font(.largeTitle)
+                                .fontWeight(.semibold)
+                                .foregroundColor(Color.theme.Blue2)
+                            Text("Create Account")
+                                .font(.title)
+                                .foregroundColor(Color.theme.Blue1)
+                        }
                         .padding()
-                        .background(Color.white)
-                    TextField("Last Name", text: $lastName)
-                        .disableAutocorrection(true)
-                        .autocapitalization(.none)
-                        .padding()
-                        .background(Color.white)
-                    TextField("Short bio", text: $bio)
-                        .disableAutocorrection(true)
-                        .frame(height: 100)
-                        .autocapitalization(.none)
-                        .textFieldStyle(PlainTextFieldStyle())
-                        .padding([.leading, .trailing])
-                        .background(Color.white)
-                    TextField("Email", text: $email)
-                        .disableAutocorrection(true)
-                        .autocapitalization(.none)
-                        .padding()
-                        .background(Color.white)
-                    SecureField("Password", text: $password)
-                        .disableAutocorrection(true)
-                        .autocapitalization(.none)
-                        .padding()
-                        .background(Color.white)
-                    
-                    
-                }
-                Spacer()
-                Button(action: {
-                    guard !email.isEmpty, !password.isEmpty else {
-                        return //return what? an error message?
+                        Spacer()
+                    VStack {
+                        VStack {
+                                Text("Choose Profile Picture:")
+                                ImageUpload(uploadingImage: $profilePicture)
+                                    .frame(height: geometry.size.width * 0.5)
+                                Spacer()
+                                TextField("First Name", text: $firstName)
+                                        .disableAutocorrection(true)
+                                        .autocapitalization(.none)
+                                        .padding()
+                                        .background(Color.white)
+                                        .frame(width: geometry.size.width * 0.95)
+                                TextField("Last Name", text: $lastName)
+                                    .disableAutocorrection(true)
+                                    .autocapitalization(.none)
+                                    .padding()
+                                    .background(Color.white)
+                                    .frame(width: geometry.size.width * 0.95)
+                                TextField("Short bio", text: $bio)
+                                    .disableAutocorrection(true)
+                                    .autocapitalization(.none)
+                                    .padding()
+                                    .background(Color.white)
+                                    .frame(width: geometry.size.width * 0.95)
+                                TextField("Email", text: $email)
+                                    .disableAutocorrection(true)
+                                    .autocapitalization(.none)
+                                    .padding()
+                                    .background(Color.white)
+                                    .frame(width: geometry.size.width * 0.95)
+                                SecureField("Password", text: $password)
+                                    .disableAutocorrection(true)
+                                    .autocapitalization(.none)
+                                    .padding()
+                                    .background(Color.white)
+                                    .frame(width: geometry.size.width * 0.95)
+                                
+                                
+                        }
                     }
-                    imageViewModel.uploadImage(image: profilePicture) {
-                        url, err in
-                            loginViewModel.signUp(email: email, password: password) {
-                                user in userViewModel.addUser(id: user?.uid ?? "None", username: "hi", firstName: firstName, lastName: lastName, biography: bio, profilePicture: url?.absoluteString ?? "")
+                        Spacer()
+                        Button(action: {
+                            guard !email.isEmpty, !password.isEmpty else {
+                                return //return what? an error message?
                             }
+                            imageViewModel.uploadImage(image: profilePicture) {
+                                url, err in
+                                    loginViewModel.signUp(email: email, password: password) {
+                                        user in userViewModel.addUser(id: user?.uid ?? "None", username: "hi", firstName: firstName, lastName: lastName, biography: bio, profilePicture: url?.absoluteString ?? "")
+                                    }
+                            }
+                        }, label: {
+                            Text("Create Account")
+                                .foregroundColor(Color.white)
+                                .frame(width: geometry.size.width * 1)
+                                .cornerRadius(8)
+                                .background(Color.theme.Green2)
+                        })
+                    Spacer()
+                        NavigationLink("Already have an account? Log in", destination: LoginScreen())
                     }
-                }, label: {
-                    Text("Create Account")
-                        .foregroundColor(Color.white)
-                        .frame(width: 200, height: 50)
-                        .cornerRadius(8)
-                        .background(Color.theme.Green2)
-                })
-                NavigationLink("Already have an account? Log in", destination: LoginScreen())
+                
             }
             .background(Color.theme.Yellow3)
+            .ignoresSafeArea()
+        }
+//        .frame(width: 1, height: 1)
         
     }
 }
