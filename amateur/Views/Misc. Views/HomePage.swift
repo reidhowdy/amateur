@@ -35,7 +35,7 @@ struct HomePage: View {
                                        destination: AskFeed())
                             .padding()
                             .foregroundColor(Color.theme.Blue1)
-                            .frame(width: 275, height: 100)
+                            .frame(width: 300, height: 100)
                             .background(Color.theme.Blue3)
                             .font(.largeTitle)
                             .cornerRadius(100)

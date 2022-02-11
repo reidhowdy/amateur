@@ -12,22 +12,27 @@ struct SuccessRow: View {
                     url: URL(string:success.photo),
                     content: { image in
                         image.resizable()
-                             .aspectRatio(contentMode: .fit)
-                             .frame(maxWidth: 100, maxHeight: 100)
+                            .aspectRatio(contentMode: .fit)
+                            .frame(maxWidth: 200, maxHeight: 200)
+                            .padding()
                     },
                     placeholder: {
                         ProgressView()
+                            .frame(maxWidth: 200, maxHeight: 200)
+                            .padding()
                     }
                 )
                 
                 Spacer()
                 VStack() {
                     Text(success.title)
+                        .font(.title)
                         .padding([.top, .leading, .trailing])
+                        .foregroundColor(Color.theme.Blue3)
                     Text(success.description)
                         .font(.subheadline)
-                        .foregroundColor(Color.gray)
-                        .padding([.leading, .bottom, .trailing])
+                        .foregroundColor(Color.theme.Blue2)
+                        .padding()
                 }
                 .frame(width: 200, height: 175, alignment: .leading)
                 .background(Color.theme.Yellow2)

@@ -9,6 +9,20 @@ struct SuccessDetail: View {
             Text(success.title)
                 .font(.largeTitle)
             Spacer()
+            AsyncImage(
+                url: URL(string: success.photo),
+                content: { image in
+                    image.resizable()
+                         .aspectRatio(contentMode: .fit)
+                         .frame(maxWidth: 300, maxHeight: 300)
+                         .cornerRadius(25)
+                         .padding()
+                },
+                placeholder: {
+                    ProgressView()
+                }
+            )
+            Spacer()
             Text(success.description)
                 .padding()
             Spacer()

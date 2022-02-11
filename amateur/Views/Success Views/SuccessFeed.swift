@@ -12,13 +12,6 @@ struct SuccessFeed: View {
     
     var body: some View {
         VStack {
-            Button("Post your ask") {
-                showingDetail = true
-            }
-            .sheet(isPresented: $showingDetail) {
-                SuccessPost(isPresented: $showingDetail, successViewModel: successViewModel)
-            }
-            
             ScrollView {
                 ForEach(successViewModel.successList) { success in
                         SuccessRow(success: success) //passing into
@@ -33,6 +26,13 @@ struct SuccessFeed: View {
                 }
                 .navigationTitle("Successes") //using a modifier from NavigationView
                 .searchable(text: $searchText, prompt: "Search")
+            
+            Button("Post your success") {
+                showingDetail = true
+            }
+            .sheet(isPresented: $showingDetail) {
+                SuccessPost(isPresented: $showingDetail, successViewModel: successViewModel)
+            }
         }
         .onAppear {
             successViewModel.getSuccesses()

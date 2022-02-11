@@ -18,6 +18,7 @@ struct SuccessPostBox: View {
                         .frame(width: 50, height: 50)
                     Spacer()
                     Text("See more & post your own")
+                        .font(.body)
                     Spacer()
                 }
                 .padding()
