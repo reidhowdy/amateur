@@ -12,30 +12,24 @@ struct HomePage: View {
     
     
     var body: some View {
-//        NavigationView {
-            ZStack {
-                Color.theme.Blue3
-                    .opacity(0.1)
-                    .ignoresSafeArea()
-                
+            GeometryReader { geometry in
                 VStack {
-//                Spacer()
-                    VStack {
+                    Spacer()
+                    HStack {
                         Spacer()
                         NavigationLink("Offers",
                                        destination: OfferFeed())
                             .padding()
                             .foregroundColor(Color.theme.Green1)
-                            .frame(width: 300, height: 100)
+                            .frame(width: geometry.size.width * 0.4)
                             .background(Color.theme.Green3)
                             .font(.largeTitle)
                             .cornerRadius(100)
-                        Spacer()
                         NavigationLink("Asks",
                                        destination: AskFeed())
                             .padding()
                             .foregroundColor(Color.theme.Blue1)
-                            .frame(width: 300, height: 100)
+                            .frame(width: geometry.size.width * 0.4)
                             .background(Color.theme.Blue3)
                             .font(.largeTitle)
                             .cornerRadius(100)
@@ -55,59 +49,44 @@ struct HomePage: View {
                     }
                     .foregroundColor(Color.theme.Brown2)
                     
-                    .toolbar {
-                        ToolbarItem(placement: .navigationBarLeading) {
-                            Button {
-                                showingProfile.toggle()
-                            } label: {
-                                Label("View Profile", systemImage: "figure.wave")
-                                    .foregroundColor(Color.theme.Green3)
-                            }
-                        }
-                        
-                        ToolbarItem(placement: .principal) {
-                            Text("Amateur").font(.headline)
-                                .foregroundColor(Color.theme.Blue3)
-                        }
-                        
-                        
-                        ToolbarItem(placement: .navigationBarTrailing) {
-                            Button(action: {
-                                loginViewModel.signOut()
-                            },
-                                   label: {
-                                Label("Sign Out", systemImage: "figure.walk")
-                                    .foregroundColor(Color.theme.Green3)
-                            })
-                        }
-                        
-//                        ToolbarItem(placement: .navigationBarTrailing) {
-//                            Button("Log Out") {
-//                                showActionSheet = true
-//                            }
-//                            .actionSheet(isPresented: $showActionSheet) {
-//                                ActionSheet(title: Text("Are you sure you want to log out?"),
-//                                            message: Text(""),
-//                                            buttons: [
-//                                                .cancel(),
-//                                                .default(Text("Yes, log me out."),
-//                                                         action: loginViewModel.signOut())
-//                                            ]
-//                                )
-//                            }
-//                        }
-                    }
                     .sheet(isPresented: $showingProfile) {
                         UserProfile()
                     }
                 }
+                
+                .toolbar {
+                    ToolbarItem(placement: .navigationBarLeading) {
+                        Button {
+                            showingProfile.toggle()
+                        } label: {
+                            Label("View Profile", systemImage: "figure.wave")
+                                .foregroundColor(Color.theme.Green3)
+                        }
+                    }
+                    
+                    ToolbarItem(placement: .principal) {
+                        Text("Amateur").font(.headline)
+                            .foregroundColor(Color.theme.Blue3)
+                    }
+                    
+                    
+                    ToolbarItem(placement: .navigationBarTrailing) {
+                        Button(action: {
+                            loginViewModel.signOut()
+                        },
+                               label: {
+                            Label("Sign Out", systemImage: "figure.walk")
+                                .foregroundColor(Color.theme.Green3)
+                        })
+                    }
+                }
             }
-//        }
-        .onAppear {
+                    .onAppear {
             successViewModel.getSuccesses()
     }
         
     }
+//        .frame(height:50)
 }
 
 struct HomePage_Previews: PreviewProvider {
