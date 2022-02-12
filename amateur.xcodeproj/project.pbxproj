@@ -53,6 +53,9 @@
 		65AB57CF27A4F2C100FDBF55 /* AskFeed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65AB57CE27A4F2C100FDBF55 /* AskFeed.swift */; };
 		65AB57D127A4F2CC00FDBF55 /* AskDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65AB57D027A4F2CC00FDBF55 /* AskDetail.swift */; };
 		65AB57D327A4F2E500FDBF55 /* AskViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65AB57D227A4F2E500FDBF55 /* AskViewModel.swift */; };
+		65AFF6B427B75861006C0A1A /* liquid-blobby-loader-green.json in Resources */ = {isa = PBXBuildFile; fileRef = 65AFF6B327B75861006C0A1A /* liquid-blobby-loader-green.json */; };
+		65AFF6B727B758C7006C0A1A /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 65AFF6B627B758C7006C0A1A /* Lottie */; };
+		65AFF6B927B75A9E006C0A1A /* LottieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65AFF6B827B75A9E006C0A1A /* LottieView.swift */; };
 		65B16D0827A2396E002FCA7C /* amateurApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B16D0727A2396E002FCA7C /* amateurApp.swift */; };
 		65B16D0A27A2396E002FCA7C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B16D0927A2396E002FCA7C /* ContentView.swift */; };
 		65B16D0C27A23970002FCA7C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 65B16D0B27A23970002FCA7C /* Assets.xcassets */; };
@@ -110,6 +113,8 @@
 		65AB57CE27A4F2C100FDBF55 /* AskFeed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AskFeed.swift; sourceTree = "<group>"; };
 		65AB57D027A4F2CC00FDBF55 /* AskDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AskDetail.swift; sourceTree = "<group>"; };
 		65AB57D227A4F2E500FDBF55 /* AskViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AskViewModel.swift; sourceTree = "<group>"; };
+		65AFF6B327B75861006C0A1A /* liquid-blobby-loader-green.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "liquid-blobby-loader-green.json"; sourceTree = "<group>"; };
+		65AFF6B827B75A9E006C0A1A /* LottieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieView.swift; sourceTree = "<group>"; };
 		65B16D0427A2396E002FCA7C /* amateur.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = amateur.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		65B16D0727A2396E002FCA7C /* amateurApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = amateurApp.swift; sourceTree = "<group>"; };
 		65B16D0927A2396E002FCA7C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -128,6 +133,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				65AFF6B727B758C7006C0A1A /* Lottie in Frameworks */,
 				65F93C8D27A33C250007B7E2 /* FirebaseFirestore in Frameworks */,
 				656AD22C27A897410063CE4C /* FirebaseAuth in Frameworks */,
 				657BFF5327B434750083AD2B /* FirebaseDatabase in Frameworks */,
@@ -267,6 +273,7 @@
 		65B16D0627A2396E002FCA7C /* amateur */ = {
 			isa = PBXGroup;
 			children = (
+				65AFF6B327B75861006C0A1A /* liquid-blobby-loader-green.json */,
 				658870D327B0CC7900F63BB7 /* Extensions */,
 				656AD23227A9BD360063CE4C /* GoogleService-Info.plist */,
 				65B16D0727A2396E002FCA7C /* amateurApp.swift */,
@@ -275,6 +282,7 @@
 				65B16D1727A23C1F002FCA7C /* Models */,
 				65B16D0B27A23970002FCA7C /* Assets.xcassets */,
 				65B16D0D27A23970002FCA7C /* Preview Content */,
+				65AFF6B827B75A9E006C0A1A /* LottieView.swift */,
 			);
 			path = amateur;
 			sourceTree = "<group>";
@@ -347,6 +355,7 @@
 				656AD22B27A897410063CE4C /* FirebaseAuth */,
 				658870CF27AF909E00F63BB7 /* FirebaseStorage */,
 				657BFF5227B434750083AD2B /* FirebaseDatabase */,
+				65AFF6B627B758C7006C0A1A /* Lottie */,
 			);
 			productName = amateur;
 			productReference = 65B16D0427A2396E002FCA7C /* amateur.app */;
@@ -378,6 +387,7 @@
 			mainGroup = 65B16CFB27A2396E002FCA7C;
 			packageReferences = (
 				65F93C8B27A33C250007B7E2 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				65AFF6B527B758C7006C0A1A /* XCRemoteSwiftPackageReference "lottie-ios" */,
 			);
 			productRefGroup = 65B16D0527A2396E002FCA7C /* Products */;
 			projectDirPath = "";
@@ -404,6 +414,7 @@
 				6521F2FE27B1700C00AEBA6A /* Cabin-Medium.ttf in Resources */,
 				6521F30227B1700C00AEBA6A /* Cabin-BoldItalic.ttf in Resources */,
 				6521F30027B1700C00AEBA6A /* Cabin-SemiBold.ttf in Resources */,
+				65AFF6B427B75861006C0A1A /* liquid-blobby-loader-green.json in Resources */,
 				65B16D0C27A23970002FCA7C /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -426,6 +437,7 @@
 				6521F2F427B168C700AEBA6A /* SuccessPostBox.swift in Sources */,
 				65B16D1B27A23DE0002FCA7C /* Offer.swift in Sources */,
 				65B16D1F27A2E8D1002FCA7C /* OfferFeed.swift in Sources */,
+				65AFF6B927B75A9E006C0A1A /* LottieView.swift in Sources */,
 				65B16D0A27A2396E002FCA7C /* ContentView.swift in Sources */,
 				65AB57CF27A4F2C100FDBF55 /* AskFeed.swift in Sources */,
 				65633B3B27AA386F00BFD710 /* UserAsks.swift in Sources */,
@@ -496,6 +508,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
@@ -557,6 +570,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -660,6 +674,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		65AFF6B527B758C7006C0A1A /* XCRemoteSwiftPackageReference "lottie-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/airbnb/lottie-ios";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.0.0;
+			};
+		};
 		65F93C8B27A33C250007B7E2 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
@@ -685,6 +707,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 65F93C8B27A33C250007B7E2 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseStorage;
+		};
+		65AFF6B627B758C7006C0A1A /* Lottie */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 65AFF6B527B758C7006C0A1A /* XCRemoteSwiftPackageReference "lottie-ios" */;
+			productName = Lottie;
 		};
 		65F93C8C27A33C250007B7E2 /* FirebaseFirestore */ = {
 			isa = XCSwiftPackageProductDependency;

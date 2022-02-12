@@ -22,7 +22,6 @@ struct LoginScreen: View {
                         .frame(width: 300, height: 100)
                         .padding()
 //                }
-                    
                 Spacer()
                 HStack {
                     TextField("Email", text: $email)
@@ -43,10 +42,10 @@ struct LoginScreen: View {
                     
                 }, label: {
                     Text("Sign In")
-                        .foregroundColor(Color.white)
-                        .frame(width: 200, height: 50)
-                        .cornerRadius(8)
-                        .background(Color.theme.Green2)
+                        .foregroundColor(Color.black)
+                        .frame(width: 100, height: 50)
+                        .border(Color.black)
+//                        .background(Color.black)
                 })
                 Spacer()
                 //create account button

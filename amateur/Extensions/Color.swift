@@ -21,6 +21,8 @@ struct ColorTheme {
     let Yellow1 = Color("Yellow1")
     let Yellow2 = Color("Yellow2")
     let Yellow3 = Color("Yellow3")
+    
+    let Green4 = Color("Green4")
 }
 
 //https://www.youtube.com/watch?v=KJoYaVnAfF8&ab_channel=SwiftfulThinking
