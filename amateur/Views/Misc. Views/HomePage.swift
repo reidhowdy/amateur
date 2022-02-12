@@ -60,15 +60,15 @@ struct HomePage: View {
                             showingProfile.toggle()
                         } label: {
                             Label("View Profile", systemImage: "figure.wave")
-                                .foregroundColor(Color.theme.Green3)
+                                .foregroundColor(Color.theme.Green4)
                         }
                     }
-                    
+
                     ToolbarItem(placement: .principal) {
-                        Text("Amateur").font(.headline)
-                            .foregroundColor(Color.theme.Blue3)
+                        Image("Logo")
+                            .resizable()
+                            .frame(width: geometry.size.width * 0.5)
                     }
-                    
                     
                     ToolbarItem(placement: .navigationBarTrailing) {
                         Button(action: {
@@ -76,7 +76,7 @@ struct HomePage: View {
                         },
                                label: {
                             Label("Sign Out", systemImage: "figure.walk")
-                                .foregroundColor(Color.theme.Green3)
+                                .foregroundColor(Color.theme.Green4)
                         })
                     }
                 }
@@ -84,7 +84,7 @@ struct HomePage: View {
                     .onAppear {
             successViewModel.getSuccesses()
     }
-        
+//                    .overlay(SplashScreenBlob())
     }
 //        .frame(height:50)
 }
