@@ -11,10 +11,18 @@ struct LoginScreen: View {
     
     var body: some View {
             VStack {
-                Text("A  m  a  t  e  u  r")
-                    .font(.largeTitle)
-                    .fontWeight(.semibold)
-                    .foregroundColor(Color.theme.Blue2)
+//                Text("A  m  a  t  e  u  r")
+//                    .font(.largeTitle)
+//                    .fontWeight(.semibold)
+//                    .foregroundColor(Color.theme.Blue2)
+                Spacer()
+//                GeometryReader { geometry in
+                    Image("Logo")
+                        .resizable()
+                        .frame(width: 300, height: 100)
+                        .padding()
+//                }
+                    
                 Spacer()
                 HStack {
                     TextField("Email", text: $email)
@@ -45,7 +53,7 @@ struct LoginScreen: View {
                 NavigationLink("Create Account", destination: SignupScreen())
                     .padding()
             }
-            .background(Color.theme.Yellow3)
+//            .background(Color.theme.Yellow3)
     }
 }
 
