@@ -21,6 +21,7 @@ struct OfferFeed: View {
             GeometryReader { geometry in
             ScrollView {
                 ForEach(offerViewModel.filterOffers(searchText: searchText)) { offer in //check out map instead
+                    
                     OfferRow(offer: offer, offerViewModel: offerViewModel) //passing into
                 }
                 HStack {
@@ -30,7 +31,7 @@ struct OfferFeed: View {
                     Spacer()
                 }
             }
-//        .navigationTitle("Offers") //using a modifier from NavigationView
+        .navigationTitle("Offers") //using a modifier from NavigationView
         .toolbar{
 
             ToolbarItem(placement: .principal) {
@@ -53,8 +54,8 @@ struct OfferFeed: View {
 
 
 
-//struct OfferView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        OfferFeed(offer: offer)
-//    }
-//}
+struct OfferView_Previews: PreviewProvider {
+    static var previews: some View {
+        OfferFeed()
+    }
+}

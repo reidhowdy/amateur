@@ -30,7 +30,7 @@ struct AskFeed: View {
                         Spacer()
                     }
                 }
-//                .navigationTitle("Asks") //using a modifier from NavigationView
+                .navigationTitle("Asks") //using a modifier from NavigationView
                 .toolbar{
 
                     ToolbarItem(placement: .principal) {
