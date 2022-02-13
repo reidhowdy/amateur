@@ -18,6 +18,7 @@ struct OfferFeed: View {
                 OfferPost(isPresented: $showingDetail, offerViewModel: offerViewModel) //passes around binding?
             }
             
+            GeometryReader { geometry in
             ScrollView {
                 ForEach(offerViewModel.filterOffers(searchText: searchText)) { offer in //check out map instead
                     OfferRow(offer: offer, offerViewModel: offerViewModel) //passing into
@@ -29,8 +30,20 @@ struct OfferFeed: View {
                     Spacer()
                 }
             }
-        .navigationTitle("Offers") //using a modifier from NavigationView
+//        .navigationTitle("Offers") //using a modifier from NavigationView
+        .toolbar{
+
+            ToolbarItem(placement: .principal) {
+//                        GeometryReader { geometry in
+
+                Image("Logo")
+                    .resizable()
+                    .frame(width: geometry.size.width * 0.5, height: geometry.size.height * 0.075)
+//                    }
+        }
+        }
         .searchable(text: $searchText, prompt: "Search")
+        }
         }
             .onAppear {
             offerViewModel.getOffers()

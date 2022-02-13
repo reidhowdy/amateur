@@ -20,34 +20,35 @@ struct HomePage: View {
                         NavigationLink("Offers",
                                        destination: OfferFeed())
                             .padding()
-                            .foregroundColor(Color.theme.Green1)
+                            .foregroundColor(Color.black)
                             .frame(width: geometry.size.width * 0.9, height: geometry.size.height * 0.2)
-                            .background(Color.theme.Green3)
+                            .background(Color.white)
                             .font(.largeTitle)
-                            .cornerRadius(100)
+
                         NavigationLink("Asks",
                                        destination: AskFeed())
                             .padding()
-                            .foregroundColor(Color.theme.Blue1)
+                            .foregroundColor(Color.black)
                             .frame(width: geometry.size.width * 0.9, height: geometry.size.height * 0.2)
-                            .background(Color.theme.Blue3)
+                            .background(Color.white)
                             .font(.largeTitle)
-                            .cornerRadius(100)
+
                         Spacer()
                     }
                 Spacer()
-                    Text("Success Stories")
-                        .font(.title)
-                        .foregroundColor(Color.theme.Brown3)
-                    ScrollView(.horizontal, showsIndicators: false) {
-                        HStack(spacing: 20) {
-                            ForEach(successViewModel.successList) { success in
-                                SuccessBox(success: success)
+                    VStack {
+                        Text("Success Stories")
+                            .font(.title)
+                            .foregroundColor(Color.black)
+                        ScrollView(.horizontal, showsIndicators: false) {
+                            HStack(spacing: 20) {
+                                ForEach(successViewModel.successList) { success in
+                                    SuccessBox(success: success)
+                                }
+                                SuccessPostBox()
                             }
-                            SuccessPostBox()
                         }
                     }
-                    .foregroundColor(Color.theme.Brown2)
                     
                     .sheet(isPresented: $showingProfile) {
                         UserProfile()
