@@ -26,7 +26,7 @@ struct OfferDetail: View {
                     content: { image in
                         image.resizable()
                             .aspectRatio(contentMode: .fit)
-                            .frame(width: geometry.size.width * 0.90)
+                            .frame(height: geometry.size.height * 0.5)
                             .cornerRadius(25)
                     },
                     placeholder: {

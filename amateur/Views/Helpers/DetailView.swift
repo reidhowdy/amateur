@@ -20,7 +20,8 @@ struct DetailView: View {
                     content: { image in
                         image.resizable()
                              .aspectRatio(contentMode: .fit)
-                             .frame(width: geometry.size.width * 0.90)
+                             .frame(height: geometry.size.height * 0.5)
+//                             .frame(width: geometry.size.width * 0.90)
                              .cornerRadius(25)
                     },
                     placeholder: {
@@ -37,7 +38,7 @@ struct DetailView: View {
                 
                 Text("Description. Here's the description la la la here is the information about the thing this post is aboutttttt.")
                     .font(.body)
-                    .frame(width: geometry.size.width * 0.85, height: geometry.size.height * 0.15, alignment: .leading)
+                    .frame(height: geometry.size.height * 0.15, alignment: .leading)
                     .font(.body)
                 
                 
