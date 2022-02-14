@@ -7,7 +7,7 @@ struct SuccessPostBox: View {
                 .foregroundColor(.white)
                 .font(.title)
                 .frame(width: 200, height: 200)
-                .background(Color.theme.Yellow2)
+                .background(Color.theme.Green4)
                 .cornerRadius(30)
             
             NavigationLink(destination: SuccessFeed()) {
@@ -17,16 +17,16 @@ struct SuccessPostBox: View {
                         .resizable()
                         .frame(width: 50, height: 50)
                     Spacer()
-                    Text("See more & post your own")
+                    Text("See all success stories and post your own")
                         .font(.body)
                     Spacer()
                 }
                 .padding()
             }
-            .foregroundColor(Color.theme.Green2)
+            .foregroundColor(Color.black)
                 .font(.title)
                 .frame(width: 190, height: 190)
-                .background(Color.theme.Yellow3)
+                .background(Color.white)
                 .cornerRadius(30)
         }
     }

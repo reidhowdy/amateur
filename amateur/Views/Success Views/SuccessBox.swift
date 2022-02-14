@@ -11,7 +11,7 @@ struct SuccessBox: View {
                 .foregroundColor(.white)
                 .font(.largeTitle)
                 .frame(width: 200, height: 200)
-                .background(Color.theme.Yellow2)
+                .background(Color.theme.Green4)
                 .cornerRadius(30)
             
             NavigationLink(destination: SuccessDetail(success: success)) {
@@ -34,10 +34,10 @@ struct SuccessBox: View {
                     Spacer()
                 }
             }
-            .foregroundColor(Color.theme.Green2)
+            .foregroundColor(Color.black)
                 .font(.title)
                 .frame(width: 190, height: 190)
-                .background(Color.theme.Yellow3)
+                .background(Color.white)
                 .cornerRadius(30)
                 .padding()
         }
