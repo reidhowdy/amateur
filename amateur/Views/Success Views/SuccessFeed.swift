@@ -30,6 +30,8 @@ struct SuccessFeed: View {
             ScrollView {
                 ForEach(successViewModel.successList) { success in
                         SuccessRow(success: success) //passing into
+                        Rectangle()
+                            .frame(width: geometry.size.width * 1, height: geometry.size.height * 0.002)
                     }
                     
                     HStack {

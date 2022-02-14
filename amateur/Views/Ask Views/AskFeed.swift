@@ -30,6 +30,10 @@ struct AskFeed: View {
                 
                     ForEach(askViewModel.filterAsks(searchText: searchText)) { ask in
                         AskRow(ask: ask, askViewModel: askViewModel) //passing into
+                        Rectangle()
+                            .frame(width: geometry.size.width * 1, height: geometry.size.height * 0.002)
+                        
+
                     }
                     
                     HStack {

@@ -110,8 +110,9 @@ struct HomePage: View {
                 }
             }
                     .onAppear {
-            successViewModel.getSuccesses()
-    }
+                        
+                        successViewModel.getSuccesses()
+                        }
 //                    .overlay(SplashScreenBlob())
     }
 //        .frame(height:50)

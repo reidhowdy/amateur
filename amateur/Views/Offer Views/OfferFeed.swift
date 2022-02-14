@@ -30,6 +30,8 @@ struct OfferFeed: View {
                 
                 ForEach(offerViewModel.filterOffers(searchText: searchText)) { offer in
                     OfferRow(offer: offer, offerViewModel: offerViewModel)
+                    Rectangle()
+                        .frame(width: geometry.size.width * 1, height: geometry.size.height * 0.002)
                 }
                 HStack {
                     Spacer()

@@ -32,11 +32,11 @@ struct OfferRow: View {
                             .padding()
                     }
                     .frame(width: 200, height: 175, alignment: .leading)
-                    .border(Color.black)
+//                    .border(Color.black)
                     .padding()
                 }
                 .frame(width: 400, height: 200)
-                .border(Color.black)
+//                .border(Color.black)
         }
     }
 }
