@@ -28,17 +28,16 @@ struct SuccessRow: View {
                     Text(success.title)
                         .font(.title)
                         .padding([.top, .leading, .trailing])
-                        .foregroundColor(Color.theme.Blue3)
                     Text(success.description)
                         .font(.subheadline)
-                        .foregroundColor(Color.theme.Blue2)
                         .padding()
                 }
                 .frame(width: 200, height: 175, alignment: .leading)
-                .background(Color.theme.Yellow2)
+                .border(Color.black)
+                .padding()
             }
             .frame(width: 400, height: 200)
-            .background(Color.theme.Yellow1)
+            .border(Color.black)
         }
     }
 }

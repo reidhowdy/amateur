@@ -27,10 +27,8 @@ struct OfferRow: View {
                         Text(offer.title)
                             .font(.title)
                             .padding([.top, .leading, .trailing])
-                            .foregroundColor(Color.theme.Blue3)
                         Text(offer.description)
                             .font(.subheadline)
-                            .foregroundColor(Color.theme.Blue2)
                             .padding()
                     }
                     .frame(width: 200, height: 175, alignment: .leading)

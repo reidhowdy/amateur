@@ -25,6 +25,16 @@ struct SuccessFeed: View {
                     }
                 }
                 .navigationTitle("Successes") //using a modifier from NavigationView
+                .toolbar{
+
+                    ToolbarItem(placement: .principal) {
+                        GeometryReader { geometry in
+                        Image("Logo")
+                            .resizable()
+                            .frame(width: geometry.size.width * 0.5, height: geometry.size.height * 0.075)
+                            }
+                        }
+                }
                 .searchable(text: $searchText, prompt: "Search")
             
             Button("Post your success") {

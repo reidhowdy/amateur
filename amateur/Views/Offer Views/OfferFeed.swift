@@ -38,7 +38,7 @@ struct OfferFeed: View {
                 Image("Logo")
                     .resizable()
                     .frame(width: geometry.size.width * 0.5, height: geometry.size.height * 0.075)
-                }
+                    }
                 }
         }
         .searchable(text: $searchText, prompt: "Search")

@@ -17,21 +17,47 @@ struct HomePage: View {
                     Spacer()
                     VStack {
                         Spacer()
-                        NavigationLink("Offers",
-                                       destination: OfferFeed())
-                            .padding()
-                            .foregroundColor(Color.black)
-                            .frame(width: geometry.size.width * 0.9, height: geometry.size.height * 0.2)
-                            .background(Color.white)
-                            .font(.largeTitle)
-
-                        NavigationLink("Asks",
-                                       destination: AskFeed())
-                            .padding()
-                            .foregroundColor(Color.black)
-                            .frame(width: geometry.size.width * 0.9, height: geometry.size.height * 0.2)
-                            .background(Color.white)
-                            .font(.largeTitle)
+//                        Image("Offers")
+                        
+//                        NavigationLink("Offers",
+//                                       destination: OfferFeed())
+//                            .padding()
+//                            .foregroundColor(Color.black)
+//                            .frame(width: geometry.size.width * 0.9, height: geometry.size.height * 0.2)
+//                            .background(Color.white)
+//                            .font(.largeTitle)
+                        
+                        NavigationLink(destination: OfferFeed()) {
+                            HStack {
+                                Image("Offers")
+                                    .resizable()
+                                    .scaledToFit()
+                                    .frame(width: geometry.size.width * 0.65, alignment: .leading)
+                                Text("Browse what's on offer, post your own offer, and ")
+                                    .frame(width: geometry.size.width * 0.25, alignment: .trailing)
+                                    .foregroundColor(Color.black)
+                                    .font(.caption2)
+                            }
+                            .frame(width: geometry.size.width * 0.90)
+                        }
+                        Spacer()
+                        NavigationLink(destination: AskFeed()) {
+                            HStack {
+                                Image("Asks")
+                                    .resizable()
+                                    .scaledToFit()
+                                    .frame(width: geometry.size.width * 0.55, alignment: .leading)
+                                Rectangle()
+                                    .frame(width: geometry.size.width * 0.10, height: geometry.size.height * 0.10, alignment: .leading)
+                                    .background(Color.white)
+                                    .foregroundColor(Color.white)
+                                Text("Browse all asks and post your own.")
+                                    .frame(width: geometry.size.width * 0.25, alignment: .trailing)
+                                    .foregroundColor(Color.black)
+                                    .font(.caption2)
+                            }
+                            .frame(width: geometry.size.width * 0.90)
+                        }
 
                         Spacer()
                     }
