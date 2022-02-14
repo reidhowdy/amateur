@@ -9,6 +9,7 @@ struct AskFeed: View {
     @State private var searchText = ""
     
     var body: some View {
+        GeometryReader { geometry in
         VStack {
             Image("Asks")
                 .resizable()
@@ -38,26 +39,21 @@ struct AskFeed: View {
                         Spacer()
                     }
                 }
-//                .navigationTitle("Asks") //using a modifier from NavigationView
             .toolbar{
 
                 ToolbarItem(placement: .principal) {
-                    GeometryReader { geometry in
+//                    GeometryReader { geometry in
                     Image("Logo")
                         .resizable()
                         .frame(width: geometry.size.width * 0.5, height: geometry.size.height * 0.075)
-                        }
+//                        }
+                    }
+                }
             }
-            }
-        }
-        
         .searchable(text: $searchText, prompt: "Search")
-        .onAppear {
-            askViewModel.getAsks()
+        .navigationBarTitleDisplayMode(.inline)
+        .onAppear { askViewModel.getAsks() }
         }
-        
-        
-        
     }
 }
 

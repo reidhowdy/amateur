@@ -10,6 +10,7 @@ struct OfferFeed: View {
     var offers : [Offer] = [] //i dont think  i ever use this
 
     var body: some View {
+        GeometryReader { geometry in
         VStack {
             Image("Offers")
                 .resizable()
@@ -36,22 +37,23 @@ struct OfferFeed: View {
                         .foregroundColor(.secondary)
                 }
             }
+//        .navigationTitle("Offers") //using a modifier from NavigationView
         .toolbar{
 
             ToolbarItem(placement: .principal) {
-                GeometryReader { geometry in
+//                GeometryReader { geometry in
                 Image("Logo")
                     .resizable()
                     .frame(width: geometry.size.width * 0.5, height: geometry.size.height * 0.075)
-                    }
+//                    }
                 }
-        }
-        .searchable(text: $searchText, prompt: "Search")
+            }
         
         }
-            .onAppear {
-            offerViewModel.getOffers()
-            }
+        .searchable(text: $searchText, prompt: "Search")
+        .navigationBarTitleDisplayMode(.inline)
+        .onAppear { offerViewModel.getOffers() }
+        }
     }
 }
 
