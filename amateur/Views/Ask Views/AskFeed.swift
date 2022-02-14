@@ -10,15 +10,23 @@ struct AskFeed: View {
     
     var body: some View {
         VStack {
-            Button("Post your ask") {
-                showingDetail = true
-            }
-            .sheet(isPresented: $showingDetail) {
-                AskPost(isPresented: $showingDetail, askViewModel: askViewModel)
-            }
+            Image("Asks")
+                .resizable()
+                .scaledToFit()
+                .frame(width: 125, alignment: .leading)
             
-            GeometryReader { geometry in
             ScrollView {
+                
+                    Button("Post your ask") {
+                        showingDetail = true
+                    }
+                        .font(.caption)
+                        .foregroundColor(Color.gray)
+                    .sheet(isPresented: $showingDetail) {
+                        AskPost(isPresented: $showingDetail, askViewModel: askViewModel)
+                    }
+                
+                
                     ForEach(askViewModel.filterAsks(searchText: searchText)) { ask in
                         AskRow(ask: ask, askViewModel: askViewModel) //passing into
                     }
@@ -30,23 +38,20 @@ struct AskFeed: View {
                         Spacer()
                     }
                 }
-                .navigationTitle("Asks") //using a modifier from NavigationView
-                .toolbar{
+//                .navigationTitle("Asks") //using a modifier from NavigationView
+            .toolbar{
 
-                    ToolbarItem(placement: .principal) {
-//                        GeometryReader { geometry in
-
-                        Image("Logo")
-                            .resizable()
-                            .frame(width: geometry.size.width * 0.5, height: geometry.size.height * 0.075)
-//                    }
-                }
-                }
-                .searchable(text: $searchText, prompt: "Search")
-                
+                ToolbarItem(placement: .principal) {
+                    GeometryReader { geometry in
+                    Image("Logo")
+                        .resizable()
+                        .frame(width: geometry.size.width * 0.5, height: geometry.size.height * 0.075)
+                        }
             }
-
+            }
         }
+        
+        .searchable(text: $searchText, prompt: "Search")
         .onAppear {
             askViewModel.getAsks()
         }
@@ -61,6 +66,3 @@ struct AskFeed_Previews: PreviewProvider {
         AskFeed()
     }
 }
-
-//NavigationLink("Post an Ask",
-//destination: AskPost())

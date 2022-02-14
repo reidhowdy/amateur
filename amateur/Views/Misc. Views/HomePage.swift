@@ -17,15 +17,6 @@ struct HomePage: View {
                     Spacer()
                     VStack {
                         Spacer()
-//                        Image("Offers")
-                        
-//                        NavigationLink("Offers",
-//                                       destination: OfferFeed())
-//                            .padding()
-//                            .foregroundColor(Color.black)
-//                            .frame(width: geometry.size.width * 0.9, height: geometry.size.height * 0.2)
-//                            .background(Color.white)
-//                            .font(.largeTitle)
                         
                         NavigationLink(destination: OfferFeed()) {
                             HStack {
@@ -71,9 +62,11 @@ struct HomePage: View {
                     }
                 Spacer()
                     VStack {
-                        Text("Success Stories")
-                            .font(.title)
-                            .foregroundColor(Color.black)
+                        Image("Successes")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: geometry.size.width * 0.45)
+                        
                         ScrollView(.horizontal, showsIndicators: false) {
                             HStack(spacing: 20) {
                                 ForEach(successViewModel.successList) { success in

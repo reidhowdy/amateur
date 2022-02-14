@@ -11,26 +11,31 @@ struct OfferFeed: View {
 
     var body: some View {
         VStack {
-            Button("Post your offer") {
-                showingDetail = true
-            }
-            .sheet(isPresented: $showingDetail) { //try to move this around?
-                OfferPost(isPresented: $showingDetail, offerViewModel: offerViewModel) //passes around binding?
-            }
+            Image("Offers")
+                .resizable()
+                .scaledToFit()
+                .frame(width: 125, alignment: .leading)
             
             ScrollView {
-                ForEach(offerViewModel.filterOffers(searchText: searchText)) { offer in //check out map instead
-                    
-                    OfferRow(offer: offer, offerViewModel: offerViewModel) //passing into
+                
+                Button("Post your offer") {
+                    showingDetail = true
+                }
+                    .font(.caption)
+                    .foregroundColor(Color.gray)
+                
+                .sheet(isPresented: $showingDetail) { //try to move this around?
+                    OfferPost(isPresented: $showingDetail, offerViewModel: offerViewModel)
+                }
+                
+                ForEach(offerViewModel.filterOffers(searchText: searchText)) { offer in
+                    OfferRow(offer: offer, offerViewModel: offerViewModel)
                 }
                 HStack {
-                    Spacer()
                     Text("\(offerViewModel.offerList.count) Offers")
                         .foregroundColor(.secondary)
-                    Spacer()
                 }
             }
-        .navigationTitle("Offers") //using a modifier from NavigationView
         .toolbar{
 
             ToolbarItem(placement: .principal) {
@@ -49,8 +54,6 @@ struct OfferFeed: View {
             }
     }
 }
-
-
 
 struct OfferView_Previews: PreviewProvider {
     static var previews: some View {

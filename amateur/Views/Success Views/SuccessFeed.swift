@@ -12,6 +12,20 @@ struct SuccessFeed: View {
     
     var body: some View {
         VStack {
+            Image("Successes")
+                .resizable()
+                .scaledToFit()
+                .frame(width: 200, alignment: .leading)
+            
+            Button("Post your success") {
+                showingDetail = true
+            }
+            .font(.caption)
+            .foregroundColor(Color.gray)
+            .sheet(isPresented: $showingDetail) {
+                SuccessPost(isPresented: $showingDetail, successViewModel: successViewModel)
+            }
+            
             ScrollView {
                 ForEach(successViewModel.successList) { success in
                         SuccessRow(success: success) //passing into
@@ -24,25 +38,19 @@ struct SuccessFeed: View {
                         Spacer()
                     }
                 }
-                .navigationTitle("Successes") //using a modifier from NavigationView
+//                .navigationTitle("Successes") //using a modifier from NavigationView
                 .toolbar{
-
                     ToolbarItem(placement: .principal) {
                         GeometryReader { geometry in
                         Image("Logo")
                             .resizable()
+                            .scaledToFit()
+//                            .frame(width: 200)
                             .frame(width: geometry.size.width * 0.5, height: geometry.size.height * 0.075)
                             }
                         }
                 }
                 .searchable(text: $searchText, prompt: "Search")
-            
-            Button("Post your success") {
-                showingDetail = true
-            }
-            .sheet(isPresented: $showingDetail) {
-                SuccessPost(isPresented: $showingDetail, successViewModel: successViewModel)
-            }
         }
         .onAppear {
             successViewModel.getSuccesses()

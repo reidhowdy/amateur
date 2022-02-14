@@ -27,9 +27,11 @@ struct AskRow: View {
                     Text(ask.title)
                         .font(.title)
                         .padding([.top, .leading, .trailing])
+                        .foregroundColor(Color.black)
                     Text(ask.description)
                         .font(.subheadline)
                         .padding()
+                        .foregroundColor(Color.black)
                 }
                 .frame(width: 200, height: 175, alignment: .leading)
                 .border(Color.black)
