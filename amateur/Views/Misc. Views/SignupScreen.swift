@@ -22,13 +22,15 @@ struct SignupScreen: View {
                 VStack {
                         Spacer()
                         VStack {
-                            Text("A  m  a  t  e  u  r")
-                                .font(.largeTitle)
-                                .fontWeight(.semibold)
-                                .foregroundColor(Color.theme.Blue2)
+                            Spacer()
+                            Image("Logo")
+                                .resizable()
+                                .scaledToFit()
+                                .frame(width: geometry.size.width * 0.70)
+
                             Text("Create Account")
                                 .font(.title)
-                                .foregroundColor(Color.theme.Blue1)
+                                .foregroundColor(Color.black)
                         }
                         .padding()
                         Spacer()
@@ -86,16 +88,16 @@ struct SignupScreen: View {
                         }, label: {
                             Text("Create Account")
                                 .foregroundColor(Color.white)
-                                .frame(width: geometry.size.width * 1)
+                                .frame(width: geometry.size.width * 0.35)
                                 .cornerRadius(8)
-                                .background(Color.theme.Green2)
+                                .background(Color.theme.Green4)
                         })
                     Spacer()
                         NavigationLink("Already have an account? Log in", destination: LoginScreen())
                     }
                 
             }
-            .background(Color.theme.Yellow3)
+            .background(Color.white)
             .ignoresSafeArea()
         }
 //        .frame(width: 1, height: 1)

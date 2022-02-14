@@ -26,7 +26,7 @@ struct ImageUpload: View {
                         .resizable()
                         .scaledToFit()
                         .frame(width: 120, height: 120)
-                        .foregroundColor(Color.theme.Blue3)
+                        .foregroundColor(Color.theme.Green4)
                 }
             }.padding()
             //image picker button
@@ -35,8 +35,8 @@ struct ImageUpload: View {
             }) {
                 Text("Select Photo")
                     .frame(width: 125, height: 50)
-                    .background(Color.theme.Green2)
-                    .foregroundColor(Color.theme.Yellow1)
+                    .background(Color.black)
+                    .foregroundColor(Color.white)
                     .cornerRadius(25)
             }.actionSheet(isPresented: $showActionSheet) { //decides if isPresented is true or false
                 //now, within the action sheet itself, here's what will appear:

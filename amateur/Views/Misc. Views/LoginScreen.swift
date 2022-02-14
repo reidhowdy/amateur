@@ -16,7 +16,8 @@ struct LoginScreen: View {
 
                 Image("Logo")
                     .resizable()
-                    .frame(width: 300, height: 100)
+                    .scaledToFit()
+                    .frame(width: geometry.size.width * 0.80)
                     .padding()
 
                 Spacer()

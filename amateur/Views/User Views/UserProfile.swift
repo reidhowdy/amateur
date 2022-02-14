@@ -6,89 +6,101 @@ import FirebaseStorage
 //user views profile
 
 struct UserProfile: View {
-    @EnvironmentObject var userAuthInfo : LoginViewModel //telling it the type
-    //wherever i use this, i can get my uid like below in the onAppear
-    
-    //tells swift that whatever wa passed in as that env object, assign this to that variable
+    @EnvironmentObject var userAuthInfo : LoginViewModel
+ 
     @ObservedObject var userViewModel = UserViewModel()
     
     var body: some View {
         NavigationView {
-            VStack() {
+            GeometryReader { geometry in
+                VStack {
                 HStack {
                     Text(userViewModel.currentUser?.firstName ?? "First Name")
                     Text(userViewModel.currentUser?.lastName ?? "Last Name")
                 }
                 .font(.largeTitle)
-                .padding()
+                    
+                HStack {
+                Text("Member since:")
+                Text(userViewModel.currentUser?.dateJoined ?? Date.now, style: .date)
+                }
+                    .frame(width: geometry.size.width * 0.90, height: geometry.size.height * 0.10)
+                    .font(.caption)
+                    .foregroundColor(Color.gray)
                 
                 AsyncImage(
                     url: URL(string:userViewModel.currentUser?.profilePicture ?? ""),
                     content: { image in
                         image.resizable()
                              .aspectRatio(contentMode: .fit)
-                             .frame(maxWidth: 100, maxHeight: 100)
-                             .cornerRadius(100)
+                             .frame(width: geometry.size.width * 0.90, height: geometry.size.height * 0.30)
                     },
                     placeholder: {
-                        ProgressView()
-                            .frame(maxWidth: 100, maxHeight: 100)
+                        ZStack {
+                            Rectangle()
+                                .frame(width: geometry.size.width * 0.90, height: geometry.size.height * 0.30)
+                                .cornerRadius(25)
+                                .foregroundColor(Color.white)
+                            ProgressView()
+                        }
                     }
                 )
+                Spacer()
                 
                 
-                Text("Member since:") //how to display date??
-                Text(userViewModel.currentUser?.dateJoined ?? Date.now, style: .date)
                 
                 Spacer()
                     VStack {
-                        Text("Bio")
+//                        Text("Bio")
                         Text(userViewModel.currentUser?.biography ?? "Not displaying bio")
-                            .background(
-                                RoundedRectangle(cornerRadius: 25)
-//                            .fill(Color.white)
-                            .frame(width: 400, height: 200)
-                                    .border(Color.theme.Green4)
-                                    .cornerRadius(25)
-                                    .foregroundColor(Color.theme.Green4)
-                            
-                            
-                            )
-                    .padding()
-                    
-                    
+                            .frame(width: geometry.size.width * 0.90, height: 200)
+                            .border(Color.theme.Green4)
+                            .cornerRadius(25)
+                            .foregroundColor(Color.theme.Green4)
+                    Spacer()
                 }
                 Spacer()
                 HStack {
                     Spacer()
                     NavigationLink("My Asks", destination: UserAsks())
-                        .frame(width: 100, height: 50)
+                        .frame(width: geometry.size.width * 0.25, height: geometry.size.height * 0.10)
                         .background(Color.theme.Green4)
-                        .padding()
                         .foregroundColor(Color.white)
                         .cornerRadius(75)
                     Spacer()
                     NavigationLink("My Offers", destination: UserOffers())
-                        .frame(width: 100, height: 50)
+                        .frame(width: geometry.size.width * 0.25, height: geometry.size.height * 0.10)
                         .background(Color.theme.Green4)
-                        .padding()
-                        .foregroundColor(Color.white)
-                        .cornerRadius(75)
-                    Spacer()
-                    NavigationLink("My Saved Items", destination: UserSaved())
-                        .frame(width: 100, height: 50)
-                        .background(Color.theme.Green4)
-                        .padding()
                         .foregroundColor(Color.white)
                         .cornerRadius(75)
                     Spacer()
                 }
             }
-            .navigationTitle("Profile")
+            .toolbar{
+                ToolbarItem(placement: .principal) {
+                    Image("Logo")
+                        .resizable()
+                        .frame(width: geometry.size.width * 0.5, height: geometry.size.height * 0.075)
+                    }
+                
+                ToolbarItem {
+                    NavigationLink(destination: UserSaved()) {
+                        VStack {
+                            Image(systemName: "star")
+                            Text("Saved")
+                                .font(.caption2)
+                    }
+                }
+                    .frame(width: geometry.size.width * 0.15, height: geometry.size.height * 0.10)
+                    .foregroundColor(Color.theme.Green4)
+                    .cornerRadius(75)
+                }
+                }
             .onAppear {
                 userViewModel.getUser(uid: userAuthInfo.user?.uid)
             }
-            
+                
+            }
         }
     }
 }
