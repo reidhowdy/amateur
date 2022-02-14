@@ -24,7 +24,6 @@ struct OfferFeed: View {
                 }
                     .font(.caption)
                     .foregroundColor(Color.gray)
-                
                 .sheet(isPresented: $showingDetail) { //try to move this around?
                     OfferPost(isPresented: $showingDetail, offerViewModel: offerViewModel)
                 }
@@ -33,8 +32,10 @@ struct OfferFeed: View {
                     OfferRow(offer: offer, offerViewModel: offerViewModel)
                 }
                 HStack {
+                    Spacer()
                     Text("\(offerViewModel.offerList.count) Offers")
                         .foregroundColor(.secondary)
+                    Spacer()
                 }
             }
         .toolbar{

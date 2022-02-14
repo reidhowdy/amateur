@@ -108,7 +108,7 @@ struct AskDetail: View {
                         askViewModel.addCommentToAsk(ask: ask, newComment: comment)
                         askViewModel.getAsks()
                     }
-                        .padding()
+//                        .padding()
                         .cornerRadius(25)
                         .background(Color.theme.Green4)
                         .foregroundColor(Color.white)
