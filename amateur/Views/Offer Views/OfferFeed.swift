@@ -37,15 +37,12 @@ struct OfferFeed: View {
                         .foregroundColor(.secondary)
                 }
             }
-//        .navigationTitle("Offers") //using a modifier from NavigationView
         .toolbar{
 
             ToolbarItem(placement: .principal) {
-//                GeometryReader { geometry in
                 Image("Logo")
                     .resizable()
                     .frame(width: geometry.size.width * 0.5, height: geometry.size.height * 0.075)
-//                    }
                 }
             }
         

@@ -11,6 +11,7 @@ struct SuccessFeed: View {
     @State private var searchText = ""
     
     var body: some View {
+        GeometryReader { geometry in
         VStack {
             Image("Successes")
                 .resizable()
@@ -38,23 +39,19 @@ struct SuccessFeed: View {
                         Spacer()
                     }
                 }
-//                .navigationTitle("Successes") //using a modifier from NavigationView
+
                 .toolbar{
+
                     ToolbarItem(placement: .principal) {
-                        GeometryReader { geometry in
                         Image("Logo")
                             .resizable()
-                            .scaledToFit()
-//                            .frame(width: 200)
                             .frame(width: geometry.size.width * 0.5, height: geometry.size.height * 0.075)
-                            }
                         }
-                }
-                .searchable(text: $searchText, prompt: "Search")
+                    }
         }
-        .onAppear {
-            successViewModel.getSuccesses()
-        }
+        .searchable(text: $searchText, prompt: "Search")
+        .onAppear { successViewModel.getSuccesses() }
+    }
     }
 }
 
