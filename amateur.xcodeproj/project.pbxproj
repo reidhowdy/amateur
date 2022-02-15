@@ -67,6 +67,9 @@
 		65B16D1F27A2E8D1002FCA7C /* OfferFeed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B16D1E27A2E8D1002FCA7C /* OfferFeed.swift */; };
 		65B16D2127A2F2D1002FCA7C /* OfferDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B16D2027A2F2D1002FCA7C /* OfferDetail.swift */; };
 		65EC74CE27BC0D1800E15325 /* CustomLaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 65EC74CD27BC0D1800E15325 /* CustomLaunchScreen.storyboard */; };
+		65EC74D027BC4B1100E15325 /* green-loading-dots.json in Resources */ = {isa = PBXBuildFile; fileRef = 65EC74CF27BC4B1100E15325 /* green-loading-dots.json */; };
+		65EC74D227BC4BC900E15325 /* loader-for-websites.json in Resources */ = {isa = PBXBuildFile; fileRef = 65EC74D127BC4BC900E15325 /* loader-for-websites.json */; };
+		65EC74D427BC4CCB00E15325 /* ball-loop.json in Resources */ = {isa = PBXBuildFile; fileRef = 65EC74D327BC4CCA00E15325 /* ball-loop.json */; };
 		65F93C8D27A33C250007B7E2 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 65F93C8C27A33C250007B7E2 /* FirebaseFirestore */; };
 		65F93C9027A3536D0007B7E2 /* OfferViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65F93C8F27A3536D0007B7E2 /* OfferViewModel.swift */; };
 /* End PBXBuildFile section */
@@ -129,6 +132,9 @@
 		65B16D1E27A2E8D1002FCA7C /* OfferFeed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfferFeed.swift; sourceTree = "<group>"; };
 		65B16D2027A2F2D1002FCA7C /* OfferDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfferDetail.swift; sourceTree = "<group>"; };
 		65EC74CD27BC0D1800E15325 /* CustomLaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CustomLaunchScreen.storyboard; sourceTree = "<group>"; };
+		65EC74CF27BC4B1100E15325 /* green-loading-dots.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "green-loading-dots.json"; sourceTree = "<group>"; };
+		65EC74D127BC4BC900E15325 /* loader-for-websites.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "loader-for-websites.json"; sourceTree = "<group>"; };
+		65EC74D327BC4CCA00E15325 /* ball-loop.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "ball-loop.json"; sourceTree = "<group>"; };
 		65F93C8F27A3536D0007B7E2 /* OfferViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfferViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -235,6 +241,7 @@
 		6596B3ED27B8633700CCF537 /* Splash Screens */ = {
 			isa = PBXGroup;
 			children = (
+				65AFF6B827B75A9E006C0A1A /* LottieView.swift */,
 				6596B3EB27B8631600CCF537 /* SplashScreenBlob.swift */,
 			);
 			path = "Splash Screens";
@@ -286,6 +293,9 @@
 			isa = PBXGroup;
 			children = (
 				65AFF6B327B75861006C0A1A /* liquid-blobby-loader-green.json */,
+				65EC74CF27BC4B1100E15325 /* green-loading-dots.json */,
+				65EC74D127BC4BC900E15325 /* loader-for-websites.json */,
+				65EC74D327BC4CCA00E15325 /* ball-loop.json */,
 				658870D327B0CC7900F63BB7 /* Extensions */,
 				656AD23227A9BD360063CE4C /* GoogleService-Info.plist */,
 				65B16D0727A2396E002FCA7C /* amateurApp.swift */,
@@ -294,7 +304,6 @@
 				65B16D1727A23C1F002FCA7C /* Models */,
 				65B16D0B27A23970002FCA7C /* Assets.xcassets */,
 				65B16D0D27A23970002FCA7C /* Preview Content */,
-				65AFF6B827B75A9E006C0A1A /* LottieView.swift */,
 			);
 			path = amateur;
 			sourceTree = "<group>";
@@ -418,15 +427,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				656AD23127A9BCAD0063CE4C /* .gitignore in Resources */,
+				65EC74D427BC4CCB00E15325 /* ball-loop.json in Resources */,
 				6521F2FF27B1700C00AEBA6A /* Cabin-SemiBoldItalic.ttf in Resources */,
 				65EC74CE27BC0D1800E15325 /* CustomLaunchScreen.storyboard in Resources */,
 				656AD23327A9BD360063CE4C /* GoogleService-Info.plist in Resources */,
+				65EC74D027BC4B1100E15325 /* green-loading-dots.json in Resources */,
 				6521F30127B1700C00AEBA6A /* Cabin-MediumItalic.ttf in Resources */,
 				6521F30527B1700C00AEBA6A /* Cabin-Italic.ttf in Resources */,
 				65B16D0F27A23970002FCA7C /* Preview Assets.xcassets in Resources */,
 				6521F30327B1700C00AEBA6A /* Cabin-Regular.ttf in Resources */,
 				6521F30427B1700C00AEBA6A /* Cabin-Bold.ttf in Resources */,
 				6521F2FE27B1700C00AEBA6A /* Cabin-Medium.ttf in Resources */,
+				65EC74D227BC4BC900E15325 /* loader-for-websites.json in Resources */,
 				6521F30227B1700C00AEBA6A /* Cabin-BoldItalic.ttf in Resources */,
 				6521F30027B1700C00AEBA6A /* Cabin-SemiBold.ttf in Resources */,
 				65AFF6B427B75861006C0A1A /* liquid-blobby-loader-green.json in Resources */,

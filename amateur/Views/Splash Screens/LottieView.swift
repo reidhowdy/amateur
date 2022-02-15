@@ -4,7 +4,7 @@ import Lottie
 struct LottieView: UIViewRepresentable {
 
     func makeUIView(context: Context) -> some AnimationView {
-        let lottieAnimationView = AnimationView(name:"liquid-blobby-loader-green")
+        let lottieAnimationView = AnimationView(name:"ball-loop")
         lottieAnimationView.play()
         return lottieAnimationView
     }

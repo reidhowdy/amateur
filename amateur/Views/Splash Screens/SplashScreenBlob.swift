@@ -10,6 +10,7 @@ import SwiftUI
 struct SplashScreenBlob: View {
     var body: some View {
         LottieView()
+                .frame(width: 100, height: 100, alignment: .center)
     }
 }
 

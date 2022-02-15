@@ -14,8 +14,6 @@ struct HomePage: View {
     
     var body: some View {
         Group {
-            //try to make it an overlay so that everything below it still renders and the data all loads
-            //can use the actual modifier OR use a Zstack to manually put it over top 
             if showSecondView == false {
                 SplashScreenBlob()
                     .onAppear {
