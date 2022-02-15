@@ -104,7 +104,6 @@ struct OfferDetail: View {
                     ForEach(offer.comments, id: \.self) { comment in
                         Text(comment)
                             .frame(width: geometry.size.width * 0.85, height: geometry.size.height * 0.05, alignment: .leading)
-                            .border(Color.black)
         
                     }
         
@@ -112,6 +111,7 @@ struct OfferDetail: View {
                     Button("Post") {
                         offerViewModel.addCommentToOffer(offer: offer, newComment: comment)
                         offerViewModel.getOffers()
+                        comment = ""
                     }
                         .padding()
                         .cornerRadius(25)
