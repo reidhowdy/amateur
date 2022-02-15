@@ -31,6 +31,9 @@ struct AskPost: View {
     //                          text: Float($estimatedTime))
                     TextField("Description",
                               text: $description)
+                    
+                    TextEditor(text: $description)
+                    
                     TextField("Materials needed",
                               text: $materialsNeeded)
                     TextField("Location preferences",

@@ -14,7 +14,7 @@ struct OfferPost: View {
     @State var materialsNeeded: String = ""
     @State var description: String = ""
     @State var locationPreferences: String = ""
-    @State var onlineOnly: Bool = true //this isn't posting
+    @State var onlineOnly: Bool = true
     @State var username: String = ""
     
     @State var photo: UIImage?
@@ -27,12 +27,15 @@ struct OfferPost: View {
                               text: $title)
                     TextField("Type of offer",
                               text: $typeOfOffer)
-    //                TextField("Est. time",
-    //                          text: Float($estimatedTime))
-    //                TextField("Number of sessions",
-    //                          text: Int($numSessions))
+//                    TextField("Est. time",
+//                              text: $estimatedTime)
+//                    TextField("Number of sessions",
+//                              text: Int($numSessions))
                     TextField("Description",
                               text: $description)
+                    .groupBoxStyle(/*@START_MENU_TOKEN@*/DefaultGroupBoxStyle()/*@END_MENU_TOKEN@*/)
+                    
+                
                     TextField("Materials needed",
                               text: $materialsNeeded)
                     TextField("Location preferences",

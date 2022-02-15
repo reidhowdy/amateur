@@ -54,32 +54,15 @@ struct OfferDetail: View {
                         Text("Posted on:")
                             .fontWeight(.bold)
                             .frame(width: geometry.size.width * 0.35, height: geometry.size.height * 0.05, alignment: .leading)
-                        Text("Here it is")
+                        Text(offer.datePosted, style: .date)
                             .frame(width: geometry.size.width * 0.55, height: geometry.size.height * 0.05, alignment: .trailing)
                     }
-                    
-                    
-//                    HStack {
-//                        Text("Offered by:")
-//                            .fontWeight(.bold)
-//                            .frame(width: geometry.size.width * 0.35, height: geometry.size.height * 0.05, alignment: .leading)
-//                        Text("Here it is")
-//                            .frame(width: geometry.size.width * 0.55, height: geometry.size.height * 0.05, alignment: .trailing)
-//                    }
                     
                     HStack {
                         Text("Materials:")
                             .fontWeight(.bold)
                             .frame(width: geometry.size.width * 0.35, height: geometry.size.height * 0.05, alignment: .leading)
                         Text(offer.materialsNeeded)
-                            .frame(width: geometry.size.width * 0.55, height: geometry.size.height * 0.05, alignment: .trailing)
-                    }
-                    
-                    HStack {
-                        Text("Estimated Time:")
-                            .fontWeight(.bold)
-                            .frame(width: geometry.size.width * 0.35, height: geometry.size.height * 0.05, alignment: .leading)
-                        Text("\(offer.estimatedTime)")
                             .frame(width: geometry.size.width * 0.55, height: geometry.size.height * 0.05, alignment: .trailing)
                     }
                     
