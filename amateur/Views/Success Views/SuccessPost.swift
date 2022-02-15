@@ -19,21 +19,29 @@ struct SuccessPost: View {
                 TextField("Description",
                           text: $description)
                 
-                ImageUpload(uploadingImage: $photo)
+                HStack {
+                    Spacer()
+                    ImageUpload(uploadingImage: $photo)
+                    Spacer()
+                }
                 
-                Button(action: {
-                    imageViewModel.uploadImage(image: photo) {
-                        url, err in
-                        successViewModel.addSuccess(id: "None yet", title: title, description: description, photo: url?.absoluteString ?? "")
-                           isPresented = false
-                       }
-                }, label: {
-                    Text("Post")
-                        .foregroundColor(Color.white)
-                        .frame(width: 200, height: 50)
-                        .cornerRadius(8)
-                        .background(Color.theme.Green4)
+                HStack {
+                    Spacer()
+                    Button(action: {
+                        imageViewModel.uploadImage(image: photo) {
+                            url, err in
+                            successViewModel.addSuccess(id: "None yet", title: title, description: description, photo: url?.absoluteString ?? "")
+                               isPresented = false
+                           }
+                    }, label: {
+                        Text("Post")
+                            .foregroundColor(Color.white)
+                            .frame(width: 200, height: 50)
+                            .cornerRadius(8)
+                            .background(Color.theme.Green4)
                 })
+                    Spacer()
+                }
             }
             .navigationTitle("Post Your Success")
 //        }

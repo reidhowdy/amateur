@@ -38,32 +38,41 @@ struct AskPost: View {
                     Toggle(isOn: $onlineOnly) {
                         Text("Online only")
                     }
-                    ImageUpload(uploadingImage: $photo)
                     
-                    Button(action: {
-                        imageViewModel.uploadImage(image: photo) {
-                            url, err in
-                                askViewModel.addAsk(title: title,
-                                                    typeOfAsk: typeOfAsk,
-                                                    estimatedTime: estimatedTime,
-                                                    datePosted: Date.now,
-                                                    description: description,
-                                                    materialsNeeded: materialsNeeded,
-                                                    locationPreferences: locationPreferences,
-                                                    onlineOnly: onlineOnly,
-                                                    username: userAuthInfo.user?.uid ?? "Didn't pass in the UID as expected",
-                                                    photo: url?.absoluteString ?? "",
-                                                    comments: [], //this and saved are empty
-                                                    saved: []) //because when the ask is made they don't contain anything
-                                isPresented = false
-                           }
-                    }, label: {
-                        Text("Post")
-                            .foregroundColor(Color.white)
-                            .frame(width: 200, height: 50)
-                            .cornerRadius(8)
-                            .background(Color.theme.Green4)
+                    HStack {
+                        Spacer()
+                        ImageUpload(uploadingImage: $photo)
+                        Spacer()
+                    }
+                    
+                    HStack {
+                        Spacer()
+                        Button(action: {
+                            imageViewModel.uploadImage(image: photo) {
+                                url, err in
+                                    askViewModel.addAsk(title: title,
+                                                        typeOfAsk: typeOfAsk,
+                                                        estimatedTime: estimatedTime,
+                                                        datePosted: Date.now,
+                                                        description: description,
+                                                        materialsNeeded: materialsNeeded,
+                                                        locationPreferences: locationPreferences,
+                                                        onlineOnly: onlineOnly,
+                                                        username: userAuthInfo.user?.uid ?? "Didn't pass in the UID as expected",
+                                                        photo: url?.absoluteString ?? "",
+                                                        comments: [], //this and saved are empty
+                                                        saved: []) //because when the ask is made they don't contain anything
+                                    isPresented = false
+                               }
+                        }, label: {
+                            Text("Post")
+                                .foregroundColor(Color.white)
+                                .frame(width: 200, height: 50)
+                                .cornerRadius(8)
+                                .background(Color.theme.Green4)
                     })
+                        Spacer()
+                    }
                 }
                 .navigationTitle("Post Your Ask")
             }

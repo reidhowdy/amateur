@@ -117,8 +117,6 @@ struct OfferDetail: View {
                         .cornerRadius(25)
                         .background(Color.theme.Green4)
                         .foregroundColor(Color.white)
-        
-        
                 }
                 .frame(width: geometry.size.width * 0.90, height: geometry.size.height * 0.30)
                 }
