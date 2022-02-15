@@ -24,7 +24,6 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logo" translatesAutoresizingMaskIntoConstraints="NO" id="FhQ-5q-1hi">
                                 <rect key="frame" x="132" y="373" width="150" height="150"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="250" id="0Mu-0T-3zC"/>
                                     <constraint firstAttribute="width" constant="150" id="53q-mg-LPg"/>
                                     <constraint firstAttribute="height" constant="150" id="Est-Pg-qvT"/>
                                 </constraints>

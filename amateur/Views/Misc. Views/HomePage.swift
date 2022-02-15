@@ -10,8 +10,21 @@ struct HomePage: View {
     
     @State private var showActionSheet = false
     
+    @State var showSecondView = false
     
     var body: some View {
+        Group {
+            //try to make it an overlay so that everything below it still renders and the data all loads
+            //can use the actual modifier OR use a Zstack to manually put it over top 
+            if showSecondView == false {
+                SplashScreenBlob()
+                    .onAppear {
+                        successViewModel.getSuccesses()
+
+                    }
+            }
+        
+        else {
             GeometryReader { geometry in
                 VStack {
                     Spacer()
@@ -109,13 +122,21 @@ struct HomePage: View {
                     }
                 }
             }
+        }
+        }
+    
                     .onAppear {
-                        
-                        successViewModel.getSuccesses()
+//                        successViewModel.getSuccesses()
+
+                        Timer.scheduledTimer(withTimeInterval: 2, repeats: false) { (_) in
+                                    withAnimation {
+                                        self.showSecondView = true
+                                    }
                         }
-//                    .overlay(SplashScreenBlob())
+                        
+                    }
     }
-//        .frame(height:50)
+        
 }
 
 struct HomePage_Previews: PreviewProvider {
