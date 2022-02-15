@@ -32,7 +32,7 @@ struct SuccessPost: View {
                         .foregroundColor(Color.white)
                         .frame(width: 200, height: 50)
                         .cornerRadius(8)
-                        .background(Color.theme.Green2)
+                        .background(Color.theme.Green4)
                 })
             }
             .navigationTitle("Post Your Success")

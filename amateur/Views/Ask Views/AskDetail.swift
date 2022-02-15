@@ -99,7 +99,7 @@ struct AskDetail: View {
                     ForEach(ask.comments, id: \.self) { comment in
                         Text(comment)
                             .frame(width: geometry.size.width * 0.85, height: geometry.size.height * 0.05, alignment: .leading)
-                            .border(Color.black)
+//                            .border(Color.black)
         
                     }
         
@@ -107,8 +107,9 @@ struct AskDetail: View {
                     Button("Post") {
                         askViewModel.addCommentToAsk(ask: ask, newComment: comment)
                         askViewModel.getAsks()
+                        comment = ""
                     }
-//                        .padding()
+                        .padding()
                         .cornerRadius(25)
                         .background(Color.theme.Green4)
                         .foregroundColor(Color.white)
