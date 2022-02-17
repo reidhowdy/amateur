@@ -14,11 +14,13 @@ struct OfferRow: View {
                         content: { image in
                             image.resizable()
                                  .aspectRatio(contentMode: .fit)
-                                 .frame(maxWidth: 100, maxHeight: 100)
+                                 .frame(maxWidth: 200, maxHeight: 200)
                                  .padding()
                         },
                         placeholder: {
                             ProgressView()
+                                .frame(maxWidth: 200, maxHeight: 200)
+                                .padding()
                         }
                     )
                     
