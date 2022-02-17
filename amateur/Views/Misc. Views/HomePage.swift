@@ -124,7 +124,7 @@ struct HomePage: View {
         }
     
                     .onAppear {
-//                        successViewModel.getSuccesses()
+                        successViewModel.getSuccesses()
 
                         Timer.scheduledTimer(withTimeInterval: 2, repeats: false) { (_) in
                                     withAnimation {
