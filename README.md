@@ -1,5 +1,5 @@
 # amateur
-Ada Capstone
+
 
 Amateur is an iOS app for people that want to learn new crafting skills without pretention. 
 Users are "amateur" crafters that can either share their skills by posting an "offer,"
